@@ -13,6 +13,7 @@ angular.module("results", [])
                 break;
             default:
                 queryService.getAllContacts().then(function(contacts) {
+                    console.log(contacts);
                     $scope.results = contacts;
                 });
         }

@@ -37,8 +37,11 @@ angular.module("services")
     ];
 
     this.getAllContacts = function() {
-        return new Promise(function(resolve, reject) {
-            resolve(mockContacts);
+        return $http({
+            method : "GET",
+            url : "/api/db/getContacts"
+        }).then(function mySucces(response) {
+            return response.data;
         });
     };
 
@@ -53,11 +56,11 @@ angular.module("services")
     };
 
     this.getContactById = function(id) {
-        return new Promise(function(resolve, reject) {
-            angular.forEach(mockContacts, function(contact) {
-                if (contact.id == id) resolve(contact);
-            });
-            reject(new Error('Could not find a contact with an id of ['+id+']'));
+       return $http({
+            method : "GET",
+            url : "/api/db/getContactById/" + id
+        }).then(function mySucces(response) {
+            return response.data[0];
         });
     };
 

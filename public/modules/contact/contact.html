@@ -1,28 +1,32 @@
 <div class="row">
     <div class="input-field col s12">
-        <i class="material-icons prefix">account_circle</i>
-        <input id="name_input" type="text" class="validate" ng-model="contact.name">
-        <label for="name_input">Name</label>
+        <i class="material-icons prefix">person</i>
+        <input id="fname_input" type="text" class="validate" ng-model="contact.fname">
+        <label for="fname_input">First Name</label>
     </div>
     <div class="input-field col s12">
-        <i class="material-icons prefix">work</i>
-        <input id="job_input" type="text" class="validate" ng-model="contact.job">
-        <label for="job_input">Job</label>
+        <i class="material-icons prefix">perm_identity</i>
+        <input id="lname_input" type="text" class="validate" ng-model="contact.lname">
+        <label for="lname_input">Last Name</label>
     </div>
     <div class="input-field col s12">
         <i class="material-icons prefix">phone</i>
-        <input id="phone_input" type="tel" class="validate" ng-model="contact.phone">
-        <label for="phone_input">Telephone</label>
+        <input id="born_input" type="date" class="validate" ng-model="contact.born">
+        <label for="born_input">Born</label>
     </div>
     <div class="input-field col s12">
         <i class="material-icons prefix">email</i>
-        <input id="email_input" type="email" class="validate" ng-model="contact.email">
-        <label for="email_input">Email</label>
+        <input id="nick_input" type="text" class="validate" ng-model="contact.nick">
+        <label for="nick_input">Nick</label>
+    </div>
+    <div class="input-field col s12">
+        <i class="material-icons prefix">email</i>
+        <input id="sex_input" type="text" class="validate" ng-model="contact.sex">
+        <label for="sex_input">Gender</label>
+    </div>
+    <div class="input-field col s12">
+        <i class="material-icons prefix">label</i>
+        <input id="tags_input" type="text" class="validate" ng-model="contact.tags">
+        <label for="tags_input">Tags</label>
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        Materialize.updateTextFields();
-    });
-</script>

@@ -28,6 +28,14 @@ angular.module('meshApp', [
             templateUrl: "modules/tools/tools.html",
             controller: "toolsController"
         })
+         .when("/search", {
+            templateUrl: "modules/tools/tools.html",
+            controller: "toolsController"
+        })
+         .when("/import", {
+            templateUrl: "modules/tools/tools.html",
+            controller: "toolsController"
+        })
         .otherwise({
             redirectTo: "/"
         });

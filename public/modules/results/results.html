@@ -1,8 +1,8 @@
 <ul class="collection">
     <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'name'">
         <img src="" alt="Avatar image" class="circle" style="background-color: black;">
-        <span class="title">{{contact.name}}</span>
-        <p>{{contact.job}}</p>
+        <span class="title">{{contact.fname}} {{contact.lname}}</span>
+        <p>{{contact.born | date}}</p>
         <a ng-href="#/contact/{{contact.id}}" class="secondary-content"><i class="material-icons">chevron_right</i></a>
     </li>
 </ul>
