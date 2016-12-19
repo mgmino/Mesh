@@ -1,0 +1,37 @@
+todo items
+- custom date formater
+- favicon not displaying
+- show picture
+- implement search function (resultsController)
+
+
+
+
+
+
+
+
+contact info material icons
+phone
+link (url)
+people
+people_outline
+person
+person_outline
+perm_contact_calendar
+help
+help_outline
+home
+label
+label_outline
+language (url)
+list
+schedule
+search
+settings
+receipt
+view ...
+today
+toc
+message
+attachment
