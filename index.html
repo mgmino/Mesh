@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="meshApp">
+<head>
+    <title>Mesh</title>
+    <!-- Google Icon Font -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Materialize  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!-- Optimize for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#/" class="brand-logo">Logo</a>
+                <a href="#" data-activates="left-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+                <!-- Header Nav Bar -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#/results">All Contacts</a></li>
+                    <li><a href="#/results/favorites">Favorites</a></li>
+                    <li><a href="#/searches">Searches</a></li>
+                    <li><a href="#/imports">Imports</a></li>
+                    <li><a href="#/events">Events</a></li>
+                    <li><a href="#/tools">Tools</a></li>
+                    <li><a href="#/about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Side Bar -->
+    <ul class="side-nav" id="left-menu">
+        <li><a href="#/results"><i class="material-icons">people</i> All Contacts</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="#/results/favorites"><i class="material-icons">star</i> Favorites</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="#/searches"><i class="material-icons">settings</i> Searches</a></li>
+        <li><a href="#/imports"><i class="material-icons">settings</i> Imports</a></li>
+        <li><a href="#/events"><i class="material-icons">settings</i> Events</a></li>
+        <li><a href="#/tools"><i class="material-icons">settings</i> Tools</a></li>
+        <li><a href="#/about"><i class="material-icons">settings</i> About</a></li>
+    </ul>
+
+
+
+
+    <!-- Injected via AngularJS -->
+    <div ng-view></div>
+
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="js/services/_services.js"></script>
+    <script src="js/services/queryService.js"></script>
+    <script src="modules/contact/contactController.js"></script>
+    <script src="modules/tools/toolsController.js"></script>
+    <script src="modules/results/resultsController.js"></script>
+
+    <!-- Angular Main Module -->
+    <script src="js/meshApp.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".button-collapse").sideNav({
+                closeOnClick: true
+            });
+        });
+    </script>
+
+</div>
+</body>
+</html>
