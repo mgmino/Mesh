@@ -3,7 +3,7 @@
     <input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText">
 </div>
 <ul class="collection">
-    <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'name' | filter: searchText">
+    <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
         <img ng-src="pix/{{contact.pix}}" onerror="this.src='pix/naPhoto.gif'" alt="person photo" class="circle" />
         <span class="title" ng-class="{'male-color': contact.sex == 'M', 'female-color': contact.sex == 'F'}">{{contact.fname}} {{contact.lname}}</span>
         <p>{{contact.born | date}}</p>
