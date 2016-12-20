@@ -5,7 +5,7 @@
 <ul class="collection">
     <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
         <img ng-src="pix/{{contact.pix}}" onerror="this.src='pix/naPhoto.gif'" alt="person photo" class="circle" />
-        <span class="title" ng-class="{'male-color': contact.sex == 'M', 'female-color': contact.sex == 'F'}">{{contact.fname}} {{contact.lname}}</span>
+        <b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">{{contact.fname}} {{contact.lname}}<i ng-if='contact.nick'> &bull; {{contact.nick}}</i></b>
         <p>{{contact.born | date}}</p>
         <p>{{contact.tags}}</p>
         <a ng-href="#/contact/{{contact.id}}" class="secondary-content"><i class="material-icons">chevron_right</i></a>

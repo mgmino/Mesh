@@ -1,5 +1,5 @@
-.male-color {color: blue;}
-.female-color {color: red;}
+.male-color {color: #22f}
+.female-color {color: #f22}
 
 div.search-bar {
     margin-left: 10px;
@@ -9,4 +9,3 @@ div.search-bar {
 div.search-bar input {
     margin-bottom: 0px;
 }
-.material-icons {margin-right: 5px;}
