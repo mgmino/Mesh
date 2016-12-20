@@ -1,2 +1,11 @@
 .male-color {color: blue;}
 .female-color {color: red;}
+
+div.search-bar {
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+div.search-bar input {
+    margin-bottom: 0px;
+}

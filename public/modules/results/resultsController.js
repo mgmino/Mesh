@@ -2,6 +2,7 @@ angular.module("results", [])
 .controller("resultsController", ["$scope", "$routeParams", "queryService", function($scope, $routeParams, queryService) {
     $scope.pageTitle = "Results Here";
 
+    $scope.searchText = "";
     $scope.results = [];
 
     function init() {

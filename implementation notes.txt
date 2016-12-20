@@ -1,14 +1,6 @@
 todo items
-- custom date formater
-- favicon not displaying
+- custom date formatter
 - show picture
-- implement search function (resultsController)
-
-
-
-
-
-
 
 
 contact info material icons
