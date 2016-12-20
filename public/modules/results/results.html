@@ -1,5 +1,9 @@
+<div class="input-field search-bar">
+    <i class="material-icons prefix">search</i>
+    <input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText">
+</div>
 <ul class="collection">
-    <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'name'">
+    <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'name' | filter: searchText">
         <img ng-src="pix/{{contact.pix}}" onerror="this.src='pix/naPhoto.gif'" alt="person photo" class="circle" style='margin-right: 5px; max-width: 150px'/>
         <span class="title" ng-class="{'male-color': contact.sex == 'M', 'female-color': contact.sex == 'F'}">{{contact.fname}} {{contact.lname}}</span>
         <p>{{contact.born | date}}</p>
