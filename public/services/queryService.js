@@ -39,7 +39,16 @@ angular.module("services")
     this.getAllContacts = function() {
         return $http({
             method : "GET",
-            url : "/api/db/getContacts"
+            url : "/api/db/getRecent"
+        }).then(function mySucces(response) {
+            return response.data;
+        });
+    };
+
+    this.getFavorites = function() {
+        return $http({
+            method : "GET",
+            url : "/api/db/getFavs"
         }).then(function mySucces(response) {
             return response.data;
         });

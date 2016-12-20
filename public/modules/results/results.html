@@ -7,6 +7,7 @@
         <img ng-src="pix/{{contact.pix}}" onerror="this.src='pix/naPhoto.gif'" alt="person photo" class="circle" />
         <span class="title" ng-class="{'male-color': contact.sex == 'M', 'female-color': contact.sex == 'F'}">{{contact.fname}} {{contact.lname}}</span>
         <p>{{contact.born | date}}</p>
+        <p>{{contact.tags}}</p>
         <a ng-href="#/contact/{{contact.id}}" class="secondary-content"><i class="material-icons">chevron_right</i></a>
     </li>
 </ul>

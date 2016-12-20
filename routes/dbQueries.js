@@ -17,8 +17,19 @@ if (!err) {
 }
 });
 
-router.get('/getContacts', function(req, res, next) {
+router.get('/getRecent', function(req, res, next) {
 	meshdb.query("select * from people where lname = 'Mino' ", function(err, rows, fields) {
+		if (!err) {
+			return res.json(rows);
+		}
+		else
+			return next(new Error('Error while performing Query. ['+ err +']'));
+		});
+	
+});
+
+router.get('/getFavs', function(req, res, next) {
+	meshdb.query("select * from people where tags LIKE '%LAK%' ", function(err, rows, fields) {
 		if (!err) {
 			return res.json(rows);
 		}

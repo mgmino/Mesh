@@ -2,13 +2,12 @@ angular.module("results", [])
 .controller("resultsController", ["$scope", "$routeParams", "queryService", function($scope, $routeParams, queryService) {
     $scope.pageTitle = "Results Here";
 
-    $scope.searchText = "";
     $scope.results = [];
 
     function init() {
         switch ($routeParams.filter) {
             case 'favorites':
-                queryService.getFavoriteContacts().then(function(contacts) {
+                queryService.getFavorites().then(function(contacts) {
                     $scope.results = contacts;
                 });
                 break;
