@@ -2,6 +2,7 @@ todo items
 - custom date formatter
 - show picture
 
+https://material.io/guidelines/layout/metrics-keylines.html#
 
 contact info material icons
 phone
