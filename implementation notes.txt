@@ -23,6 +23,7 @@ help
 help_outline
 home
 label
+info
 label_outline
 language (url)
 list
