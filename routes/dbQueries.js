@@ -4,16 +4,16 @@ var mysql = require('mysql');
 
 // mysql database server
 var meshdb = mysql.createConnection({
-  host     : '127.0.0.1',
-  user     : 'meshuser',
-  password : 'DorEK8WIlulO',
-  database : 'mesh'
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_NAME
 });
 meshdb.connect(function(err){
 if (!err) {
-    console.log("Database is connected ... nn");    
+    console.log("Database is connected ...");
 } else {
-    console.log("Error connecting database ... nn");    
+    console.log("Error connecting database ...");
 }
 });
 
