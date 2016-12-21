@@ -9,3 +9,6 @@ div.search-bar {
 div.search-bar input {
     margin-bottom: 0px;
 }
+.mg-tag {line-height: 18px; height: 18px; margin: 0 5px 0 0; padding: 0 6px;
+	background-color: #fee; border-radius: 16px; display: inline-block;}
+.collection .collection-item.avatar {min-height: 0;}
