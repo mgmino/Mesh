@@ -9,3 +9,7 @@ div.search-bar {
 div.search-bar input {
     margin-bottom: 0px;
 }
+
+.search-input input {
+    width: inherit;
+}
