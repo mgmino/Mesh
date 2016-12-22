@@ -1,6 +1,7 @@
 angular.module('meshApp', [
     'ngRoute',
     'angular.filter',
+    'filters',
     'services',
     'contact',
     'tools',

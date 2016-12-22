@@ -22,3 +22,8 @@ div.search-bar input {
     border-radius: 16px;
     display: inline-block;
 }
+.collection .collection-item.avatar {min-height: 0}
+
+.side-nav li {height: auto}
+    
+ 

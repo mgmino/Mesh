@@ -1,14 +1,14 @@
 <div class="input-field search-bar">
     <div class="row">
-    <div class='col s1'><i class="material-icons prefix">search</i><br />xxxxx/{{results.length}}</div>
-    <div class='col s11'><input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText"></div>
+    <table><tr><td style='padding: 0'><i class="material-icons prefix">search</i><div style='margin-top: 28px'>{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</div></td>
+    <td style='padding: 0'><input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText"></td></tr><table>
     </div>
 </div>
 <ul class="collection">
     <li class="collection-item avatar" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
 		<img ng-src="pix/{{contact.pix}}" onerror="this.src='pix/naPhoto.gif'" alt="person photo" class="circle" title='{{contact.cdate | date}} &Delta; {{contact.mdate | date}}'/>
 		<b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">{{contact.fname}} {{contact.lname}}<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i></b>
-		<div>{{contact.born | date}}
+		<div>{{contact.born | bornFilter}}
 		<i ng-if='contact.tags'><div class='mg-tag' ng-repeat="tag in contact.tags.split(';')">{{tag}}</div></i></div>
 		<a ng-href="#/contact/{{contact.id}}" class="secondary-content"><i class="material-icons">chevron_right</i></a>
     </li>
