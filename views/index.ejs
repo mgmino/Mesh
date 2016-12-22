@@ -70,6 +70,12 @@
             $(".button-collapse").sideNav({
                 draggable: true
             });
+            $("#slide-out a").on("click", function() {
+                if ($("#slide-out").is(":visible")) {
+                    // Collapsed side bar mode
+                    $('.button-collapse').sideNav('hide');
+                }
+            });
         });
     </script>
 
