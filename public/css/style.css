@@ -1,18 +1,6 @@
 .male-color {color: #22f}
 .female-color {color: #f22}
 
-div.search-bar {
-    margin-left: 10px;
-    margin-right: 15px;
-}
-
-div.search-bar input {
-    margin-bottom: 0;
-}
-.search-input input {
-    width: inherit;
-}
-
 .mg-tag {
     line-height: 18px;
     height: 18px;
@@ -23,7 +11,3 @@ div.search-bar input {
     display: inline-block;
 }
 .collection .collection-item.avatar {min-height: 0}
-
-.side-nav li {height: auto}
-    
- 

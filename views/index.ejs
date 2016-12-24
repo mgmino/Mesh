@@ -3,9 +3,18 @@
 <head>
     <title>Mesh - MgM</title>
     <!-- Google Icon Font -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <!-- Admin LTE -->
+    <link rel="stylesheet" href="css/admin-lte-skins.css"/>
+    <link rel="stylesheet" href="css/admin-lte.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/core.css"/>
     <link rel='icon' type='image/gif' href='pix/mesh.gif'/>
@@ -13,71 +22,130 @@
     <!-- Optimize for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
+<body class="fixed sidebar-mini skin-blue">
 <div class="wrapper">
 
-    <header class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#/" class="brand-logo">Mesh</a>
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="/#/" class="logo">
+            <span class="logo-mini"><img src="pix/mesh.gif"></span>
+            <span class="logo-lg"><b>Mesh</b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
 
-    <!-- Side Bar -->
-    <ul id="slide-out" class="side-nav fixed">
-        <li><a href="#/results"><i class="material-icons">people</i>Recent</a></li>
-        <li><a href="#/results/favorites"><i class="material-icons">star</i>Favorites</a></li>
-        <li><div class="divider"></div></li>
-        <li><a href="#/search"><i class="material-icons">search</i>Searches</a></li>
-        <li><div class="divider"></div></li>
-        <li><a href="#/import"><i class="material-icons">import_export</i>Import</a></li>
-        <li><a href="#/events"><i class="material-icons">event</i>Events</a></li>
-        <li><a href="#/tools"><i class="material-icons">settings</i>Tools</a></li>
-        <li><a href="#/about"><i class="material-icons">info_outline</i>About</a></li>
-    </ul>
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">HEADER EXAMPLE</li>
+                <li class="active"><a href="#/results"><i class="fa fa-users"></i> <span>Recent</span></a></li>
+                <li><a href="#/results/favorites"><i class="fa fa-star"></i> <span>Favorites</span></a></li>
+                <li><a href="#/imports"><i class="fa fa-download"></i> <span>Import</span></a></li>
+                <li><a href="#/events"><i class="fa fa-tasks"></i> <span>Events</span></a></li>
+                <li><a href="#/tools"><i class="fa fa-cog"></i> <span>Tools</span></a></li>
+                <li><a href="#/about"><i class="fa fa-info"></i> <span>About</span></a></li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#">Link in level 2</a></li>
+                        <li><a href="#">Link in level 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Page Header (Injected soon)
+            </h1>
+        </section>
+
+        <section class="content">
+            <!-- Your Page Content Here -->
+            <div ng-view><!-- Injected with AngularJS --></div>
+        </section>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2016</strong> All rights reserved.
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Extra
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark"></aside>
+    <!-- Add the sidebar's background.
+         Must be placed immediately after the control sidebar. -->
+    <div class="control-sidebar-bg"></div>
 
 
 
 
-
-    <!-- Injected via AngularJS -->
-    <main ng-view></main>
-
-    <footer></footer>
-
-
-
-    <!-- Scripts -->
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Slim Scroll -->
+    <script src="plugins/slimscroll.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Admin LTE -->
+    <script src="plugins/admin_lte.js"></script>
+    <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.14/angular-filter.min.js"></script>
+    <!-- Angular Services Module -->
     <script src="services/_services.js"></script>
     <script src="services/queryService.js"></script>
+    <!-- Angular Filters Module -->
     <script src="filters/filters.js"></script>
+    <!-- Individual Modules -->
     <script src="modules/contact/contactController.js"></script>
     <script src="modules/tools/toolsController.js"></script>
     <script src="modules/results/resultsController.js"></script>
 
     <!-- Angular Main Module -->
     <script src="meshApp.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".button-collapse").sideNav({
-                draggable: true
-            });
-            $("#slide-out a").on("click", function() {
-                if ($("#slide-out").is(":visible")) {
-                    // Collapsed side bar mode
-                    $('.button-collapse').sideNav('hide');
-                }
-            });
-        });
-    </script>
 
 </div>
 </body>
