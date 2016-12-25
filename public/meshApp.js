@@ -5,7 +5,8 @@ angular.module('meshApp', [
     'services',
     'contact',
     'tools',
-    'results'
+    'results',
+    'detail'
 ])
 
 
@@ -21,6 +22,10 @@ angular.module('meshApp', [
         .when("/results/:filter", {
             templateUrl: "modules/results/results.html",
             controller: "resultsController"
+        })
+        .when("/detail/:cid", {
+            templateUrl: "modules/detail/detail.htm",
+            controller: "detailController"
         })
         .when("/contact/:id", {
             templateUrl: "modules/contact/contact.html",

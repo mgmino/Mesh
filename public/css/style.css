@@ -10,4 +10,11 @@
     border-radius: 16px;
     display: inline-block;
 }
-.collection .collection-item.avatar {min-height: 0}
+.media-object {
+	width: 48px;
+	border-radius: 10%;
+}
+.media {
+	line-height: 1;
+	margin: 2px 10px;
+}
