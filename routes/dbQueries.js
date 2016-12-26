@@ -19,35 +19,39 @@ if (!err) {
 
 router.get('/getRecent', function(req, res, next) {
 	meshdb.query("select * from people where lname = 'Mino' ", function(err, rows, fields) {
-		if (!err) {
-			return res.json(rows);
-		}
-		else
+		if (err)
 			return next(new Error('Error while performing Query. ['+ err +']'));
-		});
+		else
+			return res.json(rows);
+	});
 	
 });
 
 router.get('/getFavs', function(req, res, next) {
 	meshdb.query("select * from people where tags LIKE '%LAK%' ", function(err, rows, fields) {
-		if (!err) {
-			return res.json(rows);
-		}
-		else
+		if (err)
 			return next(new Error('Error while performing Query. ['+ err +']'));
-		});
-	
+		else
+			return res.json(rows);
+	});
 });
 
 router.get('/getContactById/:id', function(req, res, next) {
 	var id = req.param('id');
-	meshdb.query("select * from people where id = " + id, function(err, rows, fields) {
-		if (!err) {
-			return res.json(rows);
+	meshdb.query("select * from people where id = " + id, function(err, person, fields) {
+		if (err)
+			return next(new Error('Error while performing Query1. ['+ err +']'));
+		else {
+			var pid = person[0].pid;
+			meshdb.query("select * from pinfo where pid = " + pid, function(err, details, fields) {
+				if (err)
+					return next(new Error('Error while performing Query2. ['+ err +']'));
+				else {
+					return res.json({person: person[0], details: details});
+				}
+			});
 		}
-		else
-			return next(new Error('Error while performing Query. ['+ err +']'));
-		});
+	});
 	
 });
 

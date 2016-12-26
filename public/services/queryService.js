@@ -24,7 +24,7 @@ angular.module("services")
             method : "GET",
             url : "/api/db/getContactById/" + id
         }).then(function mySucces(response) {
-            return response.data[0];
+            return response.data;
         });
     };
 

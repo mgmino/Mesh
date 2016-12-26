@@ -1,8 +1,5 @@
 angular.module("results", [])
 .controller("resultsController", ["$scope", "$routeParams", "queryService", function($scope, $routeParams, queryService) {
-    $scope.pageTitle = "Results Here";
-
-    $scope.results = [];
 
     function init() {
         switch ($routeParams.filter) {
@@ -13,7 +10,7 @@ angular.module("results", [])
                 break;
             default:
                 queryService.getAllContacts().then(function(contacts) {
-                    console.log(contacts);
+//                  console.log(contacts);
                     $scope.results = contacts;
                 });
         }

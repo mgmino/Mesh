@@ -1,13 +1,11 @@
 angular.module("detail", [])
 .controller("detailController", ["$scope", "$routeParams", "queryService", function($scope, $routeParams, queryService) {
 
-    function init() {
-        var cid = $routeParams.cid;
-        queryService.getContactById(cid).then(function(contact) {
-            console.log(contact);
-            $scope.contact = contact;
-        });
-    }
-    init();
+    var cid = $routeParams.cid;
+    queryService.getContactById(cid).then(function(contactObj) {
+//        console.log(contactObj);
+        $scope.contact = contactObj.person;
+        $scope.details = contactObj.details;
+    });
 
 }]);
