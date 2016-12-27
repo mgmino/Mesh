@@ -10,9 +10,7 @@
 				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
 			</b>
 
-			<a href='https://www.linkedin.com/vsearch/f?keywords={{contact.fname.substr(0,contact.fname.indexOf(" "))}}+{{contact.lname}}&search=Search' target='_blank'>
-				<img src='pix/icons/linkedin.gif'/>
-			</a>
+			<linked-in fname="contact.fname" lname="contact.lname"></linked-in>
 
 			<div>
 				{{contact.born | bornFilter}}

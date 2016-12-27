@@ -2,7 +2,6 @@ todo items
 - custom date formatter; include age
 - on search filter display #/total
 - implement search box on menu
-- linkedIn icon (remove middle name)
 - toggle on gender
 
 https://material.io/guidelines/layout/metrics-keylines.html#
