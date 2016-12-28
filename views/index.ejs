@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class="fixed sidebar-mini skin-blue">
-<div class="wrapper">
+<div class="wrapper" ng-controller="navigationController">
 
     <!-- Main Header -->
     <header class="main-header">
@@ -52,12 +52,12 @@
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar" ng-controller="navigationController">
+    <aside class="main-sidebar">
         <section class="sidebar">
 
             <form class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." ng-model="customSearchCriteria">
+                    <input type="text" class="form-control" ng-class="{'searchError': nc.customSearchError}" ng-change="nc.customSearchError=false" placeholder="Search..." spellcheck="false" ng-model="customSearchCriteria">
                     <span class="input-group-btn">
                         <button type="submit" name="search" id="search-btn" class="btn btn-flat" onclick="return false;" ng-click="customSearch()">
                             <i class="fa fa-search"></i>
@@ -68,7 +68,7 @@
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="header">HEADER EXAMPLE</li>
+                <li class="header">HEADER EXAMPLE {{customSearchError}}</li>
                 <li class="active"><a href="#/results"><i class="fa fa-users"></i> <span>Recent</span></a></li>
                 <li><a href="#/results/favorites"><i class="fa fa-star"></i> <span>Favorites</span></a></li>
                 <li><a href="#/imports"><i class="fa fa-download"></i> <span>Import</span></a></li>

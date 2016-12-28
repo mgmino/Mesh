@@ -35,15 +35,18 @@ angular.module("services")
      */
     this.getCustomResults = function(customQuery) {
         return $http({
-            method : "GET",
-            url : "/api/db/getCustomResults/" + customQuery
+            method : "POST",
+            url : "/api/db/getCustomResults",
+            data: {
+                query: customQuery
+            }
         }).then(
             function mySuccess(response) {
                 return response.data;
             },
             function myError(response) {
                 // This should probably be handled
-                return [];
+                throw response;
             });
     };
 

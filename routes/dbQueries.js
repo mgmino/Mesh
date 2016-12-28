@@ -59,10 +59,11 @@ router.get('/getContactById/:id', function(req, res, next) {
  * to parse the incoming 'query' prevent injection and overall be more useful.
  *
  */
-router.get('/getCustomResults/:query', function(req, res, next) {
+router.post('/getCustomResults', function(req, res, next) {
     var query = req.param('query');
     meshdb.query("select * from people where " + query, function(err, rows, fields) {
         if (err) {
+        	console.error(err);
             return next(new Error('Error while performing Query. [' + err + ']'));
         } else {
 			return res.json(rows);

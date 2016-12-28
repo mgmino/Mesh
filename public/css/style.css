@@ -18,3 +18,7 @@
 	line-height: 1;
 	margin: 2px 10px;
 }
+
+input.searchError {
+    color: red !important;
+}
