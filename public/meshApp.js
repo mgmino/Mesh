@@ -4,6 +4,7 @@ angular.module('meshApp', [
     'services',
     'filters',
     'directives',
+    'navigation',
     'contact',
     'tools',
     'results',
@@ -15,9 +16,6 @@ angular.module('meshApp', [
 .config(function($routeProvider) {
     $routeProvider
         .when("/", {
-            redirectTo: "/results"
-        })
-        .when("/results", {
             redirectTo: "/results/all"
         })
         .when("/results/:filter", {

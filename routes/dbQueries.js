@@ -52,7 +52,22 @@ router.get('/getContactById/:id', function(req, res, next) {
 			});
 		}
 	});
-	
+});
+
+/*
+ * Very weak 'query' interpretation here. This will likely contain much more logic
+ * to parse the incoming 'query' prevent injection and overall be more useful.
+ *
+ */
+router.get('/getCustomResults/:query', function(req, res, next) {
+    var query = req.param('query');
+    meshdb.query("select * from people where " + query, function(err, rows, fields) {
+        if (err) {
+            return next(new Error('Error while performing Query. [' + err + ']'));
+        } else {
+			return res.json(rows);
+		}
+	});
 });
 
 module.exports = router;
