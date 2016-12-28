@@ -43,7 +43,7 @@ router.get('/getContactById/:id', function(req, res, next) {
 			return next(new Error('Error while performing Query1. ['+ err +']'));
 		else {
 			var pid = person[0].pid;
-			meshdb.query("select * from pinfo where pid = " + pid, function(err, details, fields) {
+			meshdb.query("select type, info, concat(timezone, ' ', state, ' ', cities) as areacode from pinfo left join kbase.areacodes ON acode = if(substr(type,2,2)='ph',if(substr(info,1,1)='(', substr(info,2,3),substr(info,1,3)),'') where pid = " + pid, function(err, details, fields) {
 				if (err)
 					return next(new Error('Error while performing Query2. ['+ err +']'));
 				else {

@@ -3,6 +3,9 @@ todo items
 - on search filter display #/total
 - implement search box on menu
 - toggle on gender
+- tags as deleteable 'chips'
+- swipe menu and card detail off
+-
 
 https://material.io/guidelines/layout/metrics-keylines.html#
 
