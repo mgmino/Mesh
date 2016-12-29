@@ -1,14 +1,19 @@
-angular.module("results", [])
-.controller("resultsController", ["$scope", "$routeParams", "$location", "$sce", "queryService", function($scope, $routeParams, $location, $sce, queryService) {
+angular.module("results", []).controller("resultsController", ["$scope", "$routeParams", "$location", "queryService", "alertService",
+    function($scope, $routeParams, $location, queryService, alertService) {
 
     function init() {
-        $scope.searchError = null;
-
         switch ($routeParams.filter) {
             case 'favorites':
-                queryService.getFavorites().then(function(contacts) {
-                    $scope.results = contacts;
-                });
+                queryService.getFavorites().then(
+                    function (contacts) {
+                        $scope.results = contacts;
+                    },
+                    function (error) {
+                        // Without a 3rd parameter, the default alert timeout of 4 seconds in applied
+                        // This is configured in alertService
+                        $scope.results = [];
+                        alertService.addAlert(alertService.TYPE.WARNING, error);
+                    });
                 break;
             case 'custom':
                 var query = $routeParams.query;
@@ -18,13 +23,13 @@ angular.module("results", [])
                     return;
                 }
                 queryService.getCustomResults(query).then(
-                    function success(contacts) {
+                    function (contacts) {
                         $scope.results = contacts;
                     },
-                    function error(response) {
+                    function (error) {
                         $scope.results = [];
-                        $scope.searchError = $sce.trustAsHtml(response.data.substr(0, response.data.indexOf("\n")));
                         $scope.nc.customSearchError = true;
+                        alertService.addAlert(alertService.TYPE.WARNING, error, '');
                     }
                 );
                 break;

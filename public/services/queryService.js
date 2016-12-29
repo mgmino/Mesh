@@ -5,33 +5,27 @@ angular.module("services")
         return $http({
             method : "GET",
             url : "/api/db/getRecent"
-        }).then(function mySuccess(response) {
-            return response.data;
-        });
+        }).then(processSuccess, processError);
     };
 
     this.getFavorites = function() {
         return $http({
             method : "GET",
             url : "/api/db/getFavs"
-        }).then(function mySuccess(response) {
-            return response.data;
-        });
+        }).then(processSuccess, processError);
     };
 
     this.getContactById = function(id) {
        return $http({
             method : "GET",
             url : "/api/db/getContactById/" + id
-        }).then(function mySuccess(response) {
-            return response.data;
-        });
+        }).then(processSuccess, processError);
     };
 
     /*
      * Returns contacts from the People table.
      * The provided 'query' is the search portion following a WHERE clause.
-     * For proof of concept use only.
+     *
      */
     this.getCustomResults = function(customQuery) {
         return $http({
@@ -40,14 +34,17 @@ angular.module("services")
             data: {
                 query: customQuery
             }
-        }).then(
-            function mySuccess(response) {
-                return response.data;
-            },
-            function myError(response) {
-                // This should probably be handled
-                throw response;
-            });
+        }).then(processSuccess, processError);
     };
+
+
+    /* $http Response Handling Functions */
+    function processSuccess(response) {
+        return response.data;
+    }
+    function processError(response) {
+        if (!response.data) throw 'Uh oh an unknown error occurred.';
+        throw response.data.substr(4, response.data.indexOf("</h1>")-4);
+    }
 
 }]);

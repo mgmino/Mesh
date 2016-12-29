@@ -31,7 +31,7 @@ angular.module('directives', [])
         restrict: 'E',
         template: '<div ng-repeat="alert in getAlerts()" class="alert alert-{{alert.type}} alert-dismissible">'+
                         '<button type="button" class="close" ng-click="removeAlert(alert)" aria-hidden="true"><i class="fa fa-close"></i></button>'+
-                        '<h4><i class="icon fa fa-{{getAlertIcon(alert)}}"></i> {{alert.msg}}</h4>'+
+                        '<div class="alert-body"><i class="icon fa fa-{{getAlertIcon(alert)}}"></i> {{alert.msg}}</div>'+
                     '</div>',
 
         link: function(scope, elems, attrs) {

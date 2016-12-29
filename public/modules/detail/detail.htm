@@ -1,4 +1,4 @@
-<ul class="media-list">
+<ul class="media-list" ng-if="contact">
     <li class="media">
 		<div class="media-left">
 			<img ng-src="pix/{{contact.pix}}" class="media-object" onerror="this.src='pix/naPhoto.gif'" alt="person photo" title='{{contact.cdate | date}} &Delta; {{contact.mdate | date}}'/>

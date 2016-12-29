@@ -49,7 +49,7 @@ angular.module('services').service('alertService', ['$timeout', '$rootScope', fu
      * Adds one alert to the current collection.
      * @param type - Bootstrap type of alert (success, info, warning, danger)
      * @param msg - The message to display
-     * @param timeout - Milliseconds to display the alert. An empty string will require manual dismissal.
+     * @param timeout - Milliseconds to display the alert. An empty string or value of 0 will require manual dismissal.
      */
     this.addAlert = function(type, msg, timeout) {
         var alert = {
@@ -69,9 +69,13 @@ angular.module('services').service('alertService', ['$timeout', '$rootScope', fu
 
         // Set time to display before auto dismiss
         // Automatically triggers digest cycle
-        $timeout(function() {
-            this.dismissAlert(alert);
-        }.bind(this), alert.timeout);
+        if (alert.timeout == '' || alert.timeout == 0) {
+            // Must manually dismiss
+        } else {
+            $timeout(function() {
+                this.dismissAlert(alert);
+            }.bind(this), alert.timeout);
+        }
     };
 
     /**
