@@ -23,4 +23,37 @@ angular.module('directives', [])
             });
         }
     }
+}])
+
+
+.directive('alertBox', ['alertService', function (alertService) {
+    return {
+        restrict: 'E',
+        template: '<div ng-repeat="alert in getAlerts()" class="alert alert-{{alert.type}} alert-dismissible">'+
+                        '<button type="button" class="close" ng-click="removeAlert(alert)" aria-hidden="true"><i class="fa fa-close"></i></button>'+
+                        '<h4><i class="icon fa fa-{{getAlertIcon(alert)}}"></i> {{alert.msg}}</h4>'+
+                    '</div>',
+
+        link: function(scope, elems, attrs) {
+            scope.getAlerts = function() {
+                return alertService.getAlerts();
+            };
+            scope.removeAlert = function(alert) {
+                alertService.removeAlert(alert);
+            };
+            scope.getAlertIcon = function(alert) {
+                switch (alert.type) {
+                    case alertService.TYPE.SUCCESS:
+                        return 'check';
+                        break;
+                    case alertService.TYPE.DANGER:
+                        return 'ban';
+                        break;
+                    default:
+                        return alert.type;
+                        break;
+                }
+            }
+        }
+    }
 }]);

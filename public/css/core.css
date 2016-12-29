@@ -1,3 +1,12 @@
 .main-footer {
     padding: 0;
 }
+
+/* Alerts */
+div.alert {
+    margin: 5px;
+    padding: 2px 35px 2px 15px;
+}
+div.alert h4 {
+    margin-bottom: 2px;
+}
