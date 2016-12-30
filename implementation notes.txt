@@ -34,3 +34,24 @@ today
 toc
 message
 attachment
+
+INSERT INTO mesh_test.people
+SELECT * FROM mesh.people WHERE tags like '%lak%'
+
+INSERT INTO mesh_test.pinfo
+SELECT i.* FROM mesh.pinfo as i, mesh_test.people as p WHERE i.pid = p.pid
+
+INSERT INTO mesh_test.note
+SELECT n.* FROM mesh.note as n, mesh_test.people as p WHERE n.pid = p.pid
+
+INSERT INTO mesh_test.groups
+SELECT distinct g.* from mesh_test.people as p 
+left join mesh.p2g as x on (p.pid = x.pid)
+left join mesh.groups as g on (x.gid = g.gid)
+where type is not null
+
+INSERT INTO mesh_test.ginfo
+SELECT distinct g.* from mesh_test.people as p 
+left join mesh.p2g as x on (p.pid = x.pid)
+left join mesh.ginfo as g on (x.gid = g.gid)
+where type is not null
