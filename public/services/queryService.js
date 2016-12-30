@@ -4,22 +4,25 @@ angular.module("services")
     this.getAllContacts = function() {
         return $http({
             method : "GET",
-            url : "/api/db/getRecent"
+//            url : "/api/db/getRecent"
+              url : "http://mgm2.trakmark.com/mesh-api.php?field=lname&op=eq&item=Mino"
         }).then(processSuccess, processError);
     };
 
     this.getFavorites = function() {
         return $http({
             method : "GET",
-            url : "/api/db/getFavs"
+ //           url : "/api/db/getFavs"
+            url : "http://mgm2.trakmark.com/mesh-api.php?field=tags&op=like&item=LAK"
         }).then(processSuccess, processError);
     };
 
     this.getContactById = function(id) {
        return $http({
             method : "GET",
-            url : "/api/db/getContactById/" + id
-        }).then(processSuccess, processError);
+ //           url : "/api/db/getContactById/" + id
+             url : "http://mgm2.trakmark.com/mesh-api.php?op=id&item=" + id
+       }).then(processSuccess, processError);
     };
 
     /*
