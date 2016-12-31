@@ -38,9 +38,10 @@ angular.module("services")
             method : "POST",
 //            url : "/api/db/getCustomResults",
             url : "http://mgm2.trakmark.com/mesh-api.php",
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             data: {
-                fld: queryfield,
                 op: 'like',
+                fld: queryfield,
                 itm: queryitem
             }
         }).then(processSuccess, processError);
