@@ -5,7 +5,7 @@ angular.module("services")
         return $http({
             method : "GET",
 //            url : "/api/db/getRecent"
-              url : "http://mgm2.trakmark.com/mesh-api.php?field=lname&op=eq&item=Mino"
+              url : "http://mgm2.trakmark.com/mesh-api.php?fld=lname&op=eq&itm=Mino"
         }).then(processSuccess, processError);
     };
 
@@ -13,7 +13,7 @@ angular.module("services")
         return $http({
             method : "GET",
  //           url : "/api/db/getFavs"
-            url : "http://mgm2.trakmark.com/mesh-api.php?field=tags&op=like&item=LAK"
+            url : "http://mgm2.trakmark.com/mesh-api.php?fld=tags&op=like&itm=LAK"
         }).then(processSuccess, processError);
     };
 
@@ -21,7 +21,7 @@ angular.module("services")
        return $http({
             method : "GET",
  //           url : "/api/db/getContactById/" + id
-             url : "http://mgm2.trakmark.com/mesh-api.php?op=id&item=" + id
+             url : "http://mgm2.trakmark.com/mesh-api.php?op=id&itm=" + id
        }).then(processSuccess, processError);
     };
 
@@ -31,12 +31,14 @@ angular.module("services")
      *
      */
     this.getCustomResults = function(customQuery) {
+        var delim= customQuery.indexOf(' ')
+        var qfield= customQuery.substr(0, delim)
+        var qitem= customQuery.substr(delim+1)
+//      console.log(delim,qfield,qitem)
         return $http({
-            method : "POST",
-            url : "/api/db/getCustomResults",
-            data: {
-                query: customQuery
-            }
+            method : "GET",
+//            url : "/api/db/getCustomResults",
+             url : "http://mgm2.trakmark.com/mesh-api.php?op=like&fld=" +qfield +'&itm=' +qitem
         }).then(processSuccess, processError);
     };
 

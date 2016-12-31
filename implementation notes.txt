@@ -1,7 +1,12 @@
 todo items
-- custom date formatter; include age
-- on search filter display #/total
-- implement search box on menu
+- how to populate right side menu
+- click on hamburger kills query
+- menu selection hides menu overlapping
+- format search bar ((one line) on results page
+- uniform column on detail page
+- convert GET to POST
+- remove Page Header (Injected soon)
+- combine top two bands
 - toggle on gender
 - tags as deleteable 'chips'
 - swipe menu and card detail off
