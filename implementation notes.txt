@@ -4,7 +4,6 @@ todo items
 - format search bar ((one line) on results page
 - uniform column on detail page
 - convert GET to POST
-- remove Page Header (Injected soon)
 - combine top two bands
 - toggle on gender
 - tags as deleteable 'chips'

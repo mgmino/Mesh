@@ -96,10 +96,8 @@
         <alert-box></alert-box>
 
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Page Header (Injected soon)
-            </h1>
+        <section class="content-header" ng-if="pageTitle">
+            <h1 ng-bind="pageTitle"></h1>
         </section>
 
         <section class="content">
