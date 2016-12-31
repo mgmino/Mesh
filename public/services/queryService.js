@@ -48,8 +48,8 @@ angular.module("services")
         return response.data;
     }
     function processError(response) {
-        if (!response.data) throw 'Uh oh an unknown error occurred.';
-        throw response.data;
+        if (!response.data || !response.data.errmsg) throw 'Uh oh an unknown error occurred.';
+        throw response.data.errmsg;
     }
 
 }]);
