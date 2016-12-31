@@ -31,14 +31,18 @@ angular.module("services")
      *
      */
     this.getCustomResults = function(customQuery) {
-        var delim= customQuery.indexOf(' ')
-        var qfield= customQuery.substr(0, delim)
-        var qitem= customQuery.substr(delim+1)
-//      console.log(delim,qfield,qitem)
+        var delim = customQuery.indexOf(' ');
+        var queryfield = customQuery.substr(0, delim);
+        var queryitem = customQuery.substr(delim+1);
         return $http({
-            method : "GET",
+            method : "POST",
 //            url : "/api/db/getCustomResults",
-             url : "http://mgm2.trakmark.com/mesh-api.php?op=like&fld=" +qfield +'&itm=' +qitem
+            url : "http://mgm2.trakmark.com/mesh-api.php",
+            data: {
+                fld: queryfield,
+                op: 'like',
+                itm: queryitem
+            }
         }).then(processSuccess, processError);
     };
 
