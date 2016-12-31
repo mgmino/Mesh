@@ -36,14 +36,9 @@ angular.module("services")
         var qitem= customQuery.substr(delim+1)
 //      console.log(delim,qfield,qitem)
         return $http({
-            method : "POST",
+            method : "GET",
 //            url : "/api/db/getCustomResults",
-             url : "http://mgm2.trakmark.com/mesh-api.php",
-            data: {
-                fld: qfield,
-                op: 'like',
-                itm: qitem
-            }
+             url : "http://mgm2.trakmark.com/mesh-api.php?op=like&fld=" +qfield +'&itm=' +qitem
         }).then(processSuccess, processError);
     };
 
