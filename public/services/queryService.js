@@ -49,7 +49,7 @@ angular.module("services")
     }
     function processError(response) {
         if (!response.data) throw 'Uh oh an unknown error occurred.';
-        throw response.data.substr(4, response.data.indexOf("</h1>")-4);
+        throw response.data;
     }
 
 }]);
