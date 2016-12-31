@@ -6,10 +6,6 @@
         </div>
     </div>
 </div>
-    <!--<i class="material-icons prefix">search</i>-->
-    <!--<div>{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</div>-->
-    <!--<input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText">-->
-
 <ul class="media-list">
     <li class="media" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
 		<div class="media-left"><img ng-src="pix/{{contact.pix}}" class="media-object" onerror="this.src='pix/naPhoto.gif'" alt="person photo" title='{{contact.cdate | ageFilter}} &Delta; {{contact.mdate | ageFilter}}'/></div>

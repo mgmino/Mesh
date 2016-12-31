@@ -9,8 +9,6 @@ angular.module("results", []).controller("resultsController", ["$scope", "$route
                         $scope.results = contacts;
                     },
                     function (error) {
-                        // Without a 3rd parameter, the default alert timeout of 4 seconds in applied
-                        // This is configured in alertService
                         $scope.results = [];
                         alertService.addAlert(alertService.TYPE.WARNING, error);
                     });
@@ -24,6 +22,9 @@ angular.module("results", []).controller("resultsController", ["$scope", "$route
                 }
                 queryService.getCustomResults(query).then(
                     function (contacts) {
+                        if (contacts.length == 0) {
+                            alertService.addAlert(alertService.TYPE.INFO, 'No contacts matched this query.', 1000);
+                        }
                         $scope.results = contacts;
                     },
                     function (error) {

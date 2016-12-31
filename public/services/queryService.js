@@ -1,28 +1,41 @@
 angular.module("services")
 .service("queryService", ["$http", function($http) {
 
+    $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
     this.getAllContacts = function() {
         return $http({
-            method : "GET",
-//            url : "/api/db/getRecent"
-              url : "http://mgm2.trakmark.com/mesh-api.php?fld=lname&op=eq&itm=Mino"
+            method : "POST",
+            url : "http://mgm2.trakmark.com/mesh-api.php",
+            data: {
+                fld:    'lname',
+                op:     'eq',
+                itm:    'Mino'
+            }
         }).then(processSuccess, processError);
     };
 
     this.getFavorites = function() {
         return $http({
-            method : "GET",
- //           url : "/api/db/getFavs"
-            url : "http://mgm2.trakmark.com/mesh-api.php?fld=tags&op=like&itm=LAK"
+            method : "POST",
+            url : "http://mgm2.trakmark.com/mesh-api.php",
+            data: {
+                fld:    'tags',
+                op:     'like',
+                itm:    'LAK'
+            }
         }).then(processSuccess, processError);
     };
 
     this.getContactById = function(id) {
-       return $http({
-            method : "GET",
- //           url : "/api/db/getContactById/" + id
-             url : "http://mgm2.trakmark.com/mesh-api.php?op=id&itm=" + id
-       }).then(processSuccess, processError);
+        return $http({
+            method : "POST",
+            url : "http://mgm2.trakmark.com/mesh-api.php",
+            data: {
+                op:     'id',
+                itm:    id
+            }
+        }).then(processSuccess, processError);
     };
 
     /*
@@ -36,13 +49,11 @@ angular.module("services")
         var queryitem = customQuery.substr(delim+1);
         return $http({
             method : "POST",
-//            url : "/api/db/getCustomResults",
             url : "http://mgm2.trakmark.com/mesh-api.php",
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             data: {
-                op: 'like',
-                fld: queryfield,
-                itm: queryitem
+                op:     'like',
+                fld:    queryfield,
+                itm:    queryitem
             }
         }).then(processSuccess, processError);
     };
