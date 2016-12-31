@@ -24,7 +24,7 @@
 <ul class="media-list">
     <li class="media" ng-repeat="detail in details | orderBy: 'type' ">
 		<div class="media-body">
-			<b title='{{detail.mdate | ageFilter}}' class='mg-tag'>{{detail.type}}</b>{{detail.info}} <i>{{detail.areacode}}</i>
+			<span title='{{detail.mdate | ageFilter}}' class='mg-tag'>{{detail.type}}</span><b>{{detail | typeFilter}}</b> <i>{{detail.areacode}}</i>
 		</div>
     </li>
 </ul>
