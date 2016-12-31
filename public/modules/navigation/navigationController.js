@@ -1,6 +1,6 @@
 angular.module('navigation', [])
-.controller('navigationController', ['$scope', '$location',
-function ($scope, $location) {
+.controller('navigationController', ['$scope', '$location', 'alertService',
+function ($scope, $location, alertService) {
 
     $scope.nc = {};
     $scope.nc.customSearchError = false;
@@ -14,7 +14,7 @@ function ($scope, $location) {
     };
 
 
-    // $scope.$on('$routeChangeSuccess', function(event, next, current){
-    //     console.log(event, next, current);
-    // });
+    $scope.$on('$routeChangeSuccess', function(event, next, current){
+        alertService.dismissAlerts();
+    });
 }]);
