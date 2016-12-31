@@ -22,3 +22,7 @@
 input.searchError {
     color: red !important;
 }
+
+div.search-filter {
+    margin-bottom: 10px;
+}

@@ -1,7 +1,6 @@
 todo items
 - how to populate right side menu
 - menu selection hides menu overlapping
-- format search bar ((one line) on results page
 - uniform column on detail page
 - convert GET to POST
 - combine top two bands

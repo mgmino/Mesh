@@ -1,9 +1,15 @@
-<div class="input-field search-bar">
-    <div class="row">
-    <table><tr><td style='padding: 0'><i class="material-icons prefix">search</i><div style='margin-top: 28px'>{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</div></td>
-    <td style='padding: 0'><input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText"></td></tr><table>
+<div class="search-filter">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+        <div class="input-group-addon">
+            <span ng-show="results">{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</span>
+        </div>
     </div>
 </div>
+    <!--<i class="material-icons prefix">search</i>-->
+    <!--<div>{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</div>-->
+    <!--<input id="icon_prefix" type="text" placeholder="Search" ng-model="searchText">-->
+
 <ul class="media-list">
     <li class="media" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
 		<div class="media-left"><img ng-src="pix/{{contact.pix}}" class="media-object" onerror="this.src='pix/naPhoto.gif'" alt="person photo" title='{{contact.cdate | ageFilter}} &Delta; {{contact.mdate | ageFilter}}'/></div>
