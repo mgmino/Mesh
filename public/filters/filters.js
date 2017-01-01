@@ -2,10 +2,9 @@ angular.module('filters', [])
 
 .filter('ageFilter', function() {
      return function(modDate) {
-     	var myDate = new Date(modDate);
-     	if (isNaN(myDate)) return ''; //not a valid date
-		var ageDifMs = Date.now() - myDate;
-		return (ageDifMs /1000 /3600 /24 /365.25).toFixed(2);
+     	if (!modDate || modDate.substr(0,4) == '0000') return '';
+ 		var ageDifMs = Date.now() - new Date(modDate);
+		return (ageDifMs /1000 /3600 /24 /365.25).toFixed(1);
      }; 
 })
 
@@ -31,16 +30,16 @@ angular.module('filters', [])
  })
 
 .filter('typeFilter', function() {
-     return function(detail) {
-     	switch(detail.type) {
+     return function(contactDetail) {
+     	switch(contactDetail.type) {
      		case 'url':
-     			return '<a href="http:' +detail.info +'" target="_blank">' +detail.info +'</a>'
+     			return '<a href="http:' +contactDetail.info +'" target="_blank">' +contactDetail.info +'</a>'
      			break;
      		case 'eml':
-     			return '<a href="mailto:' +detail.info +'" target="_blank">' +detail.info +'</a>'
+     			return '<a href="mailto:' +contactDetail.info +'" target="_blank">' +contactDetail.info +'</a>'
      			break;
      		default:
-     			return detail.info;
+     			return contactDetail.info;
      	}
      }; 
 })
