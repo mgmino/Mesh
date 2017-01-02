@@ -1,7 +1,7 @@
 <ul class="media-list" ng-if="contact">
     <li class="media">
 		<div class="media-left">
-			<img ng-src="pix/{{contact.pix}}" class="media-object" onerror="this.src='pix/naPhoto.gif'" alt="person photo" title='{{contact.cdate | date}} &Delta; {{contact.mdate | date}}'/>
+			<contact-image contact="contact"></contact-image>
 		</div>
 
 		<div class="media-body">
@@ -14,17 +14,10 @@
 
 			<div>
 				{{contact.born | bornFilter}}
-				<i ng-if='contact.tags'>
-					<div class='mg-tag' ng-repeat="tag in contact.tags.split(';')">{{tag}}</div>
-				</i>
+				<contact-tags contact="contact"></contact-tags>
 			</div>
 		</div>
     </li>
 </ul>
-<ul class="media-list">
-    <li class="media" ng-repeat="detail in details | orderBy: 'type' ">
-		<div class="media-body">
-			<span title='{{detail.mdate | ageFilter}}' class='mg-tag'>{{detail.type}}</span><b>{{detail | typeFilter}}</b> <i>{{detail.areacode}}</i>
-		</div>
-    </li>
-</ul>
+
+<pinfo details="details"></pinfo>

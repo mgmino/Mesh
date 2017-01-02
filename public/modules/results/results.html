@@ -8,10 +8,22 @@
 </div>
 <ul class="media-list">
     <li class="media" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
-		<div class="media-left"><img ng-src="pix/{{contact.pix}}" class="media-object" onerror="this.src='pix/naPhoto.gif'" alt="person photo" title='{{contact.cdate | ageFilter}} &Delta; {{contact.mdate | ageFilter}}'/></div>
-		<div class="media-body"><b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">{{contact.fname}} {{contact.lname}}<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i></b> <linked-in fname="contact.fname" lname="contact.lname"></linked-in>
-		<div>{{contact.born | bornFilter}}
-		<i ng-if='contact.tags'><div class='mg-tag' ng-repeat="tag in contact.tags.split(';')">{{tag}}</div></i></div>
-		<a ng-href="#/detail/{{contact.id}}" class="secondary-content"><i class="material-icons">chevron_right</i></a></div>
+		<div class="media-left">
+            <contact-image contact="contact"></contact-image>
+        </div>
+		<div class="media-body">
+            <b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
+                {{contact.fname}} {{contact.lname}}
+                <i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
+            </b>
+            <linked-in fname="contact.fname" lname="contact.lname"></linked-in>
+		    <div>
+                {{contact.born | bornFilter}}
+		        <contact-tags contact="contact"></contact-tags>
+            </div>
+        </div>
+        <div class="media-right">
+            <a ng-href="#/detail/{{contact.id}}"><i class="material-icons">chevron_right</i></a>
+        </div>
     </li>
 </ul>
