@@ -389,6 +389,7 @@ function _init() {
     $.AdminLTE.tree = function (menu) {
         var _this = this;
         var animationSpeed = $.AdminLTE.options.animationSpeed;
+        var screenSizes = $.AdminLTE.options.screenSizes;
         $(document).off('click', menu + ' li a')
             .on('click', menu + ' li a', function (e) {
                 //Get the clicked link and the next element
@@ -455,6 +456,8 @@ function _init() {
                 //if this isn't a link, prevent the page from being redirected
                 if (checkElement.is('.treeview-menu')) {
                     e.preventDefault();
+                } else if ($(window).width() < screenSizes.sm) {
+                    $("body").removeClass("sidebar-open").addClass("sidebar-collapse");
                 }
 
             });

@@ -1,5 +1,4 @@
 todo items
-- menu selection hides menu overlapping
 - uniform column on detail page
 - toggle on gender
 - tags as deleteable 'chips'
