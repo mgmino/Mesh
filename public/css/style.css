@@ -26,3 +26,11 @@ input.searchError {
 div.search-filter {
     margin-bottom: 10px;
 }
+
+/* Person Info */
+ul.pinfo-list {
+    padding-left: 10px;
+}
+ul.pinfo-list li {
+    list-style: none;
+}
