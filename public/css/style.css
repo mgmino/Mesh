@@ -10,14 +10,6 @@
     border-radius: 16px;
     display: inline-block;
 }
-.media-object {
-	width: 48px;
-	border-radius: 10%;
-}
-.media {
-	line-height: 1;
-	margin: 2px 10px;
-}
 
 input.searchError {
     color: red !important;

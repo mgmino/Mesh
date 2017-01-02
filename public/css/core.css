@@ -1,5 +1,6 @@
-.main-footer {
-    padding: 0;
+/* Hides Scrollbar */
+::-webkit-scrollbar {
+    display: none;
 }
 
 /* Alerts */
@@ -11,6 +12,14 @@ div.alert h4 {
     margin-bottom: 2px;
 }
 
+.media-object {
+    width: 48px;
+    border-radius: 10%;
+}
+.media {
+    line-height: 1;
+    margin: 2px 10px;
+}
 .media-right {
     vertical-align: middle;
 }

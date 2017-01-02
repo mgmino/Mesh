@@ -1,9 +1,6 @@
 todo items
-- how to populate right side menu
 - menu selection hides menu overlapping
 - uniform column on detail page
-- convert GET to POST
-- combine top two bands
 - toggle on gender
 - tags as deleteable 'chips'
 - swipe menu and card detail off

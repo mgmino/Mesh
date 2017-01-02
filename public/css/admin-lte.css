@@ -77,6 +77,7 @@ body {
   }
 }
 @media (min-width: 768px) {
+  .sidebar-collapse .navbar,
   .sidebar-collapse .content-wrapper,
   .sidebar-collapse .right-side,
   .sidebar-collapse .main-footer {
@@ -123,7 +124,7 @@ body {
 @media (max-width: 767px) {
   .fixed .content-wrapper,
   .fixed .right-side {
-    padding-top: 100px;
+    padding-top: 50px;
   }
 }
 .fixed.layout-boxed .wrapper {
@@ -200,7 +201,6 @@ a:focus {
   -o-transition: margin-left 0.3s ease-in-out;
   transition: margin-left 0.3s ease-in-out;
   margin-bottom: 0;
-  margin-left: 230px;
   border: none;
   min-height: 50px;
   border-radius: 0;
@@ -391,6 +391,10 @@ a:focus {
     width: 100%;
     float: none;
   }
+  .main-header .logo {
+    height: 0;
+    display: none;
+  }
   .main-header .navbar {
     margin: 0;
   }
@@ -430,7 +434,7 @@ a:focus {
 @media (max-width: 767px) {
   .main-sidebar,
   .left-side {
-    padding-top: 100px;
+    padding-top: 50px;
   }
 }
 @media (max-width: 767px) {
@@ -715,7 +719,7 @@ a:focus {
 }
 @media (max-width: 768px) {
   .control-sidebar {
-    padding-top: 100px;
+    padding-top: 50px;
   }
 }
 .control-sidebar > .tab-content {
