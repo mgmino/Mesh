@@ -9,7 +9,9 @@
 <ul class="media-list">
     <li class="media" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
 		<div class="media-left">
-            <contact-image contact="contact"></contact-image>
+            <a ng-href="#/detail/{{contact.id}}">
+                <contact-image contact="contact"></contact-image>
+            </a>
         </div>
 		<div class="media-body">
             <b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
@@ -21,9 +23,6 @@
                 {{contact.born | bornFilter}}
 		        <contact-tags contact="contact"></contact-tags>
             </div>
-        </div>
-        <div class="media-right">
-            <a ng-href="#/detail/{{contact.id}}"><i class="material-icons">chevron_right</i></a>
         </div>
     </li>
 </ul>

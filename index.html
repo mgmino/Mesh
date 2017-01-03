@@ -2,12 +2,9 @@
 <html ng-app="meshApp">
 <head>
     <title>Mesh - MgM</title>
-    <!-- Google Icon Font -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -15,8 +12,12 @@
     <!-- Admin LTE -->
     <link rel="stylesheet" href="css/admin-lte-skins.css"/>
     <link rel="stylesheet" href="css/admin-lte.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/core.css"/>
+
+    <!-- Personal Styles -->
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- Icon -->
     <link rel='icon' type='image/gif' href='pix/mesh.gif'/>
 
     <!-- Optimize for mobile -->
@@ -68,8 +69,7 @@
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-            <!--    <li class="header">HEADER EXAMPLE</li>  -->
-                <li class="active"><a href="#/results"><i class="fa fa-users"></i> <span>Recent</span></a></li>
+                <li class="active"<a href="#/results"><i class="fa fa-users"></i> <span>Recent</span></a></li>
                 <li><a href="#/results/favorites"><i class="fa fa-star"></i> <span>Favorites</span></a></li>
                 <li><a href="#/imports"><i class="fa fa-download"></i> <span>Import</span></a></li>
                 <li><a href="#/events"><i class="fa fa-tasks"></i> <span>Events</span></a></li>
@@ -94,11 +94,6 @@
     <div class="content-wrapper">
 
         <alert-box></alert-box>
-
-        <!-- Content Header (Page header) -->
-        <section class="content-header" ng-if="pageTitle">
-            <h1 ng-bind="pageTitle"></h1>
-        </section>
 
         <section class="content">
             <!-- Your Page Content Here -->
@@ -136,6 +131,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.14/angular-filter.min.js"></script>
+
     <!-- Angular Services Module -->
     <script src="services/_services.js"></script>
     <script src="services/alertService.js"></script>
