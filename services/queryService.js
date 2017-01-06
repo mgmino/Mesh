@@ -1,5 +1,5 @@
 angular.module("services")
-.service("queryService", ["$http", function($http) {
+.service("queryService", ['$http', '$location', function($http, $location) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -65,7 +65,12 @@ angular.module("services")
     }
     function processError(response) {
         if (!response.data || !response.data.errmsg) throw 'Uh oh an unknown error occurred.';
-        throw response.data.errmsg;
+        if (response.data.code == 511) {
+            // Authorization failure
+            $location.path('/login');
+        } else {
+            throw response.data.errmsg;
+        }
     }
 
 }]);

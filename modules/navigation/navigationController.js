@@ -13,8 +13,12 @@ function ($scope, $location, alertService) {
         $location.path('/results/custom').search('query', $scope.customSearchCriteria);
     };
 
-
     $scope.$on('$routeChangeSuccess', function(event, next, current){
         alertService.dismissAlerts();
+        if ($location.path() == '/login') {
+            $("body").addClass('login-page');
+        } else {
+            $("body").removeClass('login-page');
+        }
     });
 }]);

@@ -22,9 +22,9 @@ angular.module('directives', [])
 
 .directive('alertBox', ['alertService', function (alertService) {
     return {
-        restrict: 'E',
+        restrict: 'EA',
         templateUrl: 'directives/partials/alertBox.html',
-        link: function(scope, elems, attrs) {
+        link: function(scope, elem, attrs) {
             scope.getAlerts = function() {
                 return alertService.getAlerts();
             };
@@ -77,4 +77,24 @@ angular.module('directives', [])
             contact: '='
         }
     }
+}])
+
+// Not currently used, but might come in handy later
+.directive('hideOnLogin', ['$location', function($location) {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {
+            var loginRoute = '/login';
+
+            scope.$on('$routeChangeSuccess', function(e, current, pre) {
+                var route = $location.path();
+                console.log('Current route name: ' + route);
+                if (route == loginRoute) {
+                    elem.hide();
+                } else {
+                    elem.show();
+                }
+            });
+        }
+    };
 }]);

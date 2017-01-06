@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="meshApp">
 <head>
-    <title>Mesh - MgM</title>
+    <title>Mesh</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -23,7 +23,7 @@
     <!-- Optimize for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body class="fixed skin-blue">
+<body class="fixed skin-blue login-page">
 <div class="wrapper" ng-controller="navigationController">
 
     <!-- Main Header -->
@@ -93,10 +93,9 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        <alert-box></alert-box>
+        <div alert-box></div>
 
         <section class="content">
-            <!-- Your Page Content Here -->
             <div ng-view><!-- Injected with AngularJS --></div>
         </section>
     </div>
@@ -128,19 +127,22 @@
     <!-- Admin LTE -->
     <script src="plugins/admin_lte.js"></script>
     <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.14/angular-filter.min.js"></script>
 
     <!-- Angular Services Module -->
     <script src="services/_services.js"></script>
     <script src="services/alertService.js"></script>
     <script src="services/queryService.js"></script>
+    <script src="services/loginService.js"></script>
     <!-- Angular Filters Module -->
     <script src="filters/filters.js"></script>
     <!-- Angular Directives Module -->
     <script src="directives/directives.js"></script>
     <!-- Individual Modules -->
+    <script src="modules/login/loginController.js"></script>
     <script src="modules/navigation/navigationController.js"></script>
     <script src="modules/contact/contactController.js"></script>
     <script src="modules/tools/toolsController.js"></script>

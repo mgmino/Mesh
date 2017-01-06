@@ -1,9 +1,11 @@
 angular.module('meshApp', [
     'ngRoute',
+    'ngCookies',
     'angular.filter',
     'services',
     'filters',
     'directives',
+    'login',
     'navigation',
     'contact',
     'tools',
@@ -13,7 +15,7 @@ angular.module('meshApp', [
 
 
 
-.config(function($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when("/", {
             redirectTo: "/results/all"
@@ -42,7 +44,22 @@ angular.module('meshApp', [
             templateUrl: "modules/tools/tools.html",
             controller: "toolsController"
         })
+        .when("/login", {
+            templateUrl: "modules/login/login.html",
+            controller: "loginController"
+        })
         .otherwise({
             redirectTo: "/"
         });
-});
+}])
+
+
+.run(['$rootScope', '$location', 'loginService', function ($rootScope, $location, loginService) {
+    var openRoutes = ['/login'];
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        var goingToOpenRoute = $.inArray($location.path(), openRoutes);
+        if (!goingToOpenRoute && !loginService.isLoggedIn()) {
+            $location.path('/login');
+        }
+    });
+}]);
