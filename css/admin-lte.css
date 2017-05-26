@@ -64,6 +64,11 @@ body {
   margin-left: 230px;
   z-index: 820;
 }
+.layout-top-nav .content-wrapper,
+.layout-top-nav .right-side,
+.layout-top-nav .main-footer {
+  margin-left: 0;
+}
 @media (max-width: 767px) {
   .content-wrapper,
   .right-side,
@@ -3223,21 +3228,6 @@ table.text-center th {
 .login-page,
 .register-page {
   background: #d2d6de;
-}
-.login-page .main-header,
-.login-page .main-sidebar,
-.login-page .main-footer {
-  display: none !important;
-}
-.login-page .control-sidebar,
-.login-page .control-sidebar-bg {
-  right: -230px !important;
-}
-.login-page .content-wrapper,
-.login-page .right-side,
-.login-page .main-footer {
-  margin-left: 0 !important;
-  padding: 1px !important;
 }
 .login-box,
 .register-box {
