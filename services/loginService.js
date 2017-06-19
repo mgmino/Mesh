@@ -1,5 +1,5 @@
 angular.module("services")
-.service("loginService", ['$http', '$cookies', function($http, $cookies) {
+.service("loginService", ['$http', '$cookies', '$q', function($http, $cookies, $q) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -13,17 +13,16 @@ angular.module("services")
      * @returns {*} - Success: JWT to use as credentials
      * @returns {*} - Error: Errmsg containing friendly error
      */
-    this.login = function(username, password) {
+    this.createToken = function(username, password) {
         return $http({
-            method : "POST",
-            // TODO: This must be implemented
-            url : "http://mgm2.trakmark.com/mesh-api.php",
+            method: "POST",
+            url: "http://localhost:8000/mesh-api.php",
             data: {
-                op:     'login',
-                user:   username,
-                pass:   password
+                op: 'login',
+                username: username,
+                password: password
             }
-        }).then(processSuccess, processError);
+        }).then( processSuccess, processError );
     };
 
     /**
@@ -31,10 +30,9 @@ angular.module("services")
      * revoke the privilege assigned to that token server-side.
      */
     this.logout = function() {
-        var token = this.getToken();
-        if (token) {
-            this.removeToken();
-        }
+        console.log('Removing token and headers');
+        $cookies.remove(TOKEN_KEY);
+        this.clearHeaders();
     };
 
     /**
@@ -43,7 +41,7 @@ angular.module("services")
      */
     this.isLoggedIn = function() {
         var token = this.getToken();
-        return token != null;
+        return token !== null && token !== undefined;
     };
 
     /**
@@ -59,23 +57,22 @@ angular.module("services")
      * @param token - JWT to store
      */
     this.setToken = function(token) {
-        $cookies.set(TOKEN_KEY, token);
+        $cookies.put(TOKEN_KEY, token);
     };
 
-    /**
-     * Removes the current token.
-     */
-    this.removeToken = function() {
-        $cookies.remove(TOKEN_KEY);
+    this.clearHeaders = function() {
+        $http.defaults.headers.common['Authorization'] = undefined;
+        delete $http.defaults.headers.common['Authorization'];
     };
 
+    this.setHeaders = function(token) {
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    };
 
-    /* $http Response Handling Functions */
     function processSuccess(response) {
-        return response.data;
+        return response.data.token;
     }
     function processError(response) {
-        if (!response.data || !response.data.errmsg) throw 'Uh oh an unknown error occurred.';
         throw response.data.errmsg;
     }
 

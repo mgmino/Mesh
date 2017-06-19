@@ -9,12 +9,11 @@ angular.module('login', [])
         $scope.authenticating = false;
         loginService.logout();
     }
-    init();
 
     $scope.login = function() {
         console.log('logging in');
         $scope.authenticating = true;
-        loginService.login($scope.username, $scope.password)
+        loginService.createToken($scope.username, $scope.password)
             .then( loginSuccess, loginFailure )
             .finally(function() {
                 $scope.authenticating = false;
@@ -26,8 +25,10 @@ angular.module('login', [])
     };
 
     function loginSuccess(token) {
+        console.log('login success');
         // Save token in accessible location for future routes
         loginService.setToken(token);
+        loginService.setHeaders(token);
         // Route to landing page
         $location.path("/");
     }
@@ -35,5 +36,7 @@ angular.module('login', [])
     function loginFailure(error) {
         alertService.addAlert(alertService.TYPE.WARNING, error, 8000);
     }
+
+    init();
 
 }]);

@@ -64,8 +64,7 @@ angular.module("services")
         return response.data;
     }
     function processError(response) {
-        if (!response.data || !response.data.errmsg) throw 'Uh oh an unknown error occurred.';
-        if (response.data.code == 511) {
+        if (response.data.code === 401) {
             // Authorization failure
             $location.path('/login');
         } else {

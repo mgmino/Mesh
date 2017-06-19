@@ -15,7 +15,7 @@ angular.module('meshApp', [
 
 
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
     $routeProvider
         .when("/", {
             redirectTo: "/results/all"
@@ -54,12 +54,26 @@ angular.module('meshApp', [
 }])
 
 
-.run(['$rootScope', '$location', 'loginService', function ($rootScope, $location, loginService) {
-    var openRoutes = ['/login'];
-    $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        var goingToOpenRoute = $.inArray($location.path(), openRoutes);
-        if (!goingToOpenRoute && !loginService.isLoggedIn()) {
-            $location.path('/login');
+.run(['$rootScope', '$location', '$http', '$cookies', 'loginService',
+    function ($rootScope, $location, $http, $cookies, loginService) {
+
+        // Routes here do not require a login
+        var openRoutes = ['/login'];
+
+        // Keep user logged in after page refresh
+        if (loginService.isLoggedIn()) {
+            console.log('Setting credentials for user from previous session');
+            var token = loginService.getToken();
+            loginService.setHeaders(token);
         }
-    });
-}]);
+
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            var goingToOpenRoute = $.inArray($location.path(), openRoutes) === 0;
+            if (!goingToOpenRoute && !loginService.isLoggedIn()) {
+                console.log('Blocked route access to ' + $location.path());
+                // Cannot access restricted route without logging in
+                $location.path('/login');
+            }
+        });
+
+    }]);
