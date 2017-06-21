@@ -1,12 +1,12 @@
 angular.module("services")
-.service("queryService", ['$http', '$location', function($http, $location) {
+.service("queryService", ['$http', '$location', 'API_URL', function($http, $location, API_URL) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
     this.getAllContacts = function() {
         return $http({
             method : "POST",
-            url : "http://mgm2.trakmark.com/mesh-api.php",
+            url : API_URL,
             data: {
                 fld:    'lname',
                 op:     'eq',
@@ -18,7 +18,7 @@ angular.module("services")
     this.getFavorites = function() {
         return $http({
             method : "POST",
-            url : "http://mgm2.trakmark.com/mesh-api.php",
+            url : API_URL,
             data: {
                 fld:    'tags',
                 op:     'like',
@@ -30,7 +30,7 @@ angular.module("services")
     this.getContactById = function(id) {
         return $http({
             method : "POST",
-            url : "http://mgm2.trakmark.com/mesh-api.php",
+            url : API_URL,
             data: {
                 op:     'id',
                 itm:    id
@@ -49,7 +49,7 @@ angular.module("services")
         var queryitem = customQuery.substr(delim+1);
         return $http({
             method : "POST",
-            url : "http://mgm2.trakmark.com/mesh-api.php",
+            url : API_URL,
             data: {
                 op:     'like',
                 fld:    queryfield,
