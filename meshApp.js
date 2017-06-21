@@ -79,4 +79,4 @@ angular.module('meshApp', [
     }])
 
 .constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
-//.constant ('http://mgm2.trakmark.com/mesh-api.php', API_URL);
+//.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
