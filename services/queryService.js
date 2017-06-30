@@ -64,7 +64,7 @@ angular.module("services")
         return response.data;
     }
     function processError(response) {
-        if (response.data.code === 401) {
+        if (response.status === 401) {
             // Authorization failure
             $location.path('/login');
         } else {
