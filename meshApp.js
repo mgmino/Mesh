@@ -78,5 +78,10 @@ angular.module('meshApp', [
 
     }])
 
+<<<<<<< HEAD
 .constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
 //.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
+=======
+//.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
+.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
+>>>>>>> master
