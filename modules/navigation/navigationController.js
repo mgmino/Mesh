@@ -6,7 +6,10 @@ function ($scope, $location, alertService) {
     $scope.nc.customSearchError = false;
     $scope.customSearchCriteria = '';
 
-    $location.search('query', null);
+	function init() {
+		// Removes potential pre-existing queries
+		$location.search('query', null);
+	}
 
     $scope.customSearch = function() {
         $scope.nc.customSearchError = false;
@@ -21,4 +24,7 @@ function ($scope, $location, alertService) {
             $('body').removeClass('login-page');
         }
     });
+
+	init();
+
 }]);
