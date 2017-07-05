@@ -32,7 +32,7 @@ angular.module('meshApp', [
             controller: 'contactController'
         })
         .when('/events', {
-            templateUrl: 'modules/events.htm',
+            templateUrl: 'modules/events/events.htm',
             controller: 'eventsController'
         })
         .when('/tools', {
