@@ -1,13 +1,13 @@
 <div class="search-filter">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+        <input type="text" class="form-control" placeholder="Filter" ng-model="searchText">
         <div class="input-group-addon">
             <span ng-show="results">{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</span>
         </div>
     </div>
 </div>
 <ul class="media-list">
-    <li class="media" ng-repeat="contact in results | orderBy: 'fname' | filterBy: ['fname', 'lname']: searchText">
+    <li class="media" ng-repeat="contact in results | filterBy: ['fname', 'lname']: searchText">
 		<div class="media-left">
             <a ng-href="#!/detail/{{contact.id}}">
                 <contact-image contact="contact"></contact-image>
@@ -22,6 +22,9 @@
 		    <div>
                 {{contact.born | bornFilter}}
 		        <contact-tags contact="contact"></contact-tags>
+            </div>
+		    <div ng-if='contact.info'>
+                <span class='mg-search-info'>{{contact.info}}</span>
             </div>
         </div>
     </li>

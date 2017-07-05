@@ -27,6 +27,16 @@ angular.module("services")
         }).then(processSuccess, processError);
     };
 
+    this.getView = function(view) {
+        return $http({
+            method : "POST",
+            url : API_URL,
+            data: {
+                op:	'view'
+            }
+        }).then(processSuccess, processError);
+    };
+
     this.getContactById = function(id) {
         return $http({
             method : "POST",
@@ -44,14 +54,21 @@ angular.module("services")
      *
      */
     this.getCustomResults = function(customQuery) {
-        var delim = customQuery.indexOf(' ');
-        var queryfield = customQuery.substr(0, delim);
-        var queryitem = customQuery.substr(delim+1);
+        var delim= customQuery.indexOf(':')
+		if (delim == -1) { //name only search
+			var optype= 'name'
+			var queryfield= 'na'
+			var queryitem= customQuery
+		} else { //defined search
+			var optype= 'defsrch'
+			var queryfield= customQuery.substr(0, delim)
+			var queryitem = customQuery.substr(delim+1).trim()
+		}
         return $http({
-            method : "POST",
+            method : 'POST',
             url : API_URL,
             data: {
-                op:     'like',
+                op:     optype,
                 fld:    queryfield,
                 itm:    queryitem
             }
@@ -63,13 +80,12 @@ angular.module("services")
     function processSuccess(response) {
         return response.data;
     }
-    function processError(response) {
+
+    function processError(response) { //Authorization failure
         if (response.status === 401) {
-            // Authorization failure
             $location.path('/login');
         } else {
             throw response.data.errmsg;
         }
     }
-
 }]);

@@ -13,8 +13,6 @@ angular.module('meshApp', [
     'detail'
 ])
 
-
-
 .config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
     $routeProvider
         .when("/", {
@@ -36,13 +34,18 @@ angular.module('meshApp', [
             templateUrl: "modules/tools/tools.html",
             controller: "toolsController"
         })
+        .when('/about', {
+            templateUrl: 'modules/about.htm'
+        })
+        .when('/tags', {
+            templateUrl: 'modules/tags.htm'
+        })
          .when("/search", {
             templateUrl: "modules/tools/tools.html",
             controller: "toolsController"
         })
-         .when("/import", {
-            templateUrl: "modules/tools/tools.html",
-            controller: "toolsController"
+         .when('/import', {
+            templateUrl: 'modules/import.htm'
         })
         .when("/login", {
             templateUrl: "modules/login/login.html",
@@ -78,5 +81,5 @@ angular.module('meshApp', [
 
     }])
 
-.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
-//.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
+//.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
+.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');

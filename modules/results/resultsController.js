@@ -13,6 +13,17 @@ angular.module("results", []).controller("resultsController", ["$scope", "$route
                         alertService.addAlert(alertService.TYPE.WARNING, error);
                     });
                 break;
+            case 'recent-adds':
+            case 'recent-mods':
+                queryService.getView($routeParams.filter).then(
+                    function (contacts) {
+                        $scope.results = contacts;
+                    },
+                    function (error) {
+                        $scope.results = [];
+                        alertService.addAlert(alertService.TYPE.WARNING, error);
+                    });
+                break;
             case 'custom':
                 var query = $routeParams.query;
                 // Empty query given

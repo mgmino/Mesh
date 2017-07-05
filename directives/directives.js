@@ -3,7 +3,7 @@ angular.module('directives', [])
 .directive('linkedIn', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'directives/partials/linkedIn.html',
+        templateUrl: 'directives/partials/linkedIn.htm',
         scope: {
             fname: '=',
             lname: '='
@@ -14,7 +14,7 @@ angular.module('directives', [])
                 var space_index = name.indexOf(' ');
                 return space_index == -1 ? name : name.substr(0, space_index);
             }
-            scope.linkedInProfile = 'https://www.linkedin.com/vsearch/f?keywords=' + firstName() + ' ' + scope.lname + '&search=Search';
+            scope.linkedInProfile = 'https://www.linkedin.com/search/results/index/?keywords=' + firstName() + '%20' + scope.lname;
         }
     }
 }])
@@ -23,7 +23,7 @@ angular.module('directives', [])
 .directive('alertBox', ['alertService', function (alertService) {
     return {
         restrict: 'E',
-        templateUrl: 'directives/partials/alertBox.html',
+        templateUrl: 'directives/partials/alertBox.htm',
         link: function(scope, elems, attrs) {
             scope.getAlerts = function() {
                 return alertService.getAlerts();
@@ -51,7 +51,7 @@ angular.module('directives', [])
 .directive('pinfo', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'directives/partials/pinfo.html',
+        templateUrl: 'directives/partials/pinfo.htm',
         scope: {
             details: '='
         }
@@ -61,7 +61,7 @@ angular.module('directives', [])
 .directive('contactImage', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'directives/partials/contactImage.html',
+        templateUrl: 'directives/partials/contactImage.htm',
         scope: {
             contact: '='
         }
@@ -72,7 +72,7 @@ angular.module('directives', [])
 .directive('contactTags', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'directives/partials/contactTags.html',
+        templateUrl: 'directives/partials/contactTags.htm',
         scope: {
             contact: '='
         }
