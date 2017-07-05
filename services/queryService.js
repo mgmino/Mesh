@@ -64,15 +64,15 @@ angular.module('services')
      *
      */
     this.getCustomResults = function(customQuery) {
-        var delim= customQuery.indexOf(':')
+        var delim= customQuery.indexOf(':');
 		if (delim == -1) { //name only search
-			var optype= 'name'
-			var queryfield= 'na'
-			var queryitem= customQuery
+			var optype= 'name';
+			var queryfield= 'na';
+			var queryitem= customQuery;
 		} else { //defined search
-			var optype= 'defsrch'
-			var queryfield= customQuery.substr(0, delim)
-			var queryitem = customQuery.substr(delim+1).trim()
+			var optype= 'defsrch';
+			var queryfield= customQuery.substr(0, delim);
+			var queryitem = customQuery.substr(delim+1).trim();
 		}
         return $http({
             method : 'POST',
