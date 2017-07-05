@@ -1,0 +1,31 @@
+<div class="search-filter">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Filter" ng-model="searchText">
+        <div class="input-group-addon">
+            <span ng-show="results">{{(results | filterBy: ['fname', 'lname']: searchText).length}}/{{results.length}}</span>
+        </div>
+    </div>
+</div>
+<ul class="media-list">
+    <li class="media" ng-repeat="event in events | filterBy: ['fname', 'lname', 'event']: searchText">
+		<div class="media-left">
+            <a ng-href="#!/detail/{{event.pid}}">
+                <contact-image contact="event"></contact-image>
+            </a>
+        </div>
+		<div class="media-body">
+            <b class="title" ng-class="{'male-color': event.sex.toUpperCase() == 'M', 'female-color': event.sex.toUpperCase() == 'F'}">
+                {{event.fname}} {{event.lname}}
+                <i ng-if='event.nick'> &raquo; {{event.nick}}</i>
+            </b>
+            <linked-in fname="event.fname" lname="event.lname"></linked-in>
+		    <div>
+                <b>{{event.age}}</b> <i>{{event.type}}</i> {{event.event}}<br />
+		        <contact-tags contact="event"></contact-tags>
+            </div>
+		    <div ng-if='event.info'>
+                <span class='mg-search-info'>{{event.info}}</span>
+            </div>
+        </div>
+    </li>
+</ul>

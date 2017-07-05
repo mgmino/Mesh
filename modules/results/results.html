@@ -9,7 +9,7 @@
 <ul class="media-list">
     <li class="media" ng-repeat="contact in results | filterBy: ['fname', 'lname']: searchText">
 		<div class="media-left">
-            <a ng-href="#!/detail/{{contact.id}}">
+            <a ng-href="#!/detail/{{contact.pid}}">
                 <contact-image contact="contact"></contact-image>
             </a>
         </div>

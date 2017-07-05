@@ -32,7 +32,17 @@ angular.module("services")
             method : "POST",
             url : API_URL,
             data: {
-                op:	'view'
+                op:	view
+            }
+        }).then(processSuccess, processError);
+    };
+
+    this.getEvents = function() {
+        return $http({
+            method : "POST",
+            url : API_URL,
+            data: {
+                op:	'events'
             }
         }).then(processSuccess, processError);
     };

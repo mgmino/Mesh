@@ -1,4 +1,5 @@
-angular.module("results", []).controller("resultsController", ["$scope", "$routeParams", "$location", "queryService", "alertService",
+angular.module("results", [])
+.controller("resultsController", ["$scope", "$routeParams", "$location", "queryService", "alertService",
     function($scope, $routeParams, $location, queryService, alertService) {
 
     function init() {

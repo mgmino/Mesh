@@ -69,26 +69,25 @@
             </form>
 
             <!-- Sidebar Menu -->
-            <ul class="sidebar-menu">
-                <li class="active"><a href="#!/results/recent-adds"><i class="fa fa-users"></i> Recent Adds</a></li>
-                <li><a href="#!/results/recent-mods"><i class="fa fa-users"></i> Recent Mods</a></li>
-                <li><a href="#!/results/favorites"><i class="fa fa-star"></i> <span>Favorites</span></a></li>
-                <li><a href='#!/import'><i class='fa fa-download'></i> Import</a></li>
-                <li><a href="#!/events"><i class="fa fa-tasks"></i> <span>Events</span></a></li>
-                <li><a href="#!/tools"><i class="fa fa-cog"></i> <span>Tools</span></a></li>
-                <li><a href='#!/about'><i class='fa fa-info'></i> About</a></li>
-                <li class="treeview">
-                    <a href=""><i class="fa fa-link"></i> <span>Views</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
+            <ul class='sidebar-menu'>
+                <li class='treeview active'>
+                    <a href=''><i class='fa fa-link'></i> Views
+                        <span class='pull-right-container'>
+                            <i class='fa fa-angle-left pull-right'></i>
                         </span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href='#!/tags'>Tag</a></li>
-                        <li><a href="#!">Organization</a></li>
+                    <ul class='treeview-menu'>
+                        <li><a href='#!/results/recent-adds'><i class="fa fa-users"></i> Recent Adds</a></li>
+                        <li><a href='#!/results/favorites'><i class="fa fa-star"></i> Favorites</a></li>
+						<li><a href='#!/results/recent-mods'><i class="fa fa-users"></i> Recent Mods</a></li>
+                        <li><a href='#!/tags'><i class='fa fa-tag'></i> Tag</a></li>
                     </ul>
                 </li>
-                <li><a href="#!/login"><i class="fa fa-lock"></i> <span>Login/Logout</span></a></li>
+                <li><a href='#!/events'><i class="fa fa-tasks"></i> Events</a></li>
+                <li><a href='#!/tools'><i class="fa fa-cog"></i> Tools</a></li>
+                <li><a href='#!/import'><i class='fa fa-download'></i> Import</a></li>
+                <li><a href='#!/about'><i class='fa fa-info'></i> About</a></li>
+                <li><a href='#!/login'><i class='fa fa-lock'></i> Login/Logout</a></li>
             </ul>
         </section>
     </aside>
@@ -149,6 +148,7 @@
     <script src="modules/tools/toolsController.js"></script>
     <script src="modules/results/resultsController.js"></script>
     <script src="modules/detail/detailController.js"></script>
+    <script src="modules/eventsController.js"></script>
 
     <!-- Angular Main Module -->
     <script src="meshApp.js"></script>

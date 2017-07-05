@@ -4,7 +4,7 @@ angular.module("contact", [])
     $scope.pageTitle = "Contact";
 
     function init() {
-        queryService.getContactById($routeParams.id).then(function(contact) {
+        queryService.getContactById($routeParams.pid).then(function(contact) {
             $scope.contact = contact;
             Materialize.updateTextFields();
         });

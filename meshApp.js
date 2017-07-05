@@ -8,6 +8,7 @@ angular.module('meshApp', [
     'login',
     'navigation',
     'contact',
+    'events',
     'tools',
     'results',
     'detail'
@@ -29,6 +30,10 @@ angular.module('meshApp', [
         .when("/contact/:id", {
             templateUrl: "modules/contact/contact.html",
             controller: "contactController"
+        })
+        .when("/events", {
+            templateUrl: "modules/events.htm",
+            controller: "eventsController"
         })
         .when("/tools", {
             templateUrl: "modules/tools/tools.html",
