@@ -1,6 +1,6 @@
-angular.module("results", [])
-.controller("resultsController", ["$scope", "$routeParams", "$location", "queryService", "alertService",
-    function($scope, $routeParams, $location, queryService, alertService) {
+angular.module('results', [])
+.controller('resultsController', ['$scope', '$routeParams', '$location', 'queryService', 'alertService',
+function($scope, $routeParams, $location, queryService, alertService) {
 
     function init() {
         switch ($routeParams.filter) {
@@ -29,7 +29,7 @@ angular.module("results", [])
                 var query = $routeParams.query;
                 // Empty query given
                 if (!query || query.length == 0) {
-                    $location.path("/").search('query', null);
+                    $location.path('/').search('query', null);
                     return;
                 }
                 queryService.getCustomResults(query).then(

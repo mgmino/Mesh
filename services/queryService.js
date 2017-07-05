@@ -1,11 +1,11 @@
-angular.module("services")
-.service("queryService", ['$http', '$location', 'API_URL', function($http, $location, API_URL) {
+angular.module('services')
+.service('queryService', ['$http', '$location', 'API_URL', function($http, $location, API_URL) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
     this.getAllContacts = function() {
         return $http({
-            method : "POST",
+            method : 'POST',
             url : API_URL,
             data: {
                 fld:    'lname',
@@ -17,7 +17,7 @@ angular.module("services")
 
     this.getFavorites = function() {
         return $http({
-            method : "POST",
+            method : 'POST',
             url : API_URL,
             data: {
                 fld:    'tags',
@@ -29,7 +29,7 @@ angular.module("services")
 
     this.getView = function(view) {
         return $http({
-            method : "POST",
+            method : 'POST',
             url : API_URL,
             data: {
                 op:	view
@@ -39,7 +39,7 @@ angular.module("services")
 
     this.getEvents = function() {
         return $http({
-            method : "POST",
+            method : 'POST',
             url : API_URL,
             data: {
                 op:	'events'
@@ -49,7 +49,7 @@ angular.module("services")
 
     this.getContactById = function(id) {
         return $http({
-            method : "POST",
+            method : 'POST',
             url : API_URL,
             data: {
                 op:     'id',

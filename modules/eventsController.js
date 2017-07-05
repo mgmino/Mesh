@@ -1,6 +1,6 @@
-angular.module("events", [])
-.controller("eventsController", ["$scope", "$routeParams", "queryService", "alertService",
-	function($scope, $routeParams, queryService, alertService) {
+angular.module('events', [])
+.controller('eventsController', ['$scope', '$routeParams', 'queryService', 'alertService',
+function($scope, $routeParams, queryService, alertService) {
 
     queryService.getEvents().then(
         function (events) {

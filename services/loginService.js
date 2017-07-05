@@ -1,5 +1,5 @@
-angular.module("services")
-.service("loginService", ['$http', '$cookies', 'API_URL', function($http, $cookies, API_URL) {
+angular.module('services')
+.service('loginService', ['$http', '$cookies', 'API_URL', function($http, $cookies, API_URL) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -15,7 +15,7 @@ angular.module("services")
      */
     this.createToken = function(username, password) {
         return $http({
-            method: "POST",
+            method: 'POST',
             url: API_URL,
             data: {
                 op: 'login',

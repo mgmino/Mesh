@@ -1,6 +1,6 @@
-angular.module("detail", [])
-.controller("detailController", ["$scope", "$routeParams", "queryService", "alertService",
-	function($scope, $routeParams, queryService, alertService) {
+angular.module('detail', [])
+.controller('detailController', ['$scope', '$routeParams', 'queryService', 'alertService',
+function($scope, $routeParams, queryService, alertService) {
 
     var cid = $routeParams.cid;
     queryService.getContactById(cid).then(

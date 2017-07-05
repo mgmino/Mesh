@@ -4,8 +4,8 @@ function ($scope, $location, alertService) {
 
     $scope.nc = {};
     $scope.nc.customSearchError = false;
+    $scope.customSearchCriteria = '';
 
-    $scope.customSearchCriteria = "";
     $location.search('query', null);
 
     $scope.customSearch = function() {
@@ -16,9 +16,9 @@ function ($scope, $location, alertService) {
     $scope.$on('$routeChangeSuccess', function(event, next, current){
         alertService.dismissAlerts();
         if ($location.path() == '/login') {
-            $("body").addClass('login-page');
+            $('body').addClass('login-page');
         } else {
-            $("body").removeClass('login-page');
+            $('body').removeClass('login-page');
         }
     });
 }]);

@@ -1,5 +1,6 @@
 angular.module('login', [])
-.controller('loginController', ['$scope', '$location', 'loginService', 'alertService', function($scope, $location, loginService, alertService) {
+.controller('loginController', ['$scope', '$location', 'loginService', 'alertService', 
+function($scope, $location, loginService, alertService) {
 
     $scope.username = '';
     $scope.password = '';
@@ -30,7 +31,7 @@ angular.module('login', [])
         loginService.setToken(token);
         loginService.setHeaders(token);
         // Route to landing page
-        $location.path("/");
+        $location.path('/');
     }
 
     function loginFailure(error) {
