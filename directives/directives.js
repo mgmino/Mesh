@@ -1,20 +1,60 @@
 angular.module('directives', [])
 
-.directive('linkedIn', [function() {
+.directive('mgLinkedIn', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'directives/partials/linkedIn.htm',
+        templateUrl: 'directives/partials/mgLinkedIn.htm',
         scope: {
             fname: '=',
             lname: '='
         },
         link: function (scope, elem, attrs) {
             function firstName() {
-                var name = angular.copy(scope.fname);
-                var space_index = name.indexOf(' ');
+                var name= angular.copy(scope.fname);
+                var space_index= name.indexOf(' ');
                 return space_index == -1 ? name : name.substr(0, space_index);
             }
-            scope.linkedInProfile = 'https://www.linkedin.com/search/results/index/?keywords=' + firstName() + '%20' + scope.lname;
+            scope.linkedInLink= 'https://www.linkedin.com/search/results/index/?keywords=' +firstName() +'%20' +scope.lname;
+        }
+    }
+}])
+
+
+.directive('mgClemson', [function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/partials/mgClemson.htm',
+        scope: {
+            fname: '=',
+            lname: '='
+        },
+        link: function (scope, elem, attrs) {
+            function firstName() {
+                var name= angular.copy(scope.fname);
+                var space_index= name.indexOf(' ');
+                return space_index == -1 ? name : name.substr(0, space_index);
+            }
+            scope.ClemsonLink= 'https://my.clemson.edu/#/directory/search/' +firstName() +'%20' +scope.lname;
+        }
+    }
+}])
+
+
+.directive('mgGoogle', [function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/partials/mgGoogle.htm',
+        scope: {
+            fname: '=',
+            lname: '='
+        },
+        link: function (scope, elem, attrs) {
+            function firstName() {
+                var name= angular.copy(scope.fname);
+                var space_index= name.indexOf(' ');
+                return space_index == -1 ? name : name.substr(0, space_index);
+            }
+            scope.GoogleLink= 'https://www.google.com/search?q=' +firstName() +'+' +scope.lname;
         }
     }
 }])
@@ -63,7 +103,8 @@ angular.module('directives', [])
         restrict: 'E',
         templateUrl: 'directives/partials/contactImage.htm',
         scope: {
-            contact: '='
+            contact: '=',
+            size: '@'
         }
     }
 }])

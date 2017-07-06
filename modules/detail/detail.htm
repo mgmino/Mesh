@@ -1,23 +1,24 @@
-<ul class="media-list" ng-if="contact">
-    <li class="media">
-		<div class="media-left">
-			<contact-image contact="contact"></contact-image>
+<ul class='media-list' ng-if='contact'>
+    <li class='media'>
+		<div class='media-left'>
+			<contact-image contact='contact' size='small'></contact-image>
 		</div>
 
-		<div class="media-body">
+		<div class='media-body'>
 			<b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
 				{{contact.fname}} {{contact.lname}}
 				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
 			</b>
+			<div style='padding-top: 3px'>
+			<mg-linked-in fname='contact.fname' lname='contact.lname'></mg-linked-in>
+			<mg-clemson fname='contact.fname' lname='contact.lname'></mg-clemson>
+			<mg-google fname='contact.fname' lname='contact.lname'></mg-google></div>
 
-			<linked-in fname="contact.fname" lname="contact.lname"></linked-in>
+			<div style='padding-top: 3px'>{{contact.born | bornFilter}}</div>
+			<div style='padding-top: 3px'><contact-tags contact='contact'></contact-tags></div>
 
-			<div>
-				{{contact.born | bornFilter}}
-				<contact-tags contact="contact"></contact-tags>
-			</div>
 		</div>
     </li>
 </ul>
 
-<pinfo details="details"></pinfo>
+<pinfo details='details'></pinfo>
