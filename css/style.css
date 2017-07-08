@@ -48,3 +48,13 @@ ul.pinfo-list {
 ul.pinfo-list li {
     list-style: none;
 }
+
+.mg-section {
+	margin-top: 4px
+}
+
+.mg-title {
+    color: #080;
+	background-color: #fff;
+	padding: 0px 4px;
+}
