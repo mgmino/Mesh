@@ -22,3 +22,25 @@
 </ul>
 
 <pinfo details='details'></pinfo>
+
+
+<ul class='pinfo-list' ng-if='groups'>
+    <li ng-repeat="group in groups  ">
+		<div title='{{group.mdate}}'><b>{{group.type}}: {{group.org}}</b><span ng-if='group.cnt > 1'> ({{group.cnt}})</span></div>
+		<div ng-if='group.relation'><b>title</b>: {{group.relation}}</div>
+		<div ng-if='group.street'>{{group.street}}</div>
+
+		<div ng-if='group.state'>
+		<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
+		<img src='pix/map-pin.png' alt='map' title='map location'/></a>
+		{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}</div>
+
+		<pinfo details='group.details'></pinfo>
+    </li>
+</ul>
+
+<ul class='pinfo-list' ng-if='notes'>
+    <li ng-repeat="note in notes | orderBy: '-mdate' ">
+        <div style='white-space: pre-line'><b>{{note.mdate}}</b>: {{note.note}}</div>
+    </li>
+</ul>

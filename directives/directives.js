@@ -98,6 +98,7 @@ angular.module('directives', [])
     }
 }])
 
+
 .directive('contactImage', [function() {
     return {
         restrict: 'E',
