@@ -1,4 +1,40 @@
-<h4>Search keywords</h4>
-<p>note: org: rel[ation]: info: ginfo:<br />
-email: url: last: first: ph: sp[ouse]:<br />
-st[ate]: city: tag: str[eet]:</p>
+<div style='margin-left: 5px'>
+
+<h4 style='color: #8f8'> Search fields</h4>
+<table cellspacing='5'><tr>
+<td>note:<br />org:<br />rel[ation]:<br />info:<br />ginfo:</td>
+<td>email:<br />url:<br />last:<br />first:<br />ph:</td>
+<td>st[ate]:<br />city:<br />tag:<br />str[eet]:<br />sp[ouse]:</td></tr>
+</table>
+
+<h4 style='color: #8f8'>Search metacharacters</h4>
+<table>
+<tr><td colspan='2'><i>field</i>:search pattern; first/last name</td></tr>
+<tr><td>.</td><td>match any character</td></tr>
+<tr><td>?</td><td>match zero or one</td></tr>
+<tr><td>*</td><td>match zero or more</td></tr>
+<tr><td>+</td><td>match one or more</td></tr>
+<tr><td>{n}</td><td>match n times</td></tr>
+<tr><td>{m,n}</td><td>match m through n times</td></tr>
+<tr><td>{n,}</td><td>match n or more times</td></tr>
+<tr><td>^</td><td>beginning of string</td></tr>
+<tr><td>$</td><td>end of string</td></tr>
+<tr><td>[[:<:]]</td><td>match beginning of words</td></tr>
+<tr><td>[[:>:]]</td><td>match ending of words</td></tr>
+<tr><td valign='top'>[:class:]</td><td>match a character class<br />
+alnum - alphanumeric<br />
+alpha - letters<br />
+blank - whitespace<br />
+digit - number<br />
+lower - lowercase<br />
+punct - punctuation<br />
+space - space, \t, \n, \r<br />
+upper - uppercase<br />
+</td><tr>
+<tr><td>[abc]</td><td>match one of enclosed chars</td><tr>
+<tr><td>[a-c]</td><td>match any char in range</td><tr>
+<tr><td>[^xyz]</td><td>match any char not enclosed</td><tr>
+<tr><td>|</td><td>separates alternatives</td><tr>
+<tr><td>//</td><td>escape special characters</td><tr>
+</table>
+</div>
