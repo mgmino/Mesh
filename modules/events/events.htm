@@ -9,7 +9,7 @@
 
 <ul class='media-list'>
     <li class='media' ng-repeat="event in events | filterBy: ['fname', 'lname', 'event']: searchText">
-		<hr ng-if='dateline(event.event)' style='border-color: blue; border-width: 4px;' />
+		<hr ng-if='dateline($first, $index)' style='border-color: blue; border-width: 4px;' />
 		<div class='media-left'>
             <a ng-href='#!/detail/{{event.pid}}'>
                 <contact-image contact='event' size='thumb'></contact-image>

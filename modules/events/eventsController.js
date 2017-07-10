@@ -13,18 +13,25 @@ function($scope, $routeParams, queryService, alertService) {
 			});
 	}
 
-	$scope.dateline= function (event) {
-		if (looking && mm <= event.substr(5,2) && dd <= event.substr(8,2)) {
-			looking= false
-			console.log(event);
-			return true
+	$scope.dateline= function (first, index) {
+		if (first) {
+			var today= new Date();
+			var dd= today.getDate();
+			var mm= today.getMonth()+1; //January is 0
+			var looking= true;
+			$scope.events.forEach(function(onevent, index, looking) {
+				if (looking && mm >= onevent.event.substr(5,2) && dd >= onevent.event.substr(8,2)) {
+					$scope.eventNum= index;
+					looking= false;
+//					console.log(onevent.event+': '+index);
+				}
+			});
 		}
-		return false
+		return $scope.eventNum == index
 	}
+//		if ($scope.looking && $scope.mm >= event.substr(5,2) && $scope.dd >= event.substr(8,2)) {
+//			$scope.looking= false;
+//			console.log(event);
 
 	init();
-	var today= new Date();
-	var dd= today.getDate();
-	var mm= today.getMonth()+1; //January is 0
-	var looking= true
 }]);
