@@ -58,6 +58,16 @@
 
             <!-- Sidebar Menu -->
             <form class="sidebar-form">
+                <!-- Here is where the 2 way binding is done -->
+                <!-- The ng-model directive will keep both the view value and the controller variable in sync -->
+                <!-- When one changes, the other will be updated to match -->
+                <select class="form-control" ng-model="searchABCD.type">
+                    <option value="">-- Search Types --</option>
+                    <option value="Search Type 1 Text">Search Type 1 Text</option>
+                    <option value="Search Type 2 Text">Search Type 2 Text</option>
+                    <option value="Search Type 3 Text">Search Type 3 Text</option>
+                </select>
+
                 <div class="input-group">
                     <input type="text" class="form-control" ng-class="{'searchError': nc.customSearchError}" ng-change="nc.customSearchError=false" placeholder="Search..." spellcheck="false" ng-model="customSearchCriteria" title='note: org: rel[ation]: info: ginfo: email: url: last: first: ph: sp[ouse]: st[ate]: city: tag: str[eet]:'/>
                     <span class="input-group-btn">

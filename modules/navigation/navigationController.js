@@ -6,6 +6,13 @@ function ($scope, $location, alertService) {
     $scope.nc.customSearchError = false;
     $scope.customSearchCriteria = '';
 
+    // Created an object to track information about searches. This can be called anything.
+    // We could bind to a primitive (not an object) as well.
+    $scope.searchABCD = {
+        // This is the variable that is currently bound to the dropdown value using ng-model
+        type: ''
+    };
+
 	function init() {
 		// Removes potential pre-existing queries
 		$location.search('query', null);
