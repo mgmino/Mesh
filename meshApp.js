@@ -16,28 +16,32 @@ angular.module('meshApp', [
 
 .config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
     $routeProvider
-        .when('/', {
-            redirectTo: '/results/all'
+        .when("/", {
+            redirectTo: "/results/all"
         })
-        .when('/results/:filter', {
-            templateUrl: 'modules/results/results.html',
-            controller: 'resultsController'
+        .when("/results/:filter", {
+            templateUrl: "modules/results/results.html",
+            controller: "resultsController"
         })
-        .when('/detail/:cid', {
-            templateUrl: 'modules/detail/detail.htm',
-            controller: 'detailController'
+        .when("/detail/:cid", {
+            templateUrl: "modules/detail/detail.htm",
+            controller: "detailController"
         })
-        .when('/contact/:id', {
-            templateUrl: 'modules/contact/contact.html',
-            controller: 'contactController'
+        .when("/contact/:id", {
+            templateUrl: "modules/contact/contact.html",
+            controller: "contactController"
         })
-        .when('/events', {
-            templateUrl: 'modules/events/events.htm',
-            controller: 'eventsController'
+        .when("/events", {
+            templateUrl: "modules/events/events.htm",
+            controller: "eventsController"
         })
-        .when('/tools', {
-            templateUrl: 'modules/tools/tools.html',
-            controller: 'toolsController'
+        .when("/states", {
+            templateUrl: "modules/otherDBs/states.htm",
+            controller: "statesController"
+        })
+        .when("/tools", {
+            templateUrl: "modules/tools/tools.htm",
+            controller: "toolsController"
         })
         .when('/about', {
             templateUrl: 'modules/about.htm'
@@ -45,19 +49,19 @@ angular.module('meshApp', [
         .when('/tags', {
             templateUrl: 'modules/tags.htm'
         })
-         .when('/search', {
-            templateUrl: 'modules/tools/tools.html',
-            controller: 'toolsController'
+         .when("/search", {
+            templateUrl: "modules/tools/tools.html",
+            controller: "toolsController"
         })
          .when('/import', {
             templateUrl: 'modules/import.htm'
         })
-        .when('/login', {
-            templateUrl: 'modules/login/login.html',
-            controller: 'loginController'
+        .when("/login", {
+            templateUrl: "modules/login/login.html",
+            controller: "loginController"
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: "/"
         });
 }])
 
@@ -70,7 +74,7 @@ angular.module('meshApp', [
 
         // Keep user logged in after page refresh
         if (loginService.isLoggedIn()) {
-            console.log('Setting credentials for user from previous session');
+            console.log('mesh: Setting user credentials from previous session');
             var token = loginService.getToken();
             loginService.setHeaders(token);
         }
@@ -78,7 +82,7 @@ angular.module('meshApp', [
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             var goingToOpenRoute = $.inArray($location.path(), openRoutes) === 0;
             if (!goingToOpenRoute && !loginService.isLoggedIn()) {
-                console.log('Blocked route access to ' + $location.path());
+                console.log('mesh: Blocked route access to ' + $location.path());
                 // Cannot access restricted route without logging in
                 $location.path('/login');
             }
@@ -86,5 +90,8 @@ angular.module('meshApp', [
 
     }])
 
-//.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
-.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
+.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
+//.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
+
+//['PIX_URL', 'http://mgm.trakmark.com/mesh/photos']);
+//['PIX_URL', 'http://localhost']);

@@ -1,0 +1,29 @@
+<!--
+<div class='search-filter'>
+    <div class='input-group'>
+        <input type='text' class='form-control' placeholder='Filter' ng-model='searchText'>
+        <div class="input-group-addon">
+            <span ng-show='states'>{{(states | filterBy: ['state', 'capital', 'city']: searchText).length}}/{{states.length}}</span>
+        </div>
+    </div>
+</div>  -->
+
+<ul class='media-list'>
+    <li class='media' ng-repeat="state in states | filterBy: ['state', 'capital', 'city']: searchText">
+		<div class='media-left'>
+            <a ng-href='#!/detail/123'>
+                <img src='pix/naPhoto.gif'/>
+            </a>
+        </div>
+		<div class='media-body'>
+            <b class='title'>
+                {{state.state}} ({{state.abbrev}})
+            </b>
+		    <div>
+                {{state.capital}} / {{state.city}}<br />
+		        size: {{state.size}} sq miles<br />
+ 		        people: {{state.people}}<br />
+           </div>
+        </div>
+    </li>
+</ul>

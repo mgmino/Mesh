@@ -6,12 +6,7 @@ function ($scope, $location, alertService) {
     $scope.nc.customSearchError = false;
     $scope.customSearchCriteria = '';
 
-    // Created an object to track information about searches. This can be called anything.
-    // We could bind to a primitive (not an object) as well.
-    $scope.searchABCD = {
-        // This is the variable that is currently bound to the dropdown value using ng-model
-        type: ''
-    };
+    $scope.searchDB= 'Contacts';
 
 	function init() {
 		// Removes potential pre-existing queries
@@ -20,7 +15,20 @@ function ($scope, $location, alertService) {
 
     $scope.customSearch = function() {
         $scope.nc.customSearchError = false;
-        $location.path('/results/custom').search('query', $scope.customSearchCriteria);
+		switch ($scope.searchDB) {
+            case 'Quotes':
+				$location.path('/quotes').search('query', $scope.customSearchCriteria);
+                break;
+            case 'Accounts':
+				$location.path('/accounts').search('query', $scope.customSearchCriteria);
+                break;
+            case 'States':
+				$location.path('/states').search('query', $scope.customSearchCriteria);
+                break;
+//          case 'Contacts':
+            default:
+				$location.path('/results/custom').search('query', $scope.customSearchCriteria);
+		}
     };
 
     $scope.$on('$routeChangeSuccess', function(event, next, current){

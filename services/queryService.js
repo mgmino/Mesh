@@ -37,6 +37,16 @@ angular.module("services")
         }).then(processSuccess, processError);
     };
 
+    this.getStates= function(customQuery) {
+        return $http({
+            method : "POST",
+            url : API_URL,
+            data: {
+                op:	'states'
+            }
+        }).then(processSuccess, processError);
+    };
+
     this.getEvents= function() {
         return $http({
             method : "POST",

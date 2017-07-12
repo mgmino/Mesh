@@ -4,6 +4,7 @@
         <b>
             <a ng-switch-when='url' ng-href='http://{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
             <a ng-switch-when='eml' ng-href='mailto:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
+            <a ng-switch-when='cph' ng-href='tel:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
             <span  ng-switch-when='wed' ng-bind='detail.info | bornFilter'></span >
             <span ng-switch-default ng-bind='detail.info'></span>
         </b>
