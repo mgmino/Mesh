@@ -27,11 +27,7 @@ function($scope, $routeParams, queryService, alertService) {
 				}
 			});
 		}
-		return $scope.eventNum == index
-	}
-//		if ($scope.looking && $scope.mm >= event.substr(5,2) && $scope.dd >= event.substr(8,2)) {
-//			$scope.looking= false;
-//			console.log(event);
-
+		return $scope.eventNum == index;
+	};
 	init();
 }]);
