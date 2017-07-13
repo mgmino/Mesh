@@ -8,7 +8,6 @@ angular.module('meshApp', [
     'login',
     'navigation',
     'contact',
-    'states',
     'events',
     'tools',
     'results',
