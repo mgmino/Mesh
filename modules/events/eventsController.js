@@ -1,37 +1,48 @@
 angular.module('events', [])
-.controller('eventsController', ['$scope', '$routeParams', 'queryService', 'alertService',
-function($scope, $routeParams, queryService, alertService) {
+.controller('eventsController', ['$scope', '$routeParams', '$filter', 'queryService', 'alertService',
+function($scope, $routeParams, $filter, queryService, alertService) {
+
+	$scope.events = [];
+	$scope.searchText = '';
 
 	function init() {
 		queryService.getEvents().then(
 			function (events) {
-				$scope.events= events;
+				$scope.events = events;
 			},
 			function (error) {
-				$scope.events= [];
 				alertService.addAlert(alertService.TYPE.DANGER, 'Could not find events', 5000);
 			});
 	}
 
-	$scope.dateline= function (first, index) {
-		if (first) {
-			var today= new Date();
-			var dd= today.getDate();
-			var mm= today.getMonth()+1; //January is 0
-			var looking= true;
-			$scope.events.forEach(function(onevent, index, looking) {
-				if (looking && mm >= onevent.event.substr(5,2) && dd >= onevent.event.substr(8,2)) {
-					$scope.eventNum= index;
-					looking= false;
-//					console.log(onevent.event+': '+index);
-				}
-			});
-		}
-		return $scope.eventNum == index
+	$scope.firstEventAfterToday = function(eventInQuestion) {
+		var displayedEvents = $filter('filterBy')($scope.events, ['fname', 'lname', 'event'], $scope.searchText);
+
+		var firstEventPid = null;
+		angular.forEach(displayedEvents, function(event) {
+			if (firstEventPid !== null) return;
+			if (afterOrEqualToToday(event)) {
+				firstEventPid = event.pid;
+			}
+		});
+		return eventInQuestion.pid === firstEventPid;
+	};
+
+	function getDay(event) {
+		return parseInt(event.event.substr(8,2), 10);
 	}
-//		if ($scope.looking && $scope.mm >= event.substr(5,2) && $scope.dd >= event.substr(8,2)) {
-//			$scope.looking= false;
-//			console.log(event);
+
+	function getMonth(event) {
+		return parseInt(event.event.substr(5,2), 10);
+	}
+
+	function afterOrEqualToToday(event) {
+		var today = new Date();
+		var day = today.getDate();
+		var month = today.getMonth()+1; //January is 0
+		return (getMonth(event) > month) || (getMonth(event) === month && getDay(event) >= day);
+	}
 
 	init();
+
 }]);
