@@ -11,7 +11,8 @@ angular.module('meshApp', [
     'events',
     'tools',
     'results',
-    'detail'
+    'detail',
+    'states'
 ])
 
 .config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
@@ -90,8 +91,8 @@ angular.module('meshApp', [
 
     }])
 
-.constant ('API_URL', 'http://mgm2.trakmark.com/mesh-api.php');
-//.constant ('API_URL', 'http://localhost:80/mesh-api/mesh-api.php');
+.constant('API_URL', 'http://mgm2.trakmark.com/mesh-api.php')
+//.constant('API_URL', 'http://localhost:80/mesh-api/mesh-api.php')
 
-//['PIX_URL', 'http://mgm.trakmark.com/mesh/photos']);
-//['PIX_URL', 'http://localhost']);
+.constant('PIX_URL', 'http://mgm.trakmark.com/mesh/photos');
+//.constant('PIX_URL', 'pix');

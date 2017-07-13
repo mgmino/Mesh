@@ -1,1 +1,5 @@
-<img ng-src='http://mgm.trakmark.com/mesh/photos/{{contact.pix}}' class='media-pix-{{size}}' onerror="this.src='pix/misPhoto.gif'" alt='Person photo' title='{{contact.cdate | date}} - {{contact.mdate | date}} - {{contact.pix}}'/>
+<img ng-src='{{PIX_URL}}/{{contact.pix}}'
+     class='media-pix-{{size}}'
+     onerror="this.src='pix/misPhoto.gif'"
+     alt='Person photo'
+     title='{{contact.cdate | date}} - {{contact.mdate | date}} - {{contact.pix}}'/>
