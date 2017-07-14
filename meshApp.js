@@ -19,7 +19,7 @@ angular.module('meshApp', [
 .config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
     $routeProvider
         .when("/", {
-            redirectTo: "/results/all"
+            redirectTo: "/results/favorites"
         })
         .when("/results/:filter", {
             templateUrl: "modules/results/results.html",
