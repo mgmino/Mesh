@@ -12,17 +12,19 @@
     <li class='media' ng-repeat="state in states | filterBy: ['state', 'capital', 'city']: searchText">
 		<div class='media-left'>
             <a ng-href='#!/detail/123'>
-                <img src='pix/naPhoto.gif'/>
+                <img src='../pix/flags/{{state.abbrev}}.png' width='100'/>
             </a>
         </div>
 		<div class='media-body'>
             <b class='title'>
                 {{state.state}} ({{state.abbrev}})
             </b>
+                <i>{{state.capital}}</i> / {{state.city}}
 		    <div>
-                {{state.capital}} / {{state.city}}<br />
-		        size: {{state.size}} sq miles<br />
- 		        people: {{state.people}}<br />
+		        <b style='color: #44f'>size</b>: {{state.size | number : 0}} sq miles,
+ 		        <b style='color: #44f'>people</b>: {{state.people | number : 0}} ({{state.people / state.size | number : 1}} / sq mile)<br />
+				<i>{{state.nick}}</i><br />
+				{{state.bird}}; {{state.tree}}; {{state.flower}}
            </div>
         </div>
     </li>
