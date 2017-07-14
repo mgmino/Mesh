@@ -1,4 +1,3 @@
-<!--
 <div class='search-filter'>
     <div class='input-group'>
         <input type='text' class='form-control' placeholder='Filter' ng-model='searchText'>
@@ -6,25 +5,23 @@
             <span ng-show='states'>{{(states | filterBy: ['state', 'capital', 'city']: searchText).length}}/{{states.length}}</span>
         </div>
     </div>
-</div>  -->
+</div>
 
 <ul class='media-list'>
     <li class='media' ng-repeat="state in states | filterBy: ['state', 'capital', 'city']: searchText">
 		<div class='media-left'>
-            <a ng-href='#!/detail/123'>
-                <img src='../pix/flags/{{state.abbrev}}.png' width='100'/>
-            </a>
+            <img src='../pix/flags/{{state.abbrev}}.png' width='100' title='{{state.motto}}'/>
         </div>
 		<div class='media-body'>
             <b class='title'>
                 {{state.state}} ({{state.abbrev}})
-            </b>
-                <i>{{state.capital}}</i> / {{state.city}}
+            </b> &nbsp; <i>{{state.nick}}</i>
+                
 		    <div>
-		        <b style='color: #44f'>size</b>: {{state.size | number : 0}} sq miles,
- 		        <b style='color: #44f'>people</b>: {{state.people | number : 0}} ({{state.people / state.size | number : 1}} / sq mile)<br />
-				<i>{{state.nick}}</i><br />
-				{{state.bird}}; {{state.tree}}; {{state.flower}}
+				<i>{{state.capital}}</i> &bull; {{state.city}}<br />
+		        <b style='color: #2c2'>size</b>: {{state.size | number : 0}} sq mi &nbsp;
+ 		        <b style='color: #2c2'>people</b>: {{state.people | number : 0}} ({{state.people / state.size | number : 1}} / sq mi)<br />
+				{{state.bird}} &bull; {{state.tree}} &bull; {{state.flower}}
            </div>
         </div>
     </li>
