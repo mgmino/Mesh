@@ -392,72 +392,69 @@ function _init() {
         var screenSizes = $.AdminLTE.options.screenSizes;
         $(document).off('click', menu + ' li a')
             .on('click', menu + ' li a', function (e) {
-                //Get the clicked link and the next element
                 var $this = $(this);
                 var checkElement = $this.next();
-                var parent = $this.parents('ul').first();
-                var parents = $this.parentsUntil('.sidebar-menu', 'ul');
-                var ul = parent.find('ul:visible');
+                var parentUL = $this.parents('ul').first();
+                var parentULs = $this.parentsUntil('.sidebar-menu', 'ul');
+                var parentUL_visible = parentUL.find('ul:visible');
                 var sidebar = $(menu);
                 var parent_li = $this.parent('li');
 
                 // SLIDE UP
-                if ((checkElement.is('.treeview-menu')) && (checkElement.is(':visible')) && (!$('body').hasClass('sidebar-collapse'))) {
-                    //Close the menu
+                if (checkElement.is('.treeview-menu') && checkElement.is(':visible') && !$('body').hasClass('sidebar-collapse')) {
                     checkElement.slideUp(animationSpeed, function () {
                         checkElement.removeClass('menu-open');
-                        //Fix the layout in case the sidebar stretches over the height of the window
-                        //_this.layout.fix();
                     });
-                    checkElement.parent("li").removeClass("active");
                 }
 
                 // SLIDE DOWN
-                else if ((checkElement.is('.treeview-menu')) && (!checkElement.is(':visible'))) {
-                    //Get the parent menu
-                    //Close all open menus within the parent
-                    ul.slideUp(animationSpeed);
-                    //Remove the menu-open class from the parent
-                    ul.removeClass('menu-open');
+                else if (checkElement.is('.treeview-menu') && !checkElement.is(':visible')) {
+                    // Close all open menus
+                    parentUL_visible.slideUp(animationSpeed);
+                    parentUL_visible.removeClass('menu-open');
 
-                    //Open the target menu and add the menu-open class
+                    // Open the target menu and add the menu-open class
                     checkElement.slideDown(animationSpeed, function () {
-                        //Add the class active to the parent li
                         checkElement.addClass('menu-open');
-                        parent.find('li.active').removeClass('active');
-                        parent_li.addClass('active');
-                        //Fix the layout in case the sidebar stretches over the height of the window
+                        // Fix the layout in case the sidebar stretches over the height of the window
                         _this.layout.fix();
                     });
                 }
 
-                // CLICKING A LINK
-                else {
-                    //Close other navigation groups
-                    ul.slideUp(animationSpeed);
-                    ul.removeClass('menu-open');
-                    sidebar.find('li.active').removeClass('active');
+                // CLICKING A TREEVIEW LINK
+                else if (parentULs.length > 0) {
+                    // Unselect previous options
+                    sidebar.find('li.active').not('treeview').removeClass('active');
 
-                    // Not a treeview
-                    if (parents.length==0) {
-                        parent_li.addClass('active');
-                    }
+                    // Select the option and tree hierarchy
+                    $this.parentsUntil('.sidebar-menu', 'li').addClass('active');
 
-                    parents.slideDown(animationSpeed, function () {
-                        // Need to ensure higher-level <li> tags are considered 'active'
-                        $this.parentsUntil('.sidebar-menu', 'li').addClass('active');
-                    });
-
-
-                    //Fix the layout in case the sidebar stretches over the height of the window
+                    // Fix the layout in case the sidebar stretches over the height of the window
                     _this.layout.fix();
                 }
 
-                //if this isn't a link, prevent the page from being redirected
+                // CLICKING A STANDALONE LINK
+                else {
+                    // Unselect previous options
+                    sidebar.find('li.active').removeClass('active');
+
+                    // Close other navigation groups
+                    parentUL_visible.slideUp(animationSpeed);
+                    parentUL_visible.removeClass('menu-open');
+
+                    // Select the option
+                    parent_li.addClass('active');
+
+                    // Fix the layout in case the sidebar stretches over the height of the window
+                    _this.layout.fix();
+                }
+
+
+                // If this isn't a link, prevent the page from being redirected
                 if (checkElement.is('.treeview-menu')) {
                     e.preventDefault();
                 } else if ($(window).width() < screenSizes.sm) {
-                    $("body").removeClass("sidebar-open").addClass("sidebar-collapse");
+                    $('body').removeClass('sidebar-open').addClass('sidebar-collapse');
                 }
 
             });
