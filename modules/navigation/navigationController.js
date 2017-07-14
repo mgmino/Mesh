@@ -25,6 +25,9 @@ function ($scope, $location, alertService) {
             case 'States':
 				$location.path('/states').search('query', $scope.customSearchCriteria);
                 break;
+            case 'Countries':
+				$location.path('/countries').search('query', $scope.customSearchCriteria);
+                break;
 //          case 'Contacts':
             default:
 				$location.path('/results/custom').search('query', $scope.customSearchCriteria);

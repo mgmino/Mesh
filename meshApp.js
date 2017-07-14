@@ -12,7 +12,8 @@ angular.module('meshApp', [
     'tools',
     'results',
     'detail',
-    'states'
+    'states',
+	'countries'
 ])
 
 .config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
@@ -39,6 +40,10 @@ angular.module('meshApp', [
         .when("/states", {
             templateUrl: "modules/otherDBs/states.htm",
             controller: "statesController"
+        })
+        .when("/countries", {
+            templateUrl: "modules/otherDBs/countries.htm",
+            controller: "countriesController"
         })
         .when("/tools", {
             templateUrl: "modules/tools/tools.htm",

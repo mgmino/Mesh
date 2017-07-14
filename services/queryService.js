@@ -47,6 +47,16 @@ angular.module("services")
         }).then(processSuccess, processError);
     };
 
+    this.getCountries= function(customQuery) {
+        return $http({
+            method : "POST",
+            url : API_URL,
+            data: {
+                op:	'countries'
+            }
+        }).then(processSuccess, processError);
+    };
+
     this.getEvents= function() {
         return $http({
             method : "POST",
