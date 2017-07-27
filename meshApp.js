@@ -45,19 +45,18 @@ angular.module('meshApp', [
             templateUrl: "modules/otherDBs/countries.htm",
             controller: "countriesController"
         })
-        .when("/tools", {
-            templateUrl: "modules/tools/tools.htm",
-            controller: "toolsController"
+        .when("/tools/utilities", {
+            templateUrl: "modules/tools/utilities.htm"
         })
-        .when('/tags', {
-            templateUrl: 'modules/tags.htm'
+        .when('/tools/tags', {
+            templateUrl: 'modules/tools/tags.htm'
         })
-         .when("/search", {
+        .when('/tools/import', {
+            templateUrl: 'modules/tools/import.htm'
+        })
+        .when("/search", {
             templateUrl: "modules/tools/tools.html",
             controller: "toolsController"
-        })
-         .when('/import', {
-            templateUrl: 'modules/import.htm'
         })
         .when("/login", {
             templateUrl: "modules/login/login.html",
