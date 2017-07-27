@@ -100,4 +100,4 @@ angular.module('meshApp', [
 //.constant('API_URL', 'http://localhost:80/mesh-api/mesh-api.php')
 
 .constant('PIX_URL', 'http://mgm.trakmark.com/mesh/photos');
-//.constant('PIX_URL', 'pix');
+//.constant('PIX_URL', 'assets/img/pix');
