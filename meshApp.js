@@ -49,9 +49,6 @@ angular.module('meshApp', [
             templateUrl: "modules/tools/tools.htm",
             controller: "toolsController"
         })
-        .when('/about', {
-            templateUrl: 'modules/about.htm'
-        })
         .when('/tags', {
             templateUrl: 'modules/tags.htm'
         })
