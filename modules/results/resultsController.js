@@ -28,13 +28,13 @@ function($scope, $routeParams, $location, queryService, alertService) {
             case 'custom':
                 var query = $routeParams.query;
                 // Empty query given
-                if (!query || query.length == 0) {
+                if (!query || query.length === 0) {
                     $location.path('/').search('query', null);
                     return;
                 }
                 queryService.getCustomResults(query).then(
                     function (contacts) {
-                        if (contacts.length == 0) {
+                        if (contacts.length === 0) {
                             alertService.addAlert(alertService.TYPE.INFO, 'No contacts matched this query.', 1000);
                         }
                         $scope.results = contacts;

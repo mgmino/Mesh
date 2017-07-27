@@ -18,35 +18,35 @@ angular.module('meshApp', [
 
 .config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
     $routeProvider
-        .when("/", {
-            redirectTo: "/results/favorites"
+        .when('/', {
+            redirectTo: '/results/favorites'
         })
-        .when("/results/:filter", {
-            templateUrl: "modules/results/results.html",
-            controller: "resultsController"
+        .when('/results/:filter', {
+            templateUrl: 'modules/results/results.html',
+            controller: 'resultsController'
         })
-        .when("/detail/:cid", {
-            templateUrl: "modules/detail/detail.htm",
-            controller: "detailController"
+        .when('/detail/:cid', {
+            templateUrl: 'modules/detail/detail.htm',
+            controller: 'detailController'
         })
-        .when("/contact/:id", {
-            templateUrl: "modules/contact/contact.html",
-            controller: "contactController"
+        .when('/contact/:id', {
+            templateUrl: 'modules/contact/contact.html',
+            controller: 'contactController'
         })
-        .when("/events", {
-            templateUrl: "modules/events/events.htm",
-            controller: "eventsController"
+        .when('/events', {
+            templateUrl: 'modules/events/events.htm',
+            controller: 'eventsController'
         })
-        .when("/states", {
-            templateUrl: "modules/otherDBs/states.htm",
-            controller: "statesController"
+        .when('/states', {
+            templateUrl: 'modules/otherDBs/states.htm',
+            controller: 'statesController'
         })
-        .when("/countries", {
-            templateUrl: "modules/otherDBs/countries.htm",
-            controller: "countriesController"
+        .when('/countries', {
+            templateUrl: 'modules/otherDBs/countries.htm',
+            controller: 'countriesController'
         })
-        .when("/tools/utilities", {
-            templateUrl: "modules/tools/utilities.htm"
+        .when('/tools/utilities', {
+            templateUrl: 'modules/tools/utilities.htm'
         })
         .when('/tools/tags', {
             templateUrl: 'modules/tools/tags.htm'
@@ -54,16 +54,16 @@ angular.module('meshApp', [
         .when('/tools/import', {
             templateUrl: 'modules/tools/import.htm'
         })
-        .when("/search", {
-            templateUrl: "modules/tools/tools.html",
-            controller: "toolsController"
+        .when('/search', {
+            templateUrl: 'modules/tools/tools.html',
+            controller: 'toolsController'
         })
-        .when("/login", {
-            templateUrl: "modules/login/login.html",
-            controller: "loginController"
+        .when('/login', {
+            templateUrl: 'modules/login/login.html',
+            controller: 'loginController'
         })
         .otherwise({
-            redirectTo: "/"
+            redirectTo: '/'
         });
 }])
 

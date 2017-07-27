@@ -12,7 +12,7 @@ angular.module('directives', [])
             function firstName() {
                 var name= angular.copy(scope.fname);
                 var space_index= name.indexOf(' ');
-                return space_index == -1 ? name : name.substr(0, space_index);
+                return space_index === -1 ? name : name.substr(0, space_index);
             }
             scope.linkedInLink= 'https://www.linkedin.com/search/results/index/?keywords=' +firstName() +'%20' +scope.lname;
         }
@@ -32,7 +32,7 @@ angular.module('directives', [])
             function firstName() {
                 var name= angular.copy(scope.fname);
                 var space_index= name.indexOf(' ');
-                return space_index == -1 ? name : name.substr(0, space_index);
+                return space_index === -1 ? name : name.substr(0, space_index);
             }
             scope.ClemsonLink= 'https://my.clemson.edu/#/directory/search/' +firstName() +'%20' +scope.lname;
         }
@@ -52,7 +52,7 @@ angular.module('directives', [])
             function firstName() {
                 var name= angular.copy(scope.fname);
                 var space_index= name.indexOf(' ');
-                return space_index == -1 ? name : name.substr(0, space_index);
+                return space_index === -1 ? name : name.substr(0, space_index);
             }
             scope.GoogleLink= 'https://www.google.com/search?q=' +firstName() +'+' +scope.lname;
         }

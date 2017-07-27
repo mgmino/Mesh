@@ -36,7 +36,7 @@ function ($scope, $location, alertService) {
 
     $scope.$on('$routeChangeSuccess', function(event, next, current){
         alertService.dismissAlerts();
-        if ($location.path() == '/login') {
+        if ($location.path() === '/login') {
             $('body').addClass('login-page');
         } else {
             $('body').removeClass('login-page');
