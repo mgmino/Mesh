@@ -22,7 +22,7 @@ angular.module('services')
             data: {
                 fld:    'tags',
                 op:     'like',
-                itm:    'LAK'
+                itm:    '%LAK%'
             }
         }).then(processSuccess, processError);
     };

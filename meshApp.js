@@ -22,7 +22,7 @@ angular.module('meshApp', [
             redirectTo: '/results/favorites'
         })
         .when('/results/:filter', {
-            templateUrl: 'modules/results/results.html',
+            templateUrl: 'modules/results/results.htm',
             controller: 'resultsController'
         })
         .when('/detail/:cid', {
@@ -30,7 +30,7 @@ angular.module('meshApp', [
             controller: 'detailController'
         })
         .when('/contact/:id', {
-            templateUrl: 'modules/contact/contact.html',
+            templateUrl: 'modules/contact/contact.htm',
             controller: 'contactController'
         })
         .when('/events', {
@@ -59,7 +59,7 @@ angular.module('meshApp', [
             controller: 'toolsController'
         })
         .when('/login', {
-            templateUrl: 'modules/login/login.html',
+            templateUrl: 'modules/login/login.htm',
             controller: 'loginController'
         })
         .otherwise({
@@ -92,8 +92,8 @@ angular.module('meshApp', [
 
     }])
 
-.constant('API_URL', 'http://mgm2.trakmark.com/mesh-api.php')
-//.constant('API_URL', 'http://localhost:80/mesh-api/mesh-api.php')
+//.constant('API_URL', 'http://mgm2.trakmark.com/mesh-api.php')
+.constant('API_URL', 'http://localhost:80/mesh-api/mesh-api.php')
 
-.constant('PIX_URL', 'http://mgm.trakmark.com/mesh/photos');
-//.constant('PIX_URL', 'assets/img/pix');
+//.constant('PIX_URL', 'http://mgm.trakmark.com/mesh/photos');
+.constant('PIX_URL', '../../inc/photos');

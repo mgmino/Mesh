@@ -31,9 +31,9 @@
 		<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
 		<div ng-if='group.street'>{{group.street}}</div>
 
-		<div ng-if='group.state'>{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}
+		<div ng-if='group.city'>{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}
 		<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
-		<img src='pix/map-pin.png' alt='map' title='map location'/></a>
+		<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/></a>
 		</div>
 
 		<pinfo details='group.details'></pinfo>
