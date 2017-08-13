@@ -1,0 +1,32 @@
+index.htm
+meshApp.js		module and routes
+
+shared/			reusable components/directives or partials
+---- _filters.js
+---- _appDirectives.js
+---- _contactDirectives.htm
+---- appAlertBox.htm
+---- contactTags.htm
+
+components/		each component is treated as a mini Angular app
+---- home/
+--------- homeController.js
+--------- homeService.js
+--------- homeView.html
+---- blog/
+--------- blogController.js
+--------- blogService.js
+--------- blogView.html
+
+assets/
+----- img/      Images and icons for your app
+----- css/      All styles and style related files (SCSS or LESS files)
+----- js/       JavaScript files written for your app that are not for angular
+----- lib/		Third-party libraries such as jQuery, Moment, Underscore, etc.
+
+docs/
+
+
+Controllers: controllers attach and manage values/functionality tied to the $scope. Ultimately $scope tends to be heavily presentation driven. IE its a view model.
+Services: services tend to tie in infrastructure, backend, or other browser features
+Directives: directives allow you to integrate with DOM events/functionality not handled by existing handlers.

@@ -22,19 +22,19 @@ angular.module('meshApp', [
             redirectTo: '/results/favorites'
         })
         .when('/results/:filter', {
-            templateUrl: 'modules/results/results.htm',
+            templateUrl: 'modules/contacts/results.htm',
             controller: 'resultsController'
         })
         .when('/detail/:cid', {
-            templateUrl: 'modules/detail/detail.htm',
+            templateUrl: 'modules/contacts/detail.htm',
             controller: 'detailController'
         })
         .when('/contact/:id', {
-            templateUrl: 'modules/contact/contact.htm',
+            templateUrl: 'modules/contacts/contact.htm',
             controller: 'contactController'
         })
         .when('/events', {
-            templateUrl: 'modules/events/events.htm',
+            templateUrl: 'modules/contacts/events.htm',
             controller: 'eventsController'
         })
         .when('/states', {
@@ -53,10 +53,6 @@ angular.module('meshApp', [
         })
         .when('/tools/import', {
             templateUrl: 'modules/tools/import.htm'
-        })
-        .when('/search', {
-            templateUrl: 'modules/tools/tools.html',
-            controller: 'toolsController'
         })
         .when('/login', {
             templateUrl: 'modules/login/login.htm',

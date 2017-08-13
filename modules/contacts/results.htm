@@ -18,7 +18,7 @@
                 {{contact.fname}} {{contact.lname}}
                 <i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
             </b>
-            <linked-in fname="contact.fname" lname="contact.lname"></linked-in>
+            <contact-linked-in fname="contact.fname" lname="contact.lname"></contact-linked-in>
 		    <div>
                 {{contact.born | bornFilter}}
 		        <contact-tags contact="contact"></contact-tags>
