@@ -10,9 +10,9 @@
 				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
 			</b>
 			<div style='padding-top: 3px'>
-			<mg-linked-in fname='contact.fname' lname='contact.lname'></mg-linked-in>
-			<mg-clemson fname='contact.fname' lname='contact.lname'></mg-clemson>
-			<mg-google fname='contact.fname' lname='contact.lname'></mg-google></div>
+			<contact-linked-in fname='contact.fname' lname='contact.lname'></contact-linked-in>
+			<contact-clemson fname='contact.fname' lname='contact.lname'></contact-clemson>
+			<contact-google fname='contact.fname' lname='contact.lname'></contact-google></div>
 
 			<div style='padding-top: 3px'>{{contact.born | bornFilter}}</div>
 			<div style='padding-top: 3px'><contact-tags contact='contact'></contact-tags></div>
@@ -21,7 +21,7 @@
     </li>
 </ul>
 
-<pinfo details='details'></pinfo>
+<contact-info details='details'></contact-info>
 
 
 <ul class='pinfo-list' ng-if='groups'>
@@ -36,7 +36,7 @@
 		<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/></a>
 		</div>
 
-		<pinfo details='group.details'></pinfo>
+		<contact-info details='group.details'></contact-info>
     </li>
 </ul>
 

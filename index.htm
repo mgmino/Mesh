@@ -117,7 +117,7 @@
 
     <!-- Content Wrapper - page content -->
     <div class="content-wrapper">
-        <alert-box></alert-box>
+        <app-alert-box></app-alert-box>
         <section class="content">
             <div ng-view><!-- Injected with AngularJS --></div>
         </section>
@@ -141,48 +141,39 @@
 
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
     <!-- Slim Scroll -->
-    <script src="assets/plugins/slimscroll.min.js"></script>
+    <script src='assets/lib/slimscroll.min.js'></script>
     <!-- Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <!-- Admin LTE v2.3.7 adminlte.io/docs -->
-    <script src="assets/plugins/admin_lte.js"></script>
+    <script src='assets/lib/admin_lte.js'></script>
     <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.min.js'></script>
 
     <!-- Angular Services Module -->
-    <script src="services/_services.js"></script>
-    <script src="services/alertService.js"></script>
-    <script src="services/queryService.js"></script>
-    <script src="services/loginService.js"></script>
-    <script src="services/jwtService.js"></script>
-    <!-- Angular Filters Module -->
-    <script src="filters/_filtersModule.js"></script>
-    <script src="filters/ageFilter.js"></script>
-    <script src="filters/bornFilter.js"></script>
-    <!-- Angular Directives Module -->
-    <script src="directives/_directivesModule.js"></script>
-    <script src="directives/alertBox.js"></script>
-    <script src="directives/contactImage.js"></script>
-    <script src="directives/contactTags.js"></script>
-    <script src="directives/mgClemson.js"></script>
-    <script src="directives/mgGoogle.js"></script>
-    <script src="directives/mgLinkedIn.js"></script>
-    <script src="directives/pinfo.js"></script>
+    <script src='services/_services.js'></script>
+    <script src='services/alertService.js'></script>
+    <script src='services/queryService.js'></script>
+    <script src='services/loginService.js'></script>
+    <script src='services/jwtService.js'></script>
+    <!-- Angular Filters and Directives-->
+    <script src='shared/_filters.js'></script>
+    <script src='shared/_appDirectives.js'></script>
+    <script src='shared/_contactDirectives.js'></script>
     <!-- Individual Modules -->
-    <script src="modules/login/loginController.js"></script>
-    <script src="modules/navigation/navigationController.js"></script>
-    <script src="modules/contact/contactController.js"></script>
-    <script src="modules/results/resultsController.js"></script>
-    <script src="modules/detail/detailController.js"></script>
-    <script src="modules/events/eventsController.js"></script>
-    <script src="modules/tools/_toolsModule.js"></script>
-    <script src="modules/tools/importController.js"></script>
-    <script src="modules/otherDBs/otherControllers.js"></script>
+    <script src='modules/login/loginController.js'></script>
+    <script src='modules/navigation/navigationController.js'></script>
+    <script src='modules/contact/contactController.js'></script>
+    <script src='modules/results/resultsController.js'></script>
+    <script src='modules/detail/detailController.js'></script>
+    <script src='modules/events/eventsController.js'></script>
+    <script src='modules/tools/_toolsModule.js'></script>
+    <script src='modules/tools/importController.js'></script>
+    <script src='modules/otherDBs/otherControllers.js'></script>
 
     <!-- Angular Main Module -->
     <script src="meshApp.js"></script>
