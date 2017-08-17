@@ -2,7 +2,7 @@ angular.module('directives')
 .directive('contactImage', ['PIX_URL', function(PIX_URL) {
     return {
         restrict: 'E',
-        templateUrl: 'shared/contactImage.htm',
+        templateUrl: 'modules/contacts/contactImage.htm',
         scope: {
             contact: '=',
             size: '@'
@@ -17,7 +17,7 @@ angular.module('directives')
 .directive('contactGoogle', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'shared/contactGoogle.htm',
+        templateUrl: 'modules/contacts/contactGoogle.htm',
         scope: {
             fname: '=',
             lname: '='
@@ -37,7 +37,7 @@ angular.module('directives')
 .directive('contactLinkedIn', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'shared/contactLinkedIn.htm',
+        templateUrl: 'modules/contacts/contactLinkedIn.htm',
         scope: {
             fname: '=',
             lname: '='
@@ -57,7 +57,7 @@ angular.module('directives')
 .directive('contactClemson', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'shared/contactClemson.htm',
+        templateUrl: 'modules/contacts/contactClemson.htm',
         scope: {
             fname: '=',
             lname: '='
@@ -77,7 +77,7 @@ angular.module('directives')
 .directive('contactTags', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'shared/contactTags.htm',
+        templateUrl: 'modules/contacts/contactTags.htm',
         scope: {
             contact: '='
         }
@@ -88,7 +88,7 @@ angular.module('directives')
 .directive('contactInfo', [function() {
     return {
         restrict: 'E',
-        templateUrl: 'shared/contactInfo.htm',
+        templateUrl: 'modules/contacts/contactInfo.htm',
         scope: {
             details: '='
         }
