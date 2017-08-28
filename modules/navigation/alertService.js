@@ -1,4 +1,5 @@
-angular.module('services').service('alertService', ['$timeout', '$rootScope', function ($timeout, $rootScope) {
+angular.module('services')
+.service('alertService', ['$timeout', '$rootScope', function ($timeout, $rootScope) {
 
     /**
      * If not specified, alerts will remain for this many milliseconds.

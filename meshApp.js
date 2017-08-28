@@ -37,6 +37,10 @@ angular.module('meshApp', [
             templateUrl: 'modules/contacts/events.htm',
             controller: 'eventsController'
         })
+        .when('/addcontact', {
+            templateUrl: 'modules/contacts/addContact.htm',
+            controller: 'addContactController'
+        })
         .when('/states', {
             templateUrl: 'modules/otherDBs/states.htm',
             controller: 'statesController'

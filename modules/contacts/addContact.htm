@@ -1,0 +1,27 @@
+    <div class="input-field">
+        <label for="nick_input">Nick</label>
+        <input id="nick_input" type="text" class="validate" ng-model="contact.nick">
+    </div>
+    <div class="input-field">
+        <label for="fname_input">First Name</label>
+        <input id="fname_input" type="text" class="validate" ng-model="contact.fname">
+    </div>
+    <div class="input-field">
+        <label for="lname_input">Last Name</label>
+        <input id="lname_input" type="text" class="validate" ng-model="contact.lname">
+    </div>
+    <div class="input-field">
+        <label for="born_input">Born</label>
+        <input id="born_input" type="date" class="validate" ng-model="contact.born">
+    </div>
+    <div class="input-field">
+        <label for="sex_input">Gender</label>
+        <input id="sex_input" type="radio" class="validate" ng-model="contact.sex" value='Male'> Male
+        <input id="sex_input" type="radio" class="validate" ng-model="contact.sex" value='Female'> Female
+    </div>
+    <div class="input-field">
+        <label for="tags_input">Tags</label>
+        <input id="tags_input" type="text" class="validate" ng-model="contact.tags">
+    </div>
+	{{contact}}
+	<div ng-click='addContact()'>Add Contact</div>

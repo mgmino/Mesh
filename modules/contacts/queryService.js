@@ -1,12 +1,12 @@
 angular.module('services')
-.service('queryService', ['$http', '$location', 'API_URL', function($http, $location, API_URL) {
+.service('queryService', ['$scope', '$http', '$location', function($scope, $http, $location) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
     this.getAllContacts = function() {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 fld:    'lname',
                 op:     'eq',
@@ -18,7 +18,7 @@ angular.module('services')
     this.getFavorites = function() {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 fld:    'tags',
                 op:     'like',
@@ -30,7 +30,7 @@ angular.module('services')
     this.getView = function(view) {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 op:	view
             }
@@ -40,7 +40,7 @@ angular.module('services')
     this.getStates= function(customQuery) {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 op:	'states'
             }
@@ -50,7 +50,7 @@ angular.module('services')
     this.getCountries= function(customQuery) {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 op:	'countries'
             }
@@ -60,9 +60,20 @@ angular.module('services')
     this.getEvents= function() {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 op:	'events'
+            }
+        }).then(processSuccess, processError);
+    };
+
+    this.createContact= function(contact) {
+        return $http({
+            method : 'POST',
+            url : $scope.nc.apiUrl,
+            data: {
+                op:	'createContact',
+                contact: contact
             }
         }).then(processSuccess, processError);
     };
@@ -70,7 +81,7 @@ angular.module('services')
     this.getContactById = function(id) {
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 op:     'id',
                 itm:    id
@@ -99,7 +110,7 @@ angular.module('services')
 		}
         return $http({
             method : 'POST',
-            url : API_URL,
+            url : $scope.nc.apiUrl,
             data: {
                 op:     optype,
                 fld:    queryfield,
