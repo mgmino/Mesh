@@ -1,13 +1,13 @@
 angular.module('contact', [])
-.controller('addContactController', ['$scope', 'queryService', 
-function($scope, queryService) {
+.controller('addContactController', ['$scope', 'queryService', 'alertService',
+function($scope, queryService, alertService) {
 	
 	$scope.contact= {};
 	
 	$scope.addContact = function() {
 		queryService.createContact($scope.contact).then(
             function (msg) {
-                alertService.addAlert(alertService.TYPE.INFO, msg, 2000);
+                alertService.addAlert(alertService.TYPE.INFO, msg, 5000);
             },
             function (error) {
                 alertService.addAlert(alertService.TYPE.WARNING, error);

@@ -1,5 +1,5 @@
 angular.module('directives')
-.directive('contactImage', ['PIX_URL', function(PIX_URL) {
+.directive('contactImage', ['toggleService', function(toggleService) {
     return {
         restrict: 'E',
         templateUrl: 'modules/contacts/contactImage.htm',
@@ -8,7 +8,7 @@ angular.module('directives')
             size: '@'
         },
         link: function(scope, elems, attrs) {
-            scope.PIX_URL = PIX_URL;
+            scope.PIX_URL = toggleService.getPIX();
         }
     }
 }]);

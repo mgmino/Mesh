@@ -46,8 +46,8 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Control Sidebar Toggle Button -->
-                   <li><a href="" ng-show="isRemote()"><i class="fa fa-bomb"></i></a></li>
-                   <li><a href="" ng-show="!isRemote()"><i class="fa fa-bomb"></i></a></li>
+                   <li ng-show="isRemote()"><a href=""ng-click="setLocal()"><i class="fa fa-cloud"></i></a></li>
+                   <li ng-show="!isRemote()"><a href="" ng-click="setRemote()"><i class="fa fa-database"></i></a></li>
                    <li><a href="" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a></li>
                 </ul>
             </div>
@@ -182,7 +182,6 @@
 
     <!-- Angular Main Module -->
     <script src='meshApp.js'></script>
-    <script src='shared/constants.js'></script>
 
 </div>
 </body>

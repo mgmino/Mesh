@@ -1,19 +1,39 @@
 angular.module('services')
-.service('toggleService', ['API_URL', function(API_URL) {
+.service('toggleService', [function() {
 
-    /* Defaults to local */
-    var api = API_URL.REMOTE;
+    var api, pix;
+	var API_URL= {
+		REMOTE: 'http://mgm2.trakmark.com/mesh-api.php',
+		LOCAL: 'http://localhost:80/mesh-api/mesh-api.php'
+	};
+	var PIX_URL= {
+		REMOTE: 'http://mgm.trakmark.com/mesh/photos',
+		LOCAL: '../../inc/photos'
+	};
 
     this.getAPI = function() {
         return api;
     };
 
-    this.setAPI = function(newApi) {
-        api = newApi;
+    this.getPIX = function() {
+        return pix;
     };
 
-    this.isRemote = function(testApi) {
-        return testApi === API_URL.REMOTE;
+    this.setLocal = function() {
+        api= API_URL.LOCAL;
+		pix= PIX_URL.LOCAL;
     };
+
+    this.setRemote = function() {
+        api= API_URL.REMOTE;
+		pix= PIX_URL.REMOTE;
+    };
+
+    this.isRemote = function() {
+        return this.getAPI() == API_URL.REMOTE;
+    };
+
+    /* Defaults to remote */
+	this.setRemote();
 
 }]);
