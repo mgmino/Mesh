@@ -1,17 +1,18 @@
 angular.module('navigation', [])
-.controller('navigationController', ['$scope', '$location', 'alertService', 'API_URL_REMOTE', 
-function ($scope, $location, alertService) {
+.controller('navigationController', ['$scope', '$location', 'alertService', 'toggleService',
+function ($scope, $location, alertService, toggleService) {
 
     $scope.nc = {};
     $scope.nc.customSearchError = false;
-	$scope.nc.apiUrl = API_URL_REMOTE;
-    $scope.customSearchCriteria = '';
+	$scope.nc.apiUrl = '';
 
-    $scope.searchDB= 'Contacts';
+    $scope.customSearchCriteria = '';
+    $scope.searchDB = 'Contacts';
 	
 	function init() {
 		// Removes potential pre-existing queries
 		$location.search('query', null);
+        $scope.nc.apiUrl = toggleService.getAPI();
 	}
 
     $scope.customSearch = function() {
@@ -45,8 +46,7 @@ function ($scope, $location, alertService) {
     });
 
 	$scope.isRemote = function() {
-		if ($scope.nc.apiUrl == API_URL_REMOTE) return true;
-		else return false;
+		return toggleService.isRemote($scope.nc.apiUrl);
     };
 
 	init();
