@@ -7,10 +7,10 @@ function($scope, queryService, alertService) {
 	$scope.addContact = function() {
 		queryService.createContact($scope.contact).then(
             function (msg) {
-                alertService.addAlert(alertService.TYPE.INFO, msg, 5000);
+                alertService.addAlert(alertService.TYPE.INFO, msg.msg, 3000);
             },
             function (error) {
-                alertService.addAlert(alertService.TYPE.WARNING, error);
+                alertService.addAlert(alertService.TYPE.WARNING, error, '');
             }
 		);
 	}
