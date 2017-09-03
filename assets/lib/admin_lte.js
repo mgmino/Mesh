@@ -410,8 +410,9 @@ function _init() {
                 // SLIDE DOWN
                 else if (checkElement.is('.treeview-menu') && !checkElement.is(':visible')) {
                     // Close all open menus
-                    parentUL_visible.slideUp(animationSpeed);
-                    parentUL_visible.removeClass('menu-open');
+                    parentUL_visible.slideUp(animationSpeed, function() {
+                        parentUL_visible.removeClass('menu-open');
+                    });
 
                     // Open the target menu and add the menu-open class
                     checkElement.slideDown(animationSpeed, function () {
@@ -428,25 +429,27 @@ function _init() {
 
                     // Select the option and tree hierarchy
                     $this.parentsUntil('.sidebar-menu', 'li').addClass('active');
-
-                    // Fix the layout in case the sidebar stretches over the height of the window
-                    _this.layout.fix();
                 }
 
                 // CLICKING A STANDALONE LINK
                 else {
-                    // Unselect previous options
-                    sidebar.find('li.active').removeClass('active');
-
                     // Close other navigation groups
-                    parentUL_visible.slideUp(animationSpeed);
-                    parentUL_visible.removeClass('menu-open');
+                    parentUL_visible.slideUp(animationSpeed, function() {
+                        parentUL_visible.removeClass('menu-open');
 
-                    // Select the option
-                    parent_li.addClass('active');
+                        // Unselect previous options
+                        sidebar.find('li.active').removeClass('active');
 
-                    // Fix the layout in case the sidebar stretches over the height of the window
-                    _this.layout.fix();
+                        // Select the option
+                        parent_li.addClass('active');
+                    });
+
+                    // Executes if no parent UL exist to slide up
+                    if (parentUL_visible.length === 0) {
+                        sidebar.find('li.active').removeClass('active');
+                        parent_li.addClass('active');
+                    }
+
                 }
 
 

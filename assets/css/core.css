@@ -41,3 +41,8 @@ div.alert h4 {
 .media-right {
     vertical-align: middle;
 }
+
+/* Override AdminLTE border around sidebar search */
+.sidebar .sidebar-form {
+    border: none;
+}
