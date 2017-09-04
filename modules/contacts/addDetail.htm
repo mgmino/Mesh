@@ -1,0 +1,16 @@
+<style>
+    label {width: 30px}
+    div.form-group input {width: 90%}
+</style>
+
+<div class='form-group'>
+    <label for='InType'>Type</label>
+    <input type='text' ng-model='detail.type' id='InType' placeholder='Enter detail type (cph, eml, url)'/>
+
+</div>
+<div class='form-group'>
+    <label for='InInfo'>Info</label>
+    <input type='text' ng-model='detail.info' id='InInfo' placeholder='Enter detail information'/>
+</div>
+
+<button class='btn btn-primary' ng-click='addDetail()'>Add Detail</button>

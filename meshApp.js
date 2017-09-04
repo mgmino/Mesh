@@ -35,6 +35,10 @@ angular.module('meshApp', [
             templateUrl: 'modules/contacts/addContact.htm',
             controller: 'addContactController'
         })
+        .when('/addDetail/:cid', {
+            templateUrl: 'modules/contacts/addDetail.htm',
+            controller: 'addDetailController'
+        })
         .when('/tools/utilities', {
             templateUrl: 'modules/tools/utilities.htm'
         })

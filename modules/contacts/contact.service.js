@@ -49,6 +49,18 @@ function($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
+    this.createDetail= function(detail, cid) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'createDetail',
+                cid:	cid,
+                detail: detail
+            }
+        }).then(processSuccess, processError);
+    };
+
     this.getContactById = function(id) {
         return $http({
             method : 'POST',

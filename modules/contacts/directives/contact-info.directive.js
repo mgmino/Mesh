@@ -4,6 +4,7 @@ angular.module('contacts')
             restrict: 'E',
             templateUrl: 'modules/contacts/directives/contact-info.directive.htm',
             scope: {
+                contact: '=',
                 details: '='
             }
         }

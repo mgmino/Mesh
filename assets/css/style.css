@@ -20,7 +20,7 @@
     display: inline-block;
 }
 
-.mg-label {
+div.mg-label {
     line-height: 18px;
     height: 18px;
     margin: 0 5px 0 0;
@@ -30,7 +30,27 @@
     width: 40px;
     text-align: center;
     background-color: #88f;
+}
+
+div.mg-label a {
     color: white;
+}
+
+div.mg-label-add {
+    line-height: 18px;
+    height: 18px;
+    margin: 0 5px 0 0;
+    padding: 0 6px;
+    border-radius: 4px;
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background-color: #44f;
+}
+
+div.mg-label-add a {
+    color: white;
+	font: bold 13pt Arial;
 }
 
 input.searchError {
