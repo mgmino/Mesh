@@ -20,7 +20,7 @@ angular.module('meshApp', [
             redirectTo: '/results/favorites'
         })
         .when('/results/:filter', {
-            templateUrl: 'modules/contacts/results.htm',
+            templateUrl: 'modules/contacts/contacts.htm',
             controller: 'resultsController'
         })
         .when('/detail/:cid', {
