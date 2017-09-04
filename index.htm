@@ -58,69 +58,18 @@
     <aside class="main-sidebar">
         <section class="sidebar">
 
-            <!-- Sidebar Menu -->
-            <form class="sidebar-form">
-                <!-- Here is where the 2 way binding is done -->
-                <!-- The ng-model directive will keep both the view value and the controller variable in sync -->
-                <!-- When one changes, the other will be updated to match -->
-                <select class="form-control" ng-model="searchDB">
-                    <option value=''>-- Search database --</option>
-                    <option value='Contacts'>Contacts</option>
-                    <option value='Quotes'>Quotes</option>
-                    <option value='Accounts'>Accounts</option>
-                    <option value='Books'>Books</option>
-                    <option value='Countries'>Countries</option>
-                    <option value='States'>States</option>
-                </select>
-
-                <div class="input-group" style='margin-top:5px'>
-                    <input type="text" class="form-control" ng-class="{'searchError': nc.customSearchError}" ng-change="nc.customSearchError=false" placeholder="Search..." spellcheck="false" ng-model="customSearchCriteria" title='note: org: rel[ation]: info: ginfo: email: url: last: first: ph: sp[ouse]: st[ate]: city: tag: str[eet]:'/>
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat" onclick="return false;" ng-click="customSearch()">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </form>
+            <!-- Sidebar Search -->
+            <div ng-include src="'modules/layout/sidebar-search.htm'"></div>
 
             <!-- Sidebar Menu (Left) -->
-            <ul class='sidebar-menu'>
-                <li class='treeview active'>
-                    <a href=''><i class='fa fa-link'></i> Views
-                        <span class='pull-right-container'>
-                            <i class='fa fa-angle-left pull-right'></i>
-                        </span>
-                    </a>
-                    <ul class='treeview-menu menu-open'>
-                        <li><a href='#!/results/recent-adds'><i class="fa fa-users"></i> Recent Adds</a></li>
-                        <li class='active'><a href='#!/results/favorites'><i class="fa fa-star"></i> Favorites</a></li>
-						<li><a href='#!/results/recent-mods'><i class="fa fa-users"></i> Recent Mods</a></li>
-                    </ul>
-                </li>
+            <div ng-include src="'modules/layout/sidebar-menu.htm'"></div>
 
-                <li class='treeview'>
-                    <a href=''><i class='fa fa-gear'></i> Tools
-                        <span class='pull-right-container'>
-                            <i class='fa fa-angle-left pull-right'></i>
-                        </span>
-                    </a>
-                    <ul class='treeview-menu'>
-						<li><a href='#!/tools/utilities'><i class="fa fa-cog"></i> Utilities</a></li>
-                        <li><a href='#!/tools/tags'><i class='fa fa-tag'></i> Tag</a></li>
-						<li><a href='#!/tools/import'><i class='fa fa-download'></i> Import</a></li>
-                    </ul>
-                </li>
-
-                <li><a href='#!/addcontact'><i class="fa fa-plus-square"></i> Add Contact</a></li>
-                <li><a href='#!/events'><i class="fa fa-tasks"></i> Events</a></li>
-                <li><a href='#!/login'><i class='fa fa-lock'></i> Login/Logout</a></li>
-            </ul>
         </section>
     </aside>
 
     <!-- Content Wrapper - page content -->
     <div class="content-wrapper">
-        <app-alert-box></app-alert-box>
+        <alert-box></alert-box>
         <section class="content">
             <div ng-view><!-- Injected with AngularJS --></div>
         </section>
@@ -135,7 +84,7 @@
 
     <!-- Control Sidebar (Right) -->
     <aside class="control-sidebar control-sidebar-dark">
-		<div ng-include src="'modules/control-sidebar.htm'"></div>
+		<div ng-include src="'modules/layout/control-sidebar.htm'"></div>
     </aside>
     <!-- Add sidebar background; must be immediately after control sidebar -->
     <div class="control-sidebar-bg"></div>
@@ -157,30 +106,53 @@
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-cookies.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.min.js'></script>
 
-    <!-- Angular Services Module -->
-    <script src='modules/_services.js'></script>
-    <script src='shared/toggleService.js'></script>
-    <script src='modules/navigation/alertService.js'></script>
-    <script src='modules/contacts/queryService.js'></script>
-    <script src='modules/login/loginService.js'></script>
-    <script src='modules/login/jwtService.js'></script>
-    <!-- Angular Filters and Directives-->
-    <script src='modules/_filters.js'></script>
-    <script src='shared/_appDirectives.js'></script>
-    <script src='modules/contacts/_contactDirectives.js'></script>
-    <!-- Individual Modules -->
-    <script src='modules/navigation/navigationController.js'></script>
-    <script src='modules/login/loginController.js'></script>
-    <script src='modules/contacts/resultsController.js'></script>
-    <script src='modules/contacts/detailController.js'></script>
-    <script src='modules/contacts/eventsController.js'></script>
-    <script src='modules/contacts/contactController.js'></script>
-    <script src='modules/contacts/addContactController.js'></script>
-    <script src='modules/tools/_toolsModule.js'></script>
-    <script src='modules/tools/importController.js'></script>
-    <script src='modules/otherDBs/otherControllers.js'></script>
 
-    <!-- Angular Main Module -->
+    <!-- Alerts Module -->
+    <script src="modules/alerts/alerts.module.js"></script>
+        <script src="modules/alerts/alert.service.js"></script>
+        <script src="modules/alerts/alert-box.directive.js"></script>
+
+    <!-- Configuration Module -->
+    <script src="modules/configuration/configuration.module.js"></script>
+        <script src="modules/configuration/toggle.service.js"></script>
+
+    <!-- Contacts Module -->
+    <script src="modules/contacts/contacts.module.js"></script>
+        <script src="modules/contacts/contact.service.js"></script>
+        <script src="modules/contacts/filters/age.filter.js"></script>
+        <script src="modules/contacts/filters/born.filter.js"></script>
+        <script src="modules/contacts/directives/contact-image.directive.js"></script>
+        <script src="modules/contacts/directives/contact-info.directive.js"></script>
+        <script src="modules/contacts/directives/contact-tags.directive.js"></script>
+        <script src="modules/contacts/addContact.controller.js"></script>
+        <script src="modules/contacts/detail.controller.js"></script>
+        <script src="modules/contacts/results.controller.js"></script>
+        <script src="modules/contacts/viewContact.controller.js"></script>
+
+    <!-- Events Module -->
+    <script src="modules/events/events.module.js"></script>
+        <script src="modules/events/event.service.js"></script>
+        <script src="modules/events/event.controller.js"></script>
+
+    <!-- Layout Module -->
+    <script src="modules/layout/layout.module.js"></script>
+        <script src="modules/layout/navigation.controller.js"></script>
+
+    <!-- Login Module -->
+    <script src="modules/login/login.module.js"></script>
+        <script src="modules/login/jwt.service.js"></script>
+        <script src="modules/login/login.service.js"></script>
+        <script src="modules/login/login.controller.js"></script>
+
+    <!-- Names Module -->
+    <script src="modules/name-linking/names.module.js"></script>
+        <script src="modules/name-linking/name.service.js"></script>
+        <script src="modules/name-linking/directives/nl-clemson.directive.js"></script>
+        <script src="modules/name-linking/directives/nl-google.directive.js"></script>
+        <script src="modules/name-linking/directives/nl-linked-in.directive.js"></script>
+        <script src="modules/name-linking/directives/nl-my-life.directive.js"></script>
+
+    <!-- Angular Main App Module -->
     <script src='meshApp.js'></script>
 
 </div>

@@ -2,21 +2,18 @@ angular.module('meshApp', [
     'ngRoute',
     'ngCookies',
     'angular.filter',
-    'services',
-    'filters',
-    'directives',
-    'login',
-    'navigation',
-    'contact',
+
+    'alerts',
+    'configuration',
+    'contacts',
     'events',
-    'tools',
-    'results',
-    'detail',
-    'states',
-	'countries'
+    'layout',
+    'login',
+    'name-linking'
 ])
 
-.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
+
+.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
             redirectTo: '/results/favorites'
@@ -29,25 +26,13 @@ angular.module('meshApp', [
             templateUrl: 'modules/contacts/detail.htm',
             controller: 'detailController'
         })
-        .when('/contact/:id', {
-            templateUrl: 'modules/contacts/contact.htm',
-            controller: 'contactController'
-        })
         .when('/events', {
-            templateUrl: 'modules/contacts/events.htm',
-            controller: 'eventsController'
+            templateUrl: 'modules/events/events.htm',
+            controller: 'eventController'
         })
-        .when('/addcontact', {
+        .when('/addContact', {
             templateUrl: 'modules/contacts/addContact.htm',
             controller: 'addContactController'
-        })
-        .when('/states', {
-            templateUrl: 'modules/otherDBs/states.htm',
-            controller: 'statesController'
-        })
-        .when('/countries', {
-            templateUrl: 'modules/otherDBs/countries.htm',
-            controller: 'countriesController'
         })
         .when('/tools/utilities', {
             templateUrl: 'modules/tools/utilities.htm'

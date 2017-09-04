@@ -1,3 +1,0 @@
-- break out firstName() function in _contactDirectives.js [coded three times]
-- review and comment on new directory structure
-- code up the first edit/update of fields in detail (click on picture to edit people table; click on info label to edit detail item)

@@ -1,39 +1,38 @@
 <style>
-label {width: 30px}
-div.form-group input {width: 90%}
+    label {width: 30px}
+    div.form-group input {width: 90%}
 </style>
 
-  <div class='form-group'>
+<div class='form-group'>
     <label for='InNick'>Nick</label>
-	<input type='text' ng-model='contact.nick' id='InNick' placeholder='Enter nick name'/>
+    <input type='text' ng-model='contact.nick' id='InNick' placeholder='Enter nick name'/>
 
-  </div>
-  <div class='form-group'>
+</div>
+<div class='form-group'>
     <label for='InFname'>First</label>
     <input type='text' ng-model='contact.fname' id='InFname' placeholder='Enter first name'/>
-  </div>
-  <div class='form-group'>
+</div>
+<div class='form-group'>
     <label for='InLname'>Last</label>
     <input type='text' ng-model='contact.lname' id='InLname' placeholder='Enter last name'/>
-  </div>
-  <div class='form-group'>
+</div>
+<div class='form-group'>
     <label for='InBorn'>Born</label>
     <input type='date' ng-model='contact.born' id='InBorn' placeholder='Enter first name'/>
-  </div>
-  
-  <div class='form-check form-check-inline'>
-	<label for='InSex'>Sex</label>
-	<input id='InSex' type='radio' class='validate' ng-model='contact.sex' value='Male'/> Male
-	<input id='InSex' type='radio' class='validate' ng-model='contact.sex' value='Female'/> Female
-  </div>
-  <div class='form-group'>
-	<label for='InPix'>Pix</label>
-	<input id='InPix' type='text' ng-model='contact.pix' placeholder='Enter file name of contact headshot'/>
-  </div>
-  <div class='form-group'>
-	<label for='InTags'>Tags</label>
-	<input id='InTags' type='text' ng-model='contact.tags' placeholder='Enter tags (uHHS ePB aELM nFOX rDiG oNXT)'/>
-  </div>
+</div>
 
-	  <button class='btn btn-primary' ng-click='addContact()'>Add Contact</button>
-	  {{contact}}
+<div class='form-check form-check-inline'>
+    <label for='InSex'>Sex</label>
+    <input id='InSex' type='radio' class='validate' ng-model='contact.sex' value='Male'/> Male
+    <input id='InSex' type='radio' class='validate' ng-model='contact.sex' value='Female'/> Female
+</div>
+<div class='form-group'>
+    <label for='InPix'>Pix</label>
+    <input id='InPix' type='text' ng-model='contact.pix' placeholder='Enter file name of contact headshot'/>
+</div>
+<div class='form-group'>
+    <label for='InTags'>Tags</label>
+    <input id='InTags' type='text' ng-model='contact.tags' placeholder='Enter tags (uHHS ePB aELM nFOX rDiG oNXT)'/>
+</div>
+
+<button class='btn btn-primary' ng-click='addContact()'>Add Contact</button>
