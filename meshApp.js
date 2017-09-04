@@ -2,6 +2,7 @@ angular.module('meshApp', [
     'ngRoute',
     'ngCookies',
     'angular.filter',
+    'ui.bootstrap',
 
     'alerts',
     'configuration',
