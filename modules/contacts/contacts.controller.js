@@ -1,5 +1,5 @@
 angular.module('contacts')
-.controller('resultsController', ['$scope', '$routeParams', '$location', 'contactService', 'alertService',
+.controller('contactsController', ['$scope', '$routeParams', '$location', 'contactService', 'alertService',
 function($scope, $routeParams, $location, contactService, alertService) {
 
     function init() {
@@ -7,10 +7,10 @@ function($scope, $routeParams, $location, contactService, alertService) {
             case 'favorites':
                 contactService.getFavorites().then(
                     function (contacts) {
-                        $scope.results = contacts;
+                        $scope.contacts = contacts;
                     },
                     function (error) {
-                        $scope.results = [];
+                        $scope.contacts = [];
                         alertService.addAlert(alertService.TYPE.WARNING, error);
                     });
                 break;
@@ -18,10 +18,10 @@ function($scope, $routeParams, $location, contactService, alertService) {
             case 'recent-mods':
                 contactService.getView($routeParams.filter).then(
                     function (contacts) {
-                        $scope.results = contacts;
+                        $scope.contacts = contacts;
                     },
                     function (error) {
-                        $scope.results = [];
+                        $scope.contacts = [];
                         alertService.addAlert(alertService.TYPE.WARNING, error);
                     });
                 break;
@@ -32,15 +32,15 @@ function($scope, $routeParams, $location, contactService, alertService) {
                     $location.path('/').search('query', null);
                     return;
                 }
-                contactService.getCustomResults(query).then(
+                contactService.getCustomContacts(query).then(
                     function (contacts) {
                         if (contacts.length === 0) {
                             alertService.addAlert(alertService.TYPE.INFO, 'No contacts matched this query.', 1000);
                         }
-                        $scope.results = contacts;
+                        $scope.contacts = contacts;
                     },
                     function (error) {
-                        $scope.results = [];
+                        $scope.contacts = [];
                         $scope.nc.customSearchError = true;
                         alertService.addAlert(alertService.TYPE.WARNING, error, '');
                     }
@@ -48,7 +48,7 @@ function($scope, $routeParams, $location, contactService, alertService) {
                 break;
             default:
                 contactService.getAllContacts().then(function(contacts) {
-                    $scope.results = contacts;
+                    $scope.contacts = contacts;
                 });
         }
     }

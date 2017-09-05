@@ -2,12 +2,12 @@
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Filter" ng-model="searchText">
         <div class="input-group-addon">
-            <span ng-show="results">{{(results | filterBy: ['fname', 'lname', 'nick', 'tags']: searchText).length}}/{{results.length}}</span>
+            <span ng-show="contacts">{{(contacts | filterBy: ['fname', 'lname', 'nick', 'tags']: searchText).length}}/{{contacts.length}}</span>
         </div>
     </div>
 </div>
 <ul class="media-list">
-    <li class="media" ng-repeat="contact in results | filterBy: ['fname', 'lname', 'nick', 'tags']: searchText">
+    <li class="media" ng-repeat="contact in contacts | filterBy: ['fname', 'lname', 'nick', 'tags']: searchText">
 		<div class="media-left">
             <a ng-href="#!/detail/{{contact.pid}}">
                 <contact-image contact='contact' size='thumb'></contact-image>

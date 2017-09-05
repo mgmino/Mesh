@@ -17,11 +17,11 @@ angular.module('meshApp', [
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
-            redirectTo: '/results/favorites'
+            redirectTo: '/contacts/favorites'
         })
-        .when('/results/:filter', {
+        .when('/contacts/:filter', {
             templateUrl: 'modules/contacts/contacts.htm',
-            controller: 'resultsController'
+            controller: 'contactsController'
         })
         .when('/detail/:cid', {
             templateUrl: 'modules/contacts/detail.htm',

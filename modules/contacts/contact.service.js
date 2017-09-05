@@ -77,7 +77,7 @@ function($http, $location, toggleService) {
      * The provided 'query' is the search portion following a WHERE clause.
      *
      */
-    this.getCustomResults = function(customQuery) {
+    this.getCustomContacts = function(customQuery) {
         var delim = customQuery.indexOf(':');
         var NAME_SEARCH_DELIM = -1;
         var optype, queryfield, queryitem;

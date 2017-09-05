@@ -15,22 +15,7 @@ function ($scope, $location, alertService, toggleService) {
 
     $scope.customSearch = function() {
         $scope.nc.customSearchError = false;
-		switch ($scope.searchDB) {
-            case 'Quotes':
-				$location.path('/quotes').search('query', $scope.customSearchCriteria);
-                break;
-            case 'Accounts':
-				$location.path('/accounts').search('query', $scope.customSearchCriteria);
-                break;
-            case 'States':
-				$location.path('/states').search('query', $scope.customSearchCriteria);
-                break;
-            case 'Countries':
-				$location.path('/countries').search('query', $scope.customSearchCriteria);
-                break;
-            default:
-				$location.path('/results/custom').search('query', $scope.customSearchCriteria);
-		}
+		$location.path('/contacts/custom').search('query', $scope.customSearchCriteria);
     };
 
     $scope.$on('$routeChangeSuccess', function(event, next, current){
