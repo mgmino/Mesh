@@ -38,23 +38,23 @@ function($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
-    this.createContact= function(contact) {
+    this.createPeople= function(contact) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
-                op:	'createContact',
+                op:	'createPeople',
                 contact: contact
             }
         }).then(processSuccess, processError);
     };
 
-    this.createDetail= function(detail, cid) {
+    this.addPinfo= function(detail, cid) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
-                op:	'createDetail',
+                op:	'addPinfo',
                 cid:	cid,
                 detail: detail
             }

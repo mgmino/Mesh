@@ -27,8 +27,8 @@ function($scope, $routeParams, $location, contactService, alertService) {
                 break;
             case 'custom':
                 var query = $routeParams.query;
-                // Empty query given
-                if (!query || query.length === 0) {
+				console.log('custom query2: >' +query +'<');
+                if (!query || query.length === 0) {  // Empty query
                     $location.path('/').search('query', null);
                     return;
                 }

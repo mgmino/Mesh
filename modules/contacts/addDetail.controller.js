@@ -5,7 +5,7 @@ function($scope, $routeParams, contactService, alertService) {
 	$scope.detail = {};
 
 	$scope.addDetail = function() {
-		contactService.createDetail($scope.detail, $routeParams.cid).then(
+		contactService.addPinfo($scope.detail, $routeParams.cid).then(
             function (response) {
                 alertService.addAlert(alertService.TYPE.INFO, response.msg, 3000);
             },
