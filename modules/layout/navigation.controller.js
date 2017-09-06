@@ -4,7 +4,7 @@ function ($scope, $location, alertService, toggleService) {
 
     $scope.nc = {};
     $scope.nc.customSearchError = false;
-    $scope.customSearchCriteria = '';
+    $scope.nc.customSearchCriteria = '';
 
     $scope.searchDB= 'Contacts';
 	
@@ -15,8 +15,8 @@ function ($scope, $location, alertService, toggleService) {
 
     $scope.customSearch = function() {
         $scope.nc.customSearchError = false;
-		console.log('custom query1: >' +$scope.customSearchCriteria +'<');
-		$location.path('/contacts/custom').search('query', $scope.customSearchCriteria);
+		console.log('custom query1: >' +$scope.nc.customSearchCriteria +'<');
+		$location.path('/contacts/custom').search('query', $scope.nc.customSearchCriteria);
     };
 
     $scope.$on('$routeChangeSuccess', function(event, next, current){
