@@ -15,7 +15,6 @@ function ($scope, $location, alertService, toggleService) {
 
     $scope.customSearch = function() {
         $scope.nc.customSearchError = false;
-		console.log('custom query1: >' +$scope.nc.customSearchCriteria +'<');
 		$location.path('/contacts/custom').search('query', $scope.nc.customSearchCriteria);
     };
 
