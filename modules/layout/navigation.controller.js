@@ -5,8 +5,6 @@ function ($scope, $location, alertService, toggleService) {
     $scope.nc = {};
     $scope.nc.customSearchError = false;
     $scope.nc.customSearchCriteria = '';
-
-    $scope.searchDB= 'Contacts';
 	
 	function init() {
 		// Removes potential pre-existing queries
