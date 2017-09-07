@@ -27,15 +27,15 @@ function($scope, $routeParams, $location, contactService, alertService) {
                 break;
             case 'custom':
                 var query = $routeParams.query;
-				console.log('custom query2: >' +query +'<');
-                if (!query || query.length === 0) {  // Empty query
-                    $location.path('/').search('query', null);
+                if (!query || query.length == 0) {  // Empty query
+                    alertService.addAlert(alertService.TYPE.WARNING, 'Empty search request', 3000);
+//                    $location.path('/').search('query', null);
                     return;
                 }
                 contactService.getCustomContacts(query).then(
                     function (contacts) {
                         if (contacts.length === 0) {
-                            alertService.addAlert(alertService.TYPE.INFO, 'No contacts matched this query.', 1000);
+                            alertService.addAlert(alertService.TYPE.INFO, 'No contacts matched this query [' +query +']', 3000);
                         }
                         $scope.contacts = contacts;
                     },
