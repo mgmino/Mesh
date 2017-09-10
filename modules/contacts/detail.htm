@@ -22,7 +22,7 @@
     </li>
 </ul>
 
-<contact-info details='details'></contact-info>
+<contact-info details='details' contact='contact'></contact-info>
 
 <ul class='pinfo-list' ng-if='groups'>
     <li ng-repeat="group in groups | orderBy: '-mdate' ">
@@ -36,7 +36,7 @@
 		<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/></a>
 		</div>
 
-		<contact-info details='group.details'></contact-info>
+		<contact-info details='group.details' contact='contact'></contact-info>
     </li>
 </ul>
 

@@ -46,3 +46,7 @@ div.alert h4 {
 .sidebar .sidebar-form {
     border: none;
 }
+
+.clickable {
+    cursor: pointer;
+}

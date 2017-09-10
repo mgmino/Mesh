@@ -17,7 +17,12 @@ angular.module('layout')
 
         this.showModal = function (customModalDefaults, customModalOptions) {
             if (!customModalDefaults) customModalDefaults = {};
-            customModalDefaults.backdrop = 'static';
+            return this.show(customModalDefaults, customModalOptions);
+        };
+
+        this.showAddDetailModal = function (customModalDefaults, customModalOptions) {
+            if (!customModalDefaults) customModalDefaults = {};
+            customModalDefaults.templateUrl = 'modules/layout/modal/addDetail.htm';
             return this.show(customModalDefaults, customModalOptions);
         };
 

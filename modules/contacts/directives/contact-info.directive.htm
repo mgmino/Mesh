@@ -1,6 +1,11 @@
 <ul class='pinfo-list'>
     <li ng-repeat="detail in details | orderBy: 'type' " ng-switch='detail.type'>
-        <div class='mg-label' title='{{detail.mdate | ageFilter}}'><a ng-href='#!/events'>{{detail.type}}</a></div>
+        <!-- Tag Labels -->
+        <div class='mg-label' title='{{detail.mdate | ageFilter}}'>
+            <b ng-bind='detail.type'></b>
+        </div>
+
+        <!-- Tag Value -->
         <b>
             <a ng-switch-when='url' ng-href='http://{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
             <a ng-switch-when='eml' ng-href='mailto:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
@@ -12,5 +17,11 @@
         </b>
         <i ng-if='detail.areacode' style='display: inline-block; text-overflow: clip'>{{detail.areacode}}</i>
     </li>
-    <div class='mg-label-add' title='add contact info item'><a ng-href='#!/addDetail/{{contact.pid}}1'>+</a></div> <i>{{contact}}</i>
+
+    <!-- Add New Tag Button -->
+    <li>
+        <div class='mg-label clickable' ng-click="showDetailModal()">
+            <i class="fa fa-plus"></i>
+        </div>
+    </li>
 </ul>
