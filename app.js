@@ -1,18 +1,4 @@
-angular.module('meshApp', [
-    'ngRoute',
-    'ngCookies',
-    'angular.filter',
-    'ui.bootstrap',
-
-    'alerts',
-    'configuration',
-    'contacts',
-    'events',
-    'layout',
-    'login',
-    'name-linking'
-])
-
+angular.module('meshApp')
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider
