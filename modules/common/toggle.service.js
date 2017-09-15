@@ -1,4 +1,4 @@
-angular.module('configuration')
+angular.module('common')
 .service('toggleService', [function() {
 
     var api, pix;

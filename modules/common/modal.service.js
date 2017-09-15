@@ -1,11 +1,10 @@
-angular.module('layout')
+angular.module('common')
     .service('modalService', ['$uibModal', function ($uibModal) {
 
         var modalDefaults = {
             backdrop: true,
             keyboard: true,
-            modalFade: true,
-            templateUrl: 'modules/layout/modal/base.htm'
+            modalFade: true
         };
 
         var modalOptions = {
@@ -15,14 +14,9 @@ angular.module('layout')
             bodyText: 'Perform this action?'
         };
 
-        this.showModal = function (customModalDefaults, customModalOptions) {
-            if (!customModalDefaults) customModalDefaults = {};
-            return this.show(customModalDefaults, customModalOptions);
-        };
-
         this.showAddDetailModal = function (customModalDefaults, customModalOptions) {
             if (!customModalDefaults) customModalDefaults = {};
-            customModalDefaults.templateUrl = 'modules/layout/modal/addDetail.htm';
+            customModalDefaults.templateUrl = 'modules/contacts/addDetail-modal.htm';
             return this.show(customModalDefaults, customModalOptions);
         };
 

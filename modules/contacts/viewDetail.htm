@@ -1,0 +1,47 @@
+<ul class='media-list' ng-if='contact'>
+    <li class='media'>
+		<div class='media-left'>
+			<contact-image contact='contact' size='small'></contact-image>
+		</div>
+
+		<div class='media-body'>
+			<b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
+				{{contact.fname}} {{contact.lname}}
+				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
+			</b>
+			<div style='padding-top: 3px'>
+			<nl-linked-in fname='contact.fname' lname='contact.lname'></nl-linked-in>
+			<nl-clemson fname='contact.fname' lname='contact.lname'></nl-clemson>
+			<nl-google fname='contact.fname' lname='contact.lname'></nl-google>
+			<nl-my-life fname='contact.fname' lname='contact.lname'></nl-my-life></div>
+
+			<div style='padding-top: 3px'>{{contact.born | bornFilter}}</div>
+			<div style='padding-top: 3px'><contact-tags contact='contact'></contact-tags></div>
+
+		</div>
+    </li>
+</ul>
+
+<contact-info details='details' contact='contact'></contact-info>
+
+
+<div ng-repeat="group in groups | orderBy: '-mdate' ">
+	<div class='mg-section' title='{{group.mdate}}'><b class='mg-title'>{{group.type}}:</b> {{group.org}}
+		<span ng-if='group.cnt > 1'> ({{group.cnt}})</span></div>
+	<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
+	<div ng-if='group.street'>{{group.street}}</div>
+
+	<div ng-if='group.city'>{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}
+	<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
+	<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/></a>
+	</div>
+
+	<contact-info details='group.details' contact='contact'></contact-info>
+</div>
+
+
+
+<div ng-repeat="note in notes | orderBy: '-mdate' ">
+	<div style='white-space: pre-line'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
+</div>
+

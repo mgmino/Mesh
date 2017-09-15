@@ -1,5 +1,5 @@
 angular.module('alerts', []);
-angular.module('configuration', []);
+angular.module('common', []);
 angular.module('contacts', []);
 angular.module('events', []);
 angular.module('layout', []);
@@ -13,7 +13,7 @@ angular.module('meshApp', [
     'ui.bootstrap',
 
     'alerts',
-    'configuration',
+    'common',
     'contacts',
     'events',
     'layout',

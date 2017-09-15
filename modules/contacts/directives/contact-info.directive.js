@@ -22,7 +22,7 @@ function contactInfo(contactService, modalService, alertService) {
         };
 
         function addDetail(details) {
-            contactService.addPinfo(details, scope.contact.id).then(
+            contactService.addPinfo(details, scope.contact.pid).then(
                 function (response) {
                     alertService.addAlert(alertService.TYPE.INFO, response.msg, 3000);
                 },

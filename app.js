@@ -6,11 +6,11 @@ angular.module('meshApp')
             redirectTo: '/contacts/favorites'
         })
         .when('/contacts/:filter', {
-            templateUrl: 'modules/contacts/contacts.htm',
+            templateUrl: 'modules/contacts/viewContacts.htm',
             controller: 'contactsController'
         })
         .when('/detail/:cid', {
-            templateUrl: 'modules/contacts/detail.htm',
+            templateUrl: 'modules/contacts/viewDetail.htm',
             controller: 'detailController'
         })
         .when('/events', {

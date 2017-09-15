@@ -49,13 +49,13 @@ function($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
-    this.addPinfo= function(detail, cid) {
+    this.addPinfo= function(detail, pid) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
                 op:	'addPinfo',
-                cid:	cid,
+                pid:	pid,
                 detail: detail
             }
         }).then(processSuccess, processError);
