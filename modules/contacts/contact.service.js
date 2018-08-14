@@ -1,6 +1,10 @@
-angular.module('contacts')
-.service('contactService', ['$http', '$location', 'toggleService',
-function($http, $location, toggleService) {
+angular
+    .module('contacts')
+    .service('contactService', contactService);
+
+contactService.$inject = ['$http', '$location', 'toggleService'];
+
+function contactService($http, $location, toggleService) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -113,4 +117,4 @@ function($http, $location, toggleService) {
         else throw response.data.errmsg;
     }
 
-}]);
+}

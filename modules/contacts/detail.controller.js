@@ -1,6 +1,10 @@
-angular.module('contacts')
-.controller('detailController', ['$scope', '$routeParams', 'contactService', 'alertService',
-	function($scope, $routeParams, contactService, alertService) {
+angular
+    .module('contacts')
+    .controller('detailController', detailController);
+
+detailController.$inject = ['$scope', '$routeParams', 'contactService', 'alertService'];
+
+function detailController($scope, $routeParams, contactService, alertService) {
 
     function init() {
         var cid = $routeParams.cid;
@@ -22,4 +26,4 @@ angular.module('contacts')
 
     init();
 
-}]);
+}

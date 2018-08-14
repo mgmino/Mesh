@@ -1,6 +1,10 @@
-angular.module('contacts')
-.controller('addContactController', ['$scope', 'contactService', 'alertService',
-function($scope, contactService, alertService) {
+angular
+	.module('contacts')
+	.controller('addContactController', addContactController);
+
+addContactController.$inject = ['$scope', 'contactService', 'alertService'];
+
+function addContactController($scope, contactService, alertService) {
 	
 	$scope.contact = {};
 	
@@ -15,4 +19,4 @@ function($scope, contactService, alertService) {
 		);
 	};
 
-}]);
+}

@@ -1,6 +1,10 @@
-angular.module('events')
-.controller('eventController', ['$scope', '$routeParams', '$filter', 'eventService', 'alertService',
-function($scope, $routeParams, $filter, eventService, alertService) {
+angular
+	.module('events')
+	.controller('eventController', eventController);
+
+eventController.$inject = ['$scope', '$routeParams', '$filter', 'eventService', 'alertService'];
+
+function eventController($scope, $routeParams, $filter, eventService, alertService) {
 
 	$scope.events = [];
 	$scope.searchText = '';
@@ -45,4 +49,4 @@ function($scope, $routeParams, $filter, eventService, alertService) {
 
 	init();
 
-}]);
+}

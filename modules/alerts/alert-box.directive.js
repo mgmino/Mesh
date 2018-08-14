@@ -1,5 +1,10 @@
-angular.module('alerts')
-.directive('alertBox', ['alertService', function (alertService) {
+angular
+    .module('alerts')
+    .directive('alertBox', alertBox);
+
+alertBox.$inject = ['alertService'];
+
+function alertBox(alertService) {
     return {
         restrict: 'E',
         templateUrl: 'modules/alerts/alert-box.directive.htm',
@@ -14,15 +19,12 @@ angular.module('alerts')
                 switch (alert.type) {
                     case alertService.TYPE.SUCCESS:
                         return 'check';
-                        break;
                     case alertService.TYPE.DANGER:
                         return 'ban';
-                        break;
                     default:
                         return alert.type;
-                        break;
                 }
             }
         }
     }
-}]);
+}

@@ -1,5 +1,10 @@
-angular.module('login')
-.service('jwtService', [function() {
+angular
+    .module('login')
+    .service('jwtService', jwtService);
+
+jwtService.$inject = [];
+
+function jwtService() {
 
     var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
@@ -85,4 +90,4 @@ angular.module('login')
         return output;
     };
 
-}]);
+}

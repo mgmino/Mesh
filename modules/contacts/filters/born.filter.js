@@ -1,5 +1,10 @@
-angular.module('contacts')
-.filter('bornFilter', function($filter) {
+angular
+    .module('contacts')
+    .filter('bornFilter', bornFilter);
+
+bornFilter.$inject = [];
+
+function bornFilter($filter) {
     return function(born) {
         if (!born) return '';
         if (born.substr(0,4) === '0000') {
@@ -18,4 +23,4 @@ angular.module('contacts')
         else if (typeof(yearOnly) !== 'undefined') return ' [' + age +']';
         else return birthdate +' [' + age +']';
     };
-});
+}

@@ -1,6 +1,10 @@
-angular.module('layout')
-.controller('navigationController', ['$scope', '$location', 'alertService', 'toggleService', 
-function ($scope, $location, alertService, toggleService) {
+angular
+    .module('layout')
+    .controller('navigationController', navigationController);
+
+navigationController.$inject = ['$scope', '$location', 'alertService', 'toggleService'];
+
+function navigationController($scope, $location, alertService, toggleService) {
 
     $scope.nc = {};
     $scope.nc.customSearchError = false;
@@ -39,4 +43,4 @@ function ($scope, $location, alertService, toggleService) {
 
 	init();
 
-}]);
+}

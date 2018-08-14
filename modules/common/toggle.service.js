@@ -1,5 +1,10 @@
-angular.module('common')
-.service('toggleService', [function() {
+angular
+    .module('common')
+    .service('toggleService', toggleService);
+
+toggleService.$inject = [];
+
+function toggleService() {
 
     var api, pix;
 	var API_URL= {
@@ -36,4 +41,4 @@ angular.module('common')
     /* Defaults to remote */
 	this.setRemote();
 
-}]);
+}

@@ -1,6 +1,10 @@
-angular.module('meshApp')
+angular
+    .module('meshApp')
+    .config(config);
 
-.config(['$routeProvider', function($routeProvider) {
+config.$inject = ['$routeProvider'];
+
+function config($routeProvider) {
     $routeProvider
         .when('/', {
             redirectTo: '/contacts/favorites'
@@ -37,30 +41,31 @@ angular.module('meshApp')
         .otherwise({
             redirectTo: '/'
         });
-}])
+}
 
+angular
+    .module('meshApp')
+    .run(run);
 
-.run(['$rootScope', '$location', '$http', '$cookies', 'loginService',
-    function ($rootScope, $location, $http, $cookies, loginService) {
+run.$inject = ['$rootScope', '$location', '$http', '$cookies', 'loginService'];
 
-        // Routes here do not require a login
-        var openRoutes = ['/login'];
+function run($rootScope, $location, $http, $cookies, loginService) {
+    // Routes here do not require a login
+    var openRoutes = ['/login'];
 
-        // Keep user logged in after page refresh
-        if (loginService.isLoggedIn()) {
-            console.log('mesh: Setting user credentials from previous session');
-            var token = loginService.getToken();
-            loginService.setHeaders(token);
+    // Keep user logged in after page refresh
+    if (loginService.isLoggedIn()) {
+        console.log('mesh: Setting user credentials from previous session');
+        var token = loginService.getToken();
+        loginService.setHeaders(token);
+    }
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        var goingToOpenRoute = $.inArray($location.path(), openRoutes) === 0;
+        if (!goingToOpenRoute && !loginService.isLoggedIn()) {
+            console.log('mesh: Blocked route access to ' + $location.path());
+            // Cannot access restricted route without logging in
+            $location.path('/login');
         }
-
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            var goingToOpenRoute = $.inArray($location.path(), openRoutes) === 0;
-            if (!goingToOpenRoute && !loginService.isLoggedIn()) {
-                console.log('mesh: Blocked route access to ' + $location.path());
-                // Cannot access restricted route without logging in
-                $location.path('/login');
-            }
-        });
-
-}]);
-
+    });
+}

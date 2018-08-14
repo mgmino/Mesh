@@ -1,5 +1,10 @@
-angular.module('login')
-.service('loginService', ['$http', '$cookies', 'toggleService', function($http, $cookies, toggleService) {
+angular
+    .module('login')
+    .service('loginService', loginService);
+
+loginService.$inject = ['$http', '$cookies', 'toggleService'];
+
+function loginService($http, $cookies, toggleService) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -76,4 +81,4 @@ angular.module('login')
         throw response.data.errmsg;
     }
 
-}]);
+}

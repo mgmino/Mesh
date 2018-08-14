@@ -1,5 +1,10 @@
-angular.module('alerts')
-.service('alertService', ['$timeout', '$rootScope', function ($timeout, $rootScope) {
+angular
+    .module('alerts')
+    .service('alertService', alertService);
+
+alertService.$inject = ['$timeout', '$rootScope'];
+
+function alertService($timeout, $rootScope) {
 
     /**
      * If not specified, alerts will remain for this many milliseconds.
@@ -141,4 +146,4 @@ angular.module('alerts')
         }
     };
 
-}]);
+}

@@ -1,6 +1,10 @@
-angular.module('login')
-.controller('loginController', ['$scope', '$location', 'loginService', 'alertService', 
-function($scope, $location, loginService, alertService) {
+angular
+    .module('login')
+    .controller('loginController', loginController);
+
+loginController.$inject = ['$scope', '$location', 'loginService', 'alertService'];
+
+function loginController($scope, $location, loginService, alertService) {
 
     $scope.username = '';
     $scope.password = '';
@@ -11,17 +15,17 @@ function($scope, $location, loginService, alertService) {
         loginService.logout();
     }
 
-    $scope.login = function() {
+    $scope.login = function () {
         console.log('logging in');
         $scope.authenticating = true;
         loginService.createToken($scope.username, $scope.password)
-            .then( loginSuccess, loginFailure )
-            .finally(function() {
+            .then(loginSuccess, loginFailure)
+            .finally(function () {
                 $scope.authenticating = false;
             });
     };
 
-    $scope.forgotPassword = function() {
+    $scope.forgotPassword = function () {
         alertService.addAlert(alertService.TYPE.INFO, 'This feature is not yet implemented');
     };
 
@@ -40,4 +44,4 @@ function($scope, $location, loginService, alertService) {
 
     init();
 
-}]);
+}

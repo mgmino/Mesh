@@ -1,6 +1,10 @@
-angular.module('contacts')
-.controller('contactsController', ['$scope', '$routeParams', '$location', 'contactService', 'alertService',
-function($scope, $routeParams, $location, contactService, alertService) {
+angular
+    .module('contacts')
+    .controller('contactsController', contactsController);
+
+contactsController.$inject = ['$scope', '$routeParams', '$location', 'contactService', 'alertService'];
+
+function contactsController($scope, $routeParams, $location, contactService, alertService) {
 
     function init() {
         switch ($routeParams.filter) {
@@ -54,4 +58,4 @@ function($scope, $routeParams, $location, contactService, alertService) {
     }
     init();
 
-}]);
+}
