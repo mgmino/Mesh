@@ -16,23 +16,42 @@ function contactInfo(contactService, modalService, alertService) {
     };
 
     function link(scope, elems, attrs) {
-        scope.showDetailModal = function() {
+        scope.showCreateDetailModal = function() {
             var modalOptions = {
-                contact: scope.contact
+                title: 'Add Detail for ' + scope.contact.fname + ' ' + scope.contact.lname,
+                actionButtonText: 'Add',
+                detail: undefined
             };
-            modalService.showAddDetailModal({}, modalOptions)
-                .then(addDetail, angular.noop);
+            modalService.showDetailModal({}, modalOptions)
+                .then(createDetail, angular.noop);
         };
 
-        function addDetail(details) {
-            contactService.addPinfo(details, scope.contact.pid).then(
-                function (response) {
-                    alertService.addAlert(alertService.TYPE.INFO, response.msg, 3000);
-                },
-                function (error) {
-                    alertService.addAlert(alertService.TYPE.WARNING, error, '');
-                }
-            );
+        scope.showEditDetailModal = function(detail) {
+            var modalOptions = {
+                title: 'Edit Detail for ' + scope.contact.fname + ' ' + scope.contact.lname,
+                actionButtonText: 'Update',
+                detail: detail
+            };
+            modalService.showDetailModal({}, modalOptions)
+                .then(updateDetail, angular.noop);
+        };
+
+        function createDetail(detail) {
+            contactService.createPinfo(detail, scope.contact.pid)
+                .then(onSuccess, onError);
+        }
+
+        function updateDetail(detail) {
+            contactService.updatePinfo(detail, scope.contact.pid)
+                .then(onSuccess, onError);
+        }
+
+        function onSuccess(response) {
+            alertService.addAlert(alertService.TYPE.INFO, response.msg, 3000);
+        }
+
+        function onError(error) {
+            alertService.addAlert(alertService.TYPE.WARNING, error, '');
         }
     }
 }

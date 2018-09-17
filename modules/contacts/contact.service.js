@@ -53,12 +53,24 @@ function contactService($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
-    this.addPinfo= function(detail, pid) {
+    this.createPinfo= function(detail, pid) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
-                op:	'addPinfo',
+                op:	'createPinfo',
+                pid:	pid,
+                detail: detail
+            }
+        }).then(processSuccess, processError);
+    };
+
+    this.updatePinfo= function(detail, pid) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'updatePinfo',
                 pid:	pid,
                 detail: detail
             }
