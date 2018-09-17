@@ -17,7 +17,10 @@ function contactInfo(contactService, modalService, alertService) {
 
     function link(scope, elems, attrs) {
         scope.showDetailModal = function() {
-            modalService.showAddDetailModal()
+            var modalOptions = {
+                contact: scope.contact
+            };
+            modalService.showAddDetailModal({}, modalOptions)
                 .then(addDetail, angular.noop);
         };
 
