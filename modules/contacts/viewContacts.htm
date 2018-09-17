@@ -18,10 +18,10 @@
                 {{contact.fname}} {{contact.lname}}
                 <i ng-if='contact.nick'> &raquo; {{contact.nick}}</i>
             </b>
-            <nl-linked-in fname="contact.fname" lname="contact.lname"></nl-linked-in>
+            <nl-linked-in fname='contact.fname' lname='contact.lname'></nl-linked-in>
 		    <div>
                 {{contact.born | bornFilter}}
-		        <contact-tags contact="contact"></contact-tags>
+		        <contact-tags contact='contact'></contact-tags>
             </div>
 		    <div ng-if='contact.info'>
                 <span class='mg-search-info'>{{contact.info}}</span>
