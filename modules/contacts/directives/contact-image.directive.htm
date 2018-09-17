@@ -2,4 +2,4 @@
      class='media-pix-{{size}}'
      onerror="this.src='assets/img/pix/misPhoto.gif'"
      alt='Person photo'
-     title='{{contact.cdate | date}} - {{contact.mdate | ageFilter}} - {{contact.pix}} - {{contact.pid}}'/>
+     title="{{contact.cdate | date : 'MMM-yyyy'}} ~ updated {{contact.mdate | ageFilter}} yr ~ {{contact.pix}} ~ {{contact.pid}}"/>

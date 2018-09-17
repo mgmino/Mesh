@@ -77,6 +77,41 @@ function contactService($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
+    this.createGroup= function(group) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'createGroup',
+                group: group
+            }
+        }).then(processSuccess, processError);
+    };
+
+    this.createGinfo= function(detail, gid) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'createGinfo',
+                gid:	gid,
+                detail: detail
+            }
+        }).then(processSuccess, processError);
+    };
+
+    this.updateGinfo= function(detail, gid) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'updateGinfo',
+                gid:	gid,
+                detail: detail
+            }
+        }).then(processSuccess, processError);
+    };
+
     this.getContactById = function(id) {
         return $http({
             method : 'POST',

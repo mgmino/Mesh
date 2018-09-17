@@ -19,6 +19,7 @@ function contactInfo(contactService, modalService, alertService) {
         scope.showCreateDetailModal = function() {
             var modalOptions = {
                 title: 'Add Detail for ' + scope.contact.fname + ' ' + scope.contact.lname,
+//              title: 'Add Detail for ' + scope.group.org + ' [' + scope.group.type + ']',
                 actionButtonText: 'Add',
                 detail: undefined
             };
@@ -29,6 +30,7 @@ function contactInfo(contactService, modalService, alertService) {
         scope.showEditDetailModal = function(detail) {
             var modalOptions = {
                 title: 'Edit Detail for ' + scope.contact.fname + ' ' + scope.contact.lname,
+//              title: 'Edit Detail for ' + scope.group.org + ' [' + scope.group.type + ']',
                 actionButtonText: 'Update',
                 detail: detail
             };
@@ -39,11 +41,15 @@ function contactInfo(contactService, modalService, alertService) {
         function createDetail(detail) {
             contactService.createPinfo(detail, scope.contact.pid)
                 .then(onSuccess, onError);
+//          contactService.createGinfo(detail, scope.group.gid)
+//              .then(onSuccess, onError);
         }
 
         function updateDetail(detail) {
             contactService.updatePinfo(detail, scope.contact.pid)
                 .then(onSuccess, onError);
+//          contactService.updateGinfo(detail, scope.group.gid)
+//              .then(onSuccess, onError);
         }
 
         function onSuccess(response) {

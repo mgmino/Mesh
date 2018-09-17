@@ -37,19 +37,19 @@
 	<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/></a>
 	</div>
 
-	<contact-info details='group.details' contact='contact'></contact-info>
+	<contact-info details='group.details' contact='group' mode='group'></contact-info>
 	</div>
 </div>
 
-<div class='mg-label-long clickable' ng-click="showCreateGroupModal()" title='add group'>
+<div class='mg-label-long clickable' ng-click="showCreateGroupModal()" title='add Group'>
 	<b><i class="fa fa-plus"></i> Add Group</b>
 </div>
 
 
 <div ng-repeat="note in notes | orderBy: '-mdate' ">
-	<div class='mg-note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
+	<div class='mg-note' title='edit Note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
 </div>
 
-<div class='mg-label-long clickable' ng-click="showCreateNoteModal()" title='add note'>
+<div class='mg-label-long clickable' ng-click="showCreateNoteModal()" title='add Note'>
 	<b><i class="fa fa-plus"></i> Add Note</b>
 </div>
