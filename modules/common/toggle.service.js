@@ -8,11 +8,11 @@ function toggleService() {
 
     var api, pix;
 	var API_URL= {
-		REMOTE: 'http://mgm2.trakmark.com/mesh-api.php',
+		REMOTE: 'https://mgm2.trakmark.com/mesh-api.php',
 		LOCAL: 'http://localhost:80/mesh-api/mesh-api.php'
 	};
 	var PIX_URL= {
-		REMOTE: 'http://mgm.trakmark.com/mesh/photos',
+		REMOTE: 'https://mgm.trakmark.com/mesh/photos',
 		LOCAL: '../../inc/photos'
 	};
 
