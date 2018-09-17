@@ -1,7 +1,7 @@
 <ul class='pinfo-list'>
     <li ng-repeat="detail in details | orderBy: 'type' " ng-switch='detail.type'>
         <!-- Tag Labels -->
-        <div class='mg-label' title='{{detail.mdate | ageFilter}}'>
+        <div class='mg-label' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
             <b ng-bind='detail.type' ng-click="showEditDetailModal(detail)"></b>
         </div>
 
@@ -9,9 +9,7 @@
         <b>
             <a ng-switch-when='url' ng-href='http://{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
             <a ng-switch-when='eml' ng-href='mailto:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
-            <a ng-switch-when='cph' ng-href='tel:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
-            <a ng-switch-when='wph' ng-href='tel:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
-            <a ng-switch-when='hph' ng-href='tel:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
+            <a ng-switch-when='cph~wph~hph' ng-switch-when-separator='~' ng-href='tel:{{detail.info}}' target='_blank' ng-bind='detail.info'></a>
             <span ng-switch-when='wed' ng-bind='detail.info | bornFilter'></span >
             <span ng-switch-default ng-bind='detail.info'></span>
         </b>
@@ -20,8 +18,8 @@
 
     <!-- Add New Detail Button -->
     <li>
-        <div class='mg-label clickable' ng-click="showCreateDetailModal()">
-            <i class="fa fa-plus"></i>
+        <div class='mg-label-long clickable' ng-click="showCreateDetailModal()" title='add detail'>
+            <b><i class="fa fa-plus"></i> Add Detail</b>
         </div>
     </li>
 </ul>

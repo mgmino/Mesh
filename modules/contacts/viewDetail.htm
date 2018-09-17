@@ -26,7 +26,8 @@
 
 
 <div ng-repeat="group in groups | orderBy: '-mdate' ">
-	<div class='mg-section' title='{{group.mdate}}'><b class='mg-title'>{{group.type}}:</b> {{group.org}}
+	<div  class='mg-section' ng-class-odd="'mg-section-odd'" ng-class-even="'mg-section-even'">
+	<div title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'><b class='mg-title'>{{group.type}}:</b> {{group.org}}
 		<span ng-if='group.cnt > 1'> ({{group.cnt}})</span></div>
 	<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
 	<div ng-if='group.street'>{{group.street}}</div>
@@ -37,11 +38,18 @@
 	</div>
 
 	<contact-info details='group.details' contact='contact'></contact-info>
+	</div>
 </div>
 
+<div class='mg-label-long clickable' ng-click="showCreateGroupModal()" title='add group'>
+	<b><i class="fa fa-plus"></i> Add Group</b>
+</div>
 
 
 <div ng-repeat="note in notes | orderBy: '-mdate' ">
-	<div style='white-space: pre-line'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
+	<div class='mg-note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
 </div>
 
+<div class='mg-label-long clickable' ng-click="showCreateNoteModal()" title='add note'>
+	<b><i class="fa fa-plus"></i> Add Note</b>
+</div>

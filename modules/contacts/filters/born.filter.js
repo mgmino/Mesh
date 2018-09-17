@@ -15,9 +15,9 @@ function bornFilter($filter) {
             born = born.substr(0,5) +'07-01';
             var yearOnly= 1;
         }
-        var ageDifMs = Date.now() - new Date(born).getTime();
+        var ageDifMs = new Date().getTime() - new Date(born).getTime();
         var ageDate = new Date(ageDifMs); // milliseconds from epoch
-        var age = Math.abs(ageDate.getUTCFullYear() - 1970); //***fix***
+        var age = Math.abs(ageDate.getUTCFullYear() - 1970);
         var birthdate = $filter('date')(born);
         if (age > 200) return birthdate.substr(0,birthdate.indexOf(',', 0));
         else if (typeof(yearOnly) !== 'undefined') return ' [' + age +']';

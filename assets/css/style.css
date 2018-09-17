@@ -29,11 +29,22 @@ div.mg-label {
     display: inline-block;
     width: 40px;
     text-align: center;
-    background-color: #88f;
+    background-color: #8ff;
 }
 
 div.mg-label a {
     color: white;
+}
+div.mg-label-long {
+    line-height: 22px;
+    height: 22px;
+    margin: 4px 0;
+    padding: 2px 6px;
+    border-radius: 8px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    background-color: #8ff;
 }
 
 div.mg-label-add {
@@ -70,7 +81,14 @@ ul.pinfo-list li {
 }
 
 .mg-section {
-	margin-top: 4px
+	margin-top: 4px;
+	padding: 6px;
+}
+.mg-section-odd {
+	background-color: #afc;
+}
+.mg-section-even {
+	background-color: #dfd;
 }
 
 .mg-title {
@@ -78,4 +96,9 @@ ul.pinfo-list li {
 	background-color: #fff;
 	padding: 0 4px;
 }
-
+.mg-note {
+	margin-top: 4px;
+    white-space: pre-line;
+	background-color: #8df;
+	padding: 4px 8px;
+}
