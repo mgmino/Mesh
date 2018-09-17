@@ -10,16 +10,20 @@ function contactInfo(contactService, modalService, alertService) {
         templateUrl: 'modules/contacts/directives/contact-info.directive.htm',
         scope: {
             contact: '=',
-            details: '='
+            details: '=',
+            group: '=?'
         },
         link: link
     };
 
     function link(scope, elems, attrs) {
         scope.showCreateDetailModal = function() {
+            var title = scope.group ?
+                'Add Detail for ' + scope.group.org + ' [' + scope.group.type + ']' :
+                'Add Detail for ' + scope.contact.fname + ' ' + scope.contact.lname;
+
             var modalOptions = {
-                title: 'Add Detail for ' + scope.contact.fname + ' ' + scope.contact.lname,
-//              title: 'Add Detail for ' + scope.group.org + ' [' + scope.group.type + ']',
+                title: title,
                 actionButtonText: 'Add',
                 detail: undefined
             };
@@ -28,28 +32,34 @@ function contactInfo(contactService, modalService, alertService) {
         };
 
         scope.showEditDetailModal = function(detail) {
+            var title = scope.group ?
+                'Edit Detail for ' + scope.group.org + ' [' + scope.group.type + ']' :
+                'Edit Detail for ' + scope.contact.fname + ' ' + scope.contact.lname;
+
             var modalOptions = {
-                title: 'Edit Detail for ' + scope.contact.fname + ' ' + scope.contact.lname,
-//              title: 'Edit Detail for ' + scope.group.org + ' [' + scope.group.type + ']',
+                title: title,
                 actionButtonText: 'Update',
                 detail: detail
             };
+
             modalService.showDetailModal({}, modalOptions)
                 .then(updateDetail, angular.noop);
         };
 
         function createDetail(detail) {
-            contactService.createPinfo(detail, scope.contact.pid)
-                .then(onSuccess, onError);
-//          contactService.createGinfo(detail, scope.group.gid)
-//              .then(onSuccess, onError);
+            if (scope.group) {
+                contactService.createGinfo(detail, scope.group.gid).then(onSuccess, onError);
+            } else {
+                contactService.createPinfo(detail, scope.contact.pid).then(onSuccess, onError);
+            }
         }
 
         function updateDetail(detail) {
-            contactService.updatePinfo(detail, scope.contact.pid)
-                .then(onSuccess, onError);
-//          contactService.updateGinfo(detail, scope.group.gid)
-//              .then(onSuccess, onError);
+            if (scope.group) {
+                contactService.updateGinfo(detail, scope.group.gid).then(onSuccess, onError);
+            } else {
+                contactService.updatePinfo(detail, scope.contact.pid).then(onSuccess, onError);
+            }
         }
 
         function onSuccess(response) {

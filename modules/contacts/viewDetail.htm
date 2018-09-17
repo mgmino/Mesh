@@ -27,24 +27,24 @@
 
 <div ng-repeat="group in groups | orderBy: '-mdate' ">
 	<div  class='mg-section' ng-class-odd="'mg-section-odd'" ng-class-even="'mg-section-even'">
-	<div title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'><b class='mg-title'>{{group.type}}:</b> {{group.org}}
-		<span ng-if='group.cnt > 1'> ({{group.cnt}})</span></div>
-	<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
-	<div ng-if='group.street'>{{group.street}}</div>
+		<div title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'><b class='mg-title'>{{group.type}}:</b> {{group.org}}
+			<span ng-if='group.cnt > 1'> ({{group.cnt}})</span>
+		</div>
+		<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
+		<div ng-if='group.street'>{{group.street}}</div>
 
-	<div ng-if='group.city'>{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}
-	<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
-	<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/></a>
-	</div>
+		<div ng-if='group.city'>{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}</div>
+		<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
+			<img src='assets/img/pix/map-pin.png' alt='map' title='map location'/>
+		</a>
 
-	<contact-info details='group.details' contact='group' mode='group'></contact-info>
+		<contact-info details='group.details' contact='contact' group='group'></contact-info>
 	</div>
 </div>
 
 <div class='mg-label-long clickable' ng-click="showCreateGroupModal()" title='add Group'>
 	<b><i class="fa fa-plus"></i> Add Group</b>
 </div>
-
 
 <div ng-repeat="note in notes | orderBy: '-mdate' ">
 	<div class='mg-note' title='edit Note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
