@@ -75,6 +75,7 @@ div.search-filter {
 /* Person Info */
 ul.pinfo-list {
     padding-left: 10px;
+	margin-bottom: 0
 }
 ul.pinfo-list li {
     list-style: none;

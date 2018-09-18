@@ -2,7 +2,7 @@
     <li ng-repeat="detail in details | orderBy: 'type' " ng-switch='detail.type'>
         <!-- Tag Labels -->
         <div class='mg-label' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
-            <b ng-bind='detail.type' ng-click="showEditDetailModal(detail)"></b>
+            <b ng-bind='detail.type' ng-click='showEditDetailModal(detail)'></b>
         </div>
 
         <!-- Tag Value -->
@@ -18,8 +18,8 @@
 
     <!-- Add New Detail Button -->
     <li>
-        <div class='mg-label-long clickable' ng-click="showCreateDetailModal()" title='add {{group ? "group" : "contact"}} detail'>
-            <b><i class="fa fa-plus"></i> Add Detail</b>
+        <div class='mg-label-long clickable' ng-click='showCreateDetailModal()' title='add {{group ? 'group' : 'contact'}} detail'>
+            <b><i class='fa fa-plus-circle'></i> Add Detail</b>
         </div>
     </li>
 </ul>
