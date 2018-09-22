@@ -64,6 +64,17 @@ function contactService($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
+    this.createNote = function(note) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'createNote',
+                note: note
+            }
+        }).then(processSuccess, processError);
+    };
+
     this.getContactById = function(id) {
         return $http({
             method : 'POST',

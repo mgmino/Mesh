@@ -2,9 +2,9 @@ angular
     .module('contacts')
     .controller('detailController', detailController);
 
-detailController.$inject = ['$scope', '$routeParams', 'contactService', 'alertService'];
+detailController.$inject = ['$scope', '$routeParams', 'contactService', 'modalService', 'alertService'];
 
-function detailController($scope, $routeParams, contactService, alertService) {
+function detailController($scope, $routeParams, contactService, modalService, alertService) {
 
     function init() {
         var cid = $routeParams.cid;
@@ -12,10 +12,16 @@ function detailController($scope, $routeParams, contactService, alertService) {
     }
 
     $scope.loadContact = loadContact.bind(this, $routeParams.cid);
+    $scope.showCreateGroupModal = showCreateGroupModal;
+    $scope.showCreateNoteModal = showCreateNoteModal;
 
     function loadContact(cid) {
         return contactService.getContactById(cid)
-            .then(populateView, error);
+            .then(
+                populateView,
+                function(response) {
+                    alertService.addAlert(alertService.TYPE.DANGER, 'Could not load contact', 5000);
+                });
     }
 
     function populateView(contactObj) {
@@ -25,8 +31,50 @@ function detailController($scope, $routeParams, contactService, alertService) {
         $scope.notes = contactObj.notes;
     }
 
-    function error(response) {
-        alertService.addAlert(alertService.TYPE.DANGER, 'Could not load contact', 5000);
+    function showCreateGroupModal() {
+        var modalOptions = {
+            title: 'Add Group for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
+            actionButtonText: 'Add',
+            detail: undefined
+        };
+        modalService.showDetailModal({}, modalOptions)
+            .then(createGroup, angular.noop);
+    }
+
+    function showCreateNoteModal() {
+        var modalOptions = {
+            title: 'Add Note for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
+            actionButtonText: 'Add',
+            detail: undefined
+        };
+        modalService.showDetailModal({}, modalOptions)
+            .then(createNote, angular.noop);
+    }
+
+    function createGroup(group) {
+        contactService.createGroup(group)
+            .then(
+                function(response) {
+                    loadContact($routeParams.cid);
+                    // TODO: use information from the response instead
+                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Created group', 3000);
+                },
+                function(err) {
+                    alertService.addAlert(alertService.TYPE.WARNING, err, 3000);
+                });
+    }
+
+    function createNote(note) {
+        contactService.createNote(note)
+            .then(
+                function(response) {
+                    loadContact($routeParams.cid);
+                    // TODO: use information from the response instead
+                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Created note', 3000);
+                },
+                function(err) {
+                    alertService.addAlert(alertService.TYPE.WARNING, err, 3000);
+                });
     }
 
     init();
