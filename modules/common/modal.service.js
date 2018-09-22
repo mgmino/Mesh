@@ -21,7 +21,19 @@ function modalService($uibModal) {
 
     this.showDetailModal = function (customModalDefaults, customModalOptions) {
         if (!customModalDefaults) customModalDefaults = {};
-        customModalDefaults.templateUrl = 'modules/contacts/detail-modal.htm';
+        customModalDefaults.templateUrl = 'modules/details/detail-modal.htm';
+        return this.show(customModalDefaults, customModalOptions);
+    };
+
+    this.showGroupModal = function (customModalDefaults, customModalOptions) {
+        if (!customModalDefaults) customModalDefaults = {};
+        customModalDefaults.templateUrl = 'modules/groups/group-modal.htm';
+        return this.show(customModalDefaults, customModalOptions);
+    };
+
+    this.showNoteModal = function (customModalDefaults, customModalOptions) {
+        if (!customModalDefaults) customModalDefaults = {};
+        customModalDefaults.templateUrl = 'modules/notes/note-modal.htm';
         return this.show(customModalDefaults, customModalOptions);
     };
 

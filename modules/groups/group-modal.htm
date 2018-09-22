@@ -1,0 +1,50 @@
+<style>
+    label {width: 120px}
+    div.form-group input {width: 90%}
+</style>
+
+<div class="modal-header">
+    <h3 ng-bind="modalOptions.title"></h3>
+</div>
+<div class="modal-body">
+    <div class='form-group'>
+        <label for='InInfo'>Organization</label>
+        <input type='text' ng-model='modalOptions.group.org' id='InOrg' placeholder='Enter organization or group name'/>
+    </div>
+    <div class='form-group'>
+        <label for='InType'>Type</label>
+        <input type='text' ng-model='modalOptions.group.type' id='InType' placeholder='Enter group type (home, work, lake)'/>
+    </div>
+    <div class='form-group'>
+        <label for='InInfo'>Relationship/title</label>
+        <input type='text' ng-model='modalOptions.group.relation' id='InRelation' placeholder='Enter title (relationship with group)'/>
+    </div>
+    <div class='form-group'>
+        <label for='InInfo'>Street</label>
+        <input type='text' ng-model='modalOptions.group.street' id='InStreet' placeholder='Enter street number and name'/>
+    </div>
+    <div class='form-group'>
+        <label for='InInfo'>City</label>
+        <input type='text' ng-model='modalOptions.group.city' id='InCity' placeholder='Enter city name'/>
+    </div>
+    <div class='form-group'>
+        <label for='InInfo'>State/Province</label>
+        <input type='text' ng-model='modalOptions.group.state' id='InState' placeholder='Enter state/province abbreviation'/>
+    </div>
+    <div class='form-group'>
+        <label for='InInfo'>Zip/Postal Code</label>
+        <input type='text' ng-model='modalOptions.group.zip' id='InZip' placeholder='Enter zip/postal code'/>
+    </div>
+    <div class='form-group'>
+        <label for='InInfo'>Country</label>
+        <input type='text' ng-model='modalOptions.group.country' id='InCountry' placeholder='Enter country (two character) code'/>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">
+        Cancel
+    </button>
+    <button class="btn btn-primary" data-ng-click="modalOptions.ok(modalOptions.detail)">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>

@@ -1,0 +1,24 @@
+<style>
+    label {width: 30px}
+    div.form-group input {width: 90%}
+	textarea {width: 100%; }
+</style>
+
+<div class="modal-header">
+    <h3 ng-bind="modalOptions.title"></h3>
+</div>
+<div class="modal-body">
+    <div class='form-group'>
+        <label for='InType'>Note</label>
+        <textarea rows='8' ng-model='modalOptions.note.note' id='InNote' placeholder='Enter note'/>
+		</textarea>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">
+        Cancel
+    </button>
+    <button class="btn btn-primary" data-ng-click="modalOptions.ok(modalOptions.detail)">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>

@@ -5,9 +5,9 @@
 		</div>
 
 		<div class='media-body'>
-			<b class="title" ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
+			<b class='title' ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
 				{{contact.fname}} {{contact.lname}}
-				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i> <i class='fa fa-pencil-square' title='edit contact'></i>
+				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i> <i class='fa fa-pencil-square clickable' ng-click='showEditContact()' title='edit contact'></i>
 			</b>
 			<div style='padding-top: 3px'>
 				<nl-linked-in fname='contact.fname' lname='contact.lname'></nl-linked-in> &nbsp;
@@ -27,8 +27,8 @@
 
 
 <div ng-repeat="group in groups | orderBy: '-mdate' ">
-	<div  class='mg-section' ng-class-odd="'mg-section-odd'" ng-class-even="'mg-section-even'">
-		<div title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'>
+	<div class='mg-section' ng-class-odd="'mg-section-odd'" ng-class-even="'mg-section-even'">
+		<div class='clickable' ng-click='showEditGroupModal()' title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'>
 			<b class='mg-title'>{{group.type}}:</b> {{group.org}} <span ng-if='group.cnt > 1'>({{group.cnt}})</span>
 		</div>
 		<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
@@ -50,7 +50,7 @@
 </div>
 
 <div ng-repeat="note in notes | orderBy: '-mdate' ">
-	<div class='mg-note' title='edit Note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
+	<div class='mg-note clickable' ng-click='showEditNoteModal()' title='edit Note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
 </div>
 
 <div class='mg-label-long clickable' ng-click='showCreateNoteModal()' title='add Note'>

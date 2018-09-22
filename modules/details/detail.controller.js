@@ -37,8 +37,18 @@ function detailController($scope, $routeParams, contactService, modalService, al
             actionButtonText: 'Add',
             detail: undefined
         };
-        modalService.showDetailModal({}, modalOptions)
+        modalService.showGroupModal({}, modalOptions)
             .then(createGroup, angular.noop);
+    }
+
+    function showEditGroupModal() {
+        var modalOptions = {
+            title: 'Edit Group for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
+            actionButtonText: 'Update',
+            detail: angular.copy(group)
+        };
+        modalService.showGroupModal({}, modalOptions)
+            .then(updateGroup, angular.noop);
     }
 
     function showCreateNoteModal() {
@@ -47,8 +57,18 @@ function detailController($scope, $routeParams, contactService, modalService, al
             actionButtonText: 'Add',
             detail: undefined
         };
-        modalService.showDetailModal({}, modalOptions)
+        modalService.showNoteModal({}, modalOptions)
             .then(createNote, angular.noop);
+    }
+
+    function showEditNoteModal() {
+        var modalOptions = {
+            title: 'Edit Note for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
+            actionButtonText: 'Update',
+            detail: angular.copy(note)
+        };
+        modalService.showNoteModal({}, modalOptions)
+            .then(updateNote, angular.noop);
     }
 
     function createGroup(group) {
