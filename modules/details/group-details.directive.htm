@@ -1,0 +1,25 @@
+<ul class='pinfo-list'>
+    <li ng-repeat="detail in details | orderBy: 'type' ">
+        <!-- Tag Label -->
+        <div class='mg-label' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
+            <b ng-bind='detail.type' ng-click='showEditDetailModal(detail)'></b>
+        </div>
+
+        <!-- Tag Value -->
+        <b ng-switch='detail.type'>
+            <a ng-switch-when='url' ng-href='http://{{detail.info}}' target='_blank'>{{detail.info}}</a>
+            <a ng-switch-when='eml' ng-href='mailto:{{detail.info}}' target='_blank'>{{detail.info}}</a>
+            <a ng-switch-when='cph~wph~hph' ng-switch-when-separator='~' ng-href='tel:{{detail.info}}' target='_blank'>{{detail.info}}</a>
+            <span ng-switch-when='wed'>{{detail.info | bornFilter}}</span >
+            <span ng-switch-default>{{detail.info}}</span>
+        </b>
+        <i ng-if='detail.areacode' style='display: inline-block; text-overflow: clip;'>{{detail.areacode}}</i>
+    </li>
+
+    <!-- Add New Group Detail Button -->
+    <li>
+        <div class='mg-label-long clickable' ng-click='showCreateDetailModal()' title='add {{group}} detail'>
+            <b><i class='fa fa-plus-circle'></i> Add Detail</b>
+        </div>
+    </li>
+</ul>

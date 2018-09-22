@@ -8,8 +8,13 @@ function detailController($scope, $routeParams, contactService, alertService) {
 
     function init() {
         var cid = $routeParams.cid;
+        loadContact(cid);
+    }
 
-        contactService.getContactById(cid)
+    $scope.loadContact = loadContact.bind(this, $routeParams.cid);
+
+    function loadContact(cid) {
+        return contactService.getContactById(cid)
             .then(populateView, error);
     }
 

@@ -1,6 +1,7 @@
 angular.module('alerts', []);
 angular.module('common', []);
 angular.module('contacts', []);
+angular.module('details', []);
 angular.module('events', []);
 angular.module('layout', []);
 angular.module('login', []);
@@ -14,6 +15,7 @@ angular.module('meshApp', [
 
     'alerts',
     'common',
+    'details',
     'contacts',
     'events',
     'layout',

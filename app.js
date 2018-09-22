@@ -14,7 +14,7 @@ function config($routeProvider) {
             controller: 'contactsController'
         })
         .when('/detail/:cid', {
-            templateUrl: 'modules/contacts/viewDetail.htm',
+            templateUrl: 'modules/details/viewDetail.htm',
             controller: 'detailController'
         })
         .when('/events', {

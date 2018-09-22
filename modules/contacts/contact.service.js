@@ -53,30 +53,6 @@ function contactService($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
-    this.createPinfo= function(detail, pid) {
-        return $http({
-            method : 'POST',
-            url : toggleService.getAPI(),
-            data: {
-                op:	'createPinfo',
-                pid:	pid,
-                detail: detail
-            }
-        }).then(processSuccess, processError);
-    };
-
-    this.updatePinfo= function(detail, pid) {
-        return $http({
-            method : 'POST',
-            url : toggleService.getAPI(),
-            data: {
-                op:	'updatePinfo',
-                pid:	pid,
-                detail: detail
-            }
-        }).then(processSuccess, processError);
-    };
-
     this.createGroup= function(group) {
         return $http({
             method : 'POST',
@@ -84,30 +60,6 @@ function contactService($http, $location, toggleService) {
             data: {
                 op:	'createGroup',
                 group: group
-            }
-        }).then(processSuccess, processError);
-    };
-
-    this.createGinfo= function(detail, gid) {
-        return $http({
-            method : 'POST',
-            url : toggleService.getAPI(),
-            data: {
-                op:	'createGinfo',
-                gid:	gid,
-                detail: detail
-            }
-        }).then(processSuccess, processError);
-    };
-
-    this.updateGinfo= function(detail, gid) {
-        return $http({
-            method : 'POST',
-            url : toggleService.getAPI(),
-            data: {
-                op:	'updateGinfo',
-                gid:	gid,
-                detail: detail
             }
         }).then(processSuccess, processError);
     };

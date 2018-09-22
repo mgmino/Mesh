@@ -10,10 +10,11 @@
 				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i> <i class='fa fa-pencil-square' title='edit contact'></i>
 			</b>
 			<div style='padding-top: 3px'>
-			<nl-linked-in fname='contact.fname' lname='contact.lname'></nl-linked-in> &nbsp;
-			<nl-clemson fname='contact.fname' lname='contact.lname'></nl-clemson> &nbsp;
-			<nl-google fname='contact.fname' lname='contact.lname'></nl-google> &nbsp;
-			<nl-my-life fname='contact.fname' lname='contact.lname'></nl-my-life></div>
+				<nl-linked-in fname='contact.fname' lname='contact.lname'></nl-linked-in> &nbsp;
+				<nl-clemson fname='contact.fname' lname='contact.lname'></nl-clemson> &nbsp;
+				<nl-google fname='contact.fname' lname='contact.lname'></nl-google> &nbsp;
+				<nl-my-life fname='contact.fname' lname='contact.lname'></nl-my-life>
+			</div>
 
 			<div style='padding-top: 3px'>{{contact.born | bornFilter}}</div>
 			<div style='padding-top: 3px'><contact-tags contact='contact'></contact-tags></div>
@@ -22,23 +23,25 @@
     </li>
 </ul>
 
-<contact-info details='details' contact='contact'></contact-info>
+<basic-details details='details' contact='contact' update='loadContact'></basic-details>
 
 
 <div ng-repeat="group in groups | orderBy: '-mdate' ">
 	<div  class='mg-section' ng-class-odd="'mg-section-odd'" ng-class-even="'mg-section-even'">
-		<div title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'><b class='mg-title'>{{group.type}}:</b> {{group.org}}
-			<span ng-if='group.cnt > 1'> ({{group.cnt}})</span>
+		<div title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'>
+			<b class='mg-title'>{{group.type}}:</b> {{group.org}} <span ng-if='group.cnt > 1'>({{group.cnt}})</span>
 		</div>
 		<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>
 		<div ng-if='group.street'>{{group.street}}</div>
 
-		<div ng-if='group.city'>{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}
-		<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
-			<i class='fa fa-map-marker'></i>
-		</a>
+		<div ng-if='group.city'>
+			{{group.city}}, {{group.state}} {{group.zip}} {{group.country}}
+			<a href='http://www.google.com/maps/place/{{group.street}} {{group.city}} {{group.state}} {{group.zip}} {{group.country}}' target='_blank'>
+				<i class='fa fa-map-marker'></i>
+			</a>
 		</div>
-		<contact-info details='group.details' contact='contact' group='group'></contact-info>
+
+		<group-details details='group.details' group='group' update='loadContact'></group-details>
 	</div>
 </div>
 
