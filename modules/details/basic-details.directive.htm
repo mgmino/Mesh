@@ -1,8 +1,8 @@
 <ul class='pinfo-list'>
     <li ng-repeat="detail in details | orderBy: 'type' ">
         <!-- Tag Label -->
-        <div class='mg-label' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
-            <b ng-bind='detail.type' ng-click='showEditDetailModal(detail)'></b>
+        <div class='mg-label clickable' ng-click='showEditDetailModal(detail)' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
+            <b ng-bind='detail.type'></b>
         </div>
 
         <!-- Tag Value -->

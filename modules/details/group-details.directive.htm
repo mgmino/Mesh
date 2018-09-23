@@ -1,8 +1,8 @@
 <ul class='pinfo-list'>
     <li ng-repeat="detail in details | orderBy: 'type' ">
-        <!-- Tag Label -->
-        <div class='mg-label' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
-            <b ng-bind='detail.type' ng-click='showEditDetailModal(detail)'></b>
+        <!-- Tag Labels -->
+        <div class='mg-label clickable' ng-click='showEditDetailModal(detail)' title='edit {{detail.type}}; updated {{detail.mdate | ageFilter}} years ago'>
+            <b ng-bind='detail.type'></b>
         </div>
 
         <!-- Tag Value -->
@@ -18,7 +18,7 @@
 
     <!-- Add New Group Detail Button -->
     <li>
-        <div class='mg-label-long clickable' ng-click='showCreateDetailModal()' title='add {{group}} detail'>
+        <div class='mg-label-long clickable' ng-click='showCreateDetailModal()' title='add group detail'>
             <b><i class='fa fa-plus-circle'></i> Add Detail</b>
         </div>
     </li>

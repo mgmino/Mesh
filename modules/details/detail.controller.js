@@ -11,9 +11,11 @@ function detailController($scope, $routeParams, contactService, modalService, al
         loadContact(cid);
     }
 
-    $scope.loadContact = loadContact.bind(this, $routeParams.cid);
-    $scope.showCreateGroupModal = showCreateGroupModal;
-    $scope.showCreateNoteModal = showCreateNoteModal;
+    $scope.loadContact= loadContact.bind(this, $routeParams.cid);
+    $scope.showCreateGroupModal= showCreateGroupModal;
+    $scope.showCreateNoteModal= showCreateNoteModal;
+    $scope.showEditGroupModal= showEditGroupModal;
+    $scope.showEditNoteModal= showEditNoteModal;
 
     function loadContact(cid) {
         return contactService.getContactById(cid)
@@ -25,17 +27,17 @@ function detailController($scope, $routeParams, contactService, modalService, al
     }
 
     function populateView(contactObj) {
-        $scope.contact = contactObj.person;
-        $scope.details = contactObj.details;
-        $scope.groups = contactObj.groups;
-        $scope.notes = contactObj.notes;
+        $scope.contact= contactObj.person;
+        $scope.details= contactObj.details;
+        $scope.groups= contactObj.groups;
+        $scope.notes= contactObj.notes;
     }
 
     function showCreateGroupModal() {
         var modalOptions = {
             title: 'Add Group for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
-            actionButtonText: 'Add',
-            detail: undefined
+            actionButtonText: 'Create',
+            group: undefined
         };
         modalService.showGroupModal({}, modalOptions)
             .then(createGroup, angular.noop);
@@ -45,7 +47,7 @@ function detailController($scope, $routeParams, contactService, modalService, al
         var modalOptions = {
             title: 'Edit Group for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
             actionButtonText: 'Update',
-            detail: angular.copy(group)
+            group: angular.copy(group)
         };
         modalService.showGroupModal({}, modalOptions)
             .then(updateGroup, angular.noop);
@@ -54,8 +56,8 @@ function detailController($scope, $routeParams, contactService, modalService, al
     function showCreateNoteModal() {
         var modalOptions = {
             title: 'Add Note for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
-            actionButtonText: 'Add',
-            detail: undefined
+            actionButtonText: 'Create',
+            note: undefined
         };
         modalService.showNoteModal({}, modalOptions)
             .then(createNote, angular.noop);
@@ -65,7 +67,7 @@ function detailController($scope, $routeParams, contactService, modalService, al
         var modalOptions = {
             title: 'Edit Note for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
             actionButtonText: 'Update',
-            detail: angular.copy(note)
+            note: angular.copy(note)
         };
         modalService.showNoteModal({}, modalOptions)
             .then(updateNote, angular.noop);
