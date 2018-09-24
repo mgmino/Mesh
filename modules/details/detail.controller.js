@@ -12,6 +12,7 @@ function detailController($scope, $routeParams, contactService, groupService, no
     }
 
     $scope.loadContact= loadContact.bind(this, $routeParams.cid);
+    $scope.showEditContactModal= showEditContactModal;
 
     $scope.showCreateGroupModal= showCreateGroupModal;
     $scope.showEditGroupModal= showEditGroupModal;
@@ -33,6 +34,16 @@ function detailController($scope, $routeParams, contactService, groupService, no
         $scope.details= contactObj.details;
         $scope.groups= contactObj.groups;
         $scope.notes= contactObj.notes;
+    }
+
+    function showEditContactModal(contact) {
+        var modalOptions = {
+            title: 'Edit Contact Info for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
+            actionButtonText: 'Update',
+            contact: angular.copy(contact)
+        };
+        modalService.showContactModal({}, modalOptions)
+            .then(updateContact, angular.noop);
     }
 
     function showCreateGroupModal() {
@@ -73,6 +84,17 @@ function detailController($scope, $routeParams, contactService, groupService, no
         };
         modalService.showNoteModal({}, modalOptions)
             .then(updateNote, angular.noop);
+    }
+
+    function updateContact(contact) {
+        contactService.updateContact(contact)
+            .then(
+                function(response) {
+                    loadContact($routeParams.cid);
+                    // TODO: use information from the response instead
+                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Updated contact', 3000);
+                },
+                warnError);
     }
 
     function createGroup(group) {

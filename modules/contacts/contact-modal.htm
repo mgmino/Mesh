@@ -1,0 +1,51 @@
+<style>
+    label {width: 30px}
+    div.form-group input {width: 90%}
+</style>
+
+<div class="modal-header">
+    <h3 ng-bind="modalOptions.title"></h3>
+</div>
+
+<div class="modal-body">
+	<div class='form-group'>
+		<label for='InNick'>Nick</label>
+		<input type='text' ng-model='modalOptions.contact.nick' id='InNick' placeholder='Enter nick name'/>
+	
+	</div>
+	<div class='form-group'>
+		<label for='InFname'>First</label>
+		<input type='text' ng-model='modalOptions.contact.fname' id='InFname' placeholder='Enter first name'/>
+	</div>
+	<div class='form-group'>
+		<label for='InLname'>Last</label>
+		<input type='text' ng-model='modalOptions.contact.lname' id='InLname' placeholder='Enter last name'/>
+	</div>
+	<div class='form-group'>
+		<label for='InBorn'>Born</label>
+		<input type='date' ng-model='modalOptions.contact.born' id='InBorn' placeholder='Enter first name'/>
+	</div>
+	
+	<div class='form-check form-check-inline'>
+		<label for='InSex'>Sex</label>
+		<input id='InSex' type='radio' class='validate' ng-model='modalOptions.contact.sex' value='Male'/> Male
+		<input id='InSex' type='radio' class='validate' ng-model='modalOptions.contact.sex' value='Female'/> Female
+	</div>
+	<div class='form-group'>
+		<label for='InPix'>Pix</label>
+		<input id='InPix' type='text' ng-model='modalOptions.contact.pix' placeholder='Enter file name of contact headshot'/>
+	</div>
+	<div class='form-group'>
+		<label for='InTags'>Tags</label>
+		<input id='InTags' type='text' ng-model='modalOptions.contact.tags' placeholder='Enter tags (uHHS ePB aELM nFOX rDiG oNXT)'/>
+	</div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn" data-ng-click="modalOptions.close()">
+        Cancel
+    </button>
+    <button class="btn btn-primary" data-ng-click="modalOptions.ok(modalOptions.group)">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>

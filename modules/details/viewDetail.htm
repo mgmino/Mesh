@@ -7,7 +7,7 @@
 		<div class='media-body'>
 			<b class='title' ng-class="{'male-color': contact.sex.toUpperCase() == 'M', 'female-color': contact.sex.toUpperCase() == 'F'}">
 				{{contact.fname}} {{contact.lname}}
-				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i> <i class='fa fa-pencil-square clickable' ng-click='showEditContact()' title='edit contact'></i>
+				<i ng-if='contact.nick'> &raquo; {{contact.nick}}</i> <i class='fa fa-pencil-square clickable' ng-click='showEditContactModal(contact)' title='edit contact'></i>
 			</b>
 			<div style='padding-top: 3px'>
 				<nl-linked-in fname='contact.fname' lname='contact.lname'></nl-linked-in> &nbsp;

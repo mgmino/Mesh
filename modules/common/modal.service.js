@@ -19,6 +19,12 @@ function modalService($uibModal) {
         bodyText: 'Perform this action?'
     };
 
+    this.showContactModal = function (customModalDefaults, customModalOptions) {
+        if (!customModalDefaults) customModalDefaults = {};
+        customModalDefaults.templateUrl = 'modules/contacts/contact-modal.htm';
+        return this.show(customModalDefaults, customModalOptions);
+    };
+
     this.showDetailModal = function (customModalDefaults, customModalOptions) {
         if (!customModalDefaults) customModalDefaults = {};
         customModalDefaults.templateUrl = 'modules/details/detail-modal.htm';
