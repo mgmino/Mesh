@@ -28,7 +28,7 @@
 
 <div ng-repeat="group in groups | orderBy: '-mdate' ">
 	<div class='mg-section' ng-class-odd="'mg-section-odd'" ng-class-even="'mg-section-even'">
-		<div class='clickable' ng-click='showEditGroupModal()' title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'>
+		<div class='clickable' ng-click='showEditGroupModal(group)' title='edit {{group.type}}; updated {{group.mdate | ageFilter}} years ago'>
 			<b class='mg-title'>{{group.type}}:</b> {{group.org}} <span ng-if='group.cnt > 1'>({{group.cnt}})</span>
 		</div>
 		<div ng-if='group.relation && group.relation != "h"'><b>title</b>: {{group.relation}}</div>

@@ -43,7 +43,7 @@ function detailController($scope, $routeParams, contactService, modalService, al
             .then(createGroup, angular.noop);
     }
 
-    function showEditGroupModal() {
+    function showEditGroupModal(group) {
         var modalOptions = {
             title: 'Edit Group for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
             actionButtonText: 'Update',
