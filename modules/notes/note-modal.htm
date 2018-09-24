@@ -9,16 +9,15 @@
 </div>
 <div class="modal-body">
     <div class='form-group'>
-        <label for='InType'>Note</label>
-        <textarea rows='8' ng-model='modalOptions.note.note' id='InNote' placeholder='Enter note'/>
-		</textarea>
+        <label for='InNote'>Note</label>
+        <textarea rows='8' ng-model='modalOptions.note.note' id='InNote' placeholder='Enter note'></textarea>
     </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn" data-ng-click="modalOptions.close()">
         Cancel
     </button>
-    <button class="btn btn-primary" data-ng-click="modalOptions.ok(modalOptions.detail)">
+    <button class="btn btn-primary" data-ng-click="modalOptions.ok(modalOptions.note)">
         {{modalOptions.actionButtonText}}
     </button>
 </div>
