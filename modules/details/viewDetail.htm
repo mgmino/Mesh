@@ -50,7 +50,7 @@
 </div>
 
 <div ng-repeat="note in notes | orderBy: '-mdate' ">
-	<div class='mg-note clickable' ng-click='showEditNoteModal()' title='edit Note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
+	<div class='mg-note clickable' ng-click='showEditNoteModal(note)' title='edit Note'><b class='mg-title'>{{note.mdate}}:</b> {{note.note}}</div>
 </div>
 
 <div class='mg-label-long clickable' ng-click='showCreateNoteModal()' title='add Note'>

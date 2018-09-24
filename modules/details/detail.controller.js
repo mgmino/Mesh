@@ -63,7 +63,7 @@ function detailController($scope, $routeParams, contactService, modalService, al
             .then(createNote, angular.noop);
     }
 
-    function showEditNoteModal() {
+    function showEditNoteModal(note) {
         var modalOptions = {
             title: 'Edit Note for ' + $scope.contact.fname + ' ' + $scope.contact.lname,
             actionButtonText: 'Update',
