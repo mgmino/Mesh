@@ -8,13 +8,14 @@ function noteService($http, $location, toggleService) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-    this.createNote = function(note) {
+    this.createNote = function(note, pid) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
                 op:	'createNote',
-                note: note
+                note: note,
+                pid: pid
             }
         }).then(processSuccess, processError);
     };

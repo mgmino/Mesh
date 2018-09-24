@@ -8,13 +8,14 @@ function groupService($http, $location, toggleService) {
 
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-    this.createGroup= function(group) {
+    this.createGroup= function(group, pid) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
                 op:	'createGroup',
-                group: group
+                group: group,
+                pid: pid
             }
         }).then(processSuccess, processError);
     };

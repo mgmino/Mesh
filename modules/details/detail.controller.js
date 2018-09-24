@@ -76,7 +76,7 @@ function detailController($scope, $routeParams, contactService, groupService, no
     }
 
     function createGroup(group) {
-        groupService.createGroup(group)
+        groupService.createGroup(group, $routeParams.cid)
             .then(
                 function(response) {
                     loadContact($routeParams.cid);
@@ -98,7 +98,7 @@ function detailController($scope, $routeParams, contactService, groupService, no
     }
 
     function createNote(note) {
-        noteService.createNote(note)
+        noteService.createNote(note, $routeParams.cid)
             .then(
                 function(response) {
                     loadContact($routeParams.cid);
