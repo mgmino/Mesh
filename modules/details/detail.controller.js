@@ -2,9 +2,9 @@ angular
     .module('contacts')
     .controller('detailController', detailController);
 
-detailController.$inject = ['$scope', '$routeParams', 'contactService', 'modalService', 'alertService'];
+detailController.$inject = ['$scope', '$routeParams', 'contactService', 'groupService', 'noteService', 'modalService', 'alertService'];
 
-function detailController($scope, $routeParams, contactService, modalService, alertService) {
+function detailController($scope, $routeParams, contactService, groupService, noteService, modalService, alertService) {
 
     function init() {
         var cid = $routeParams.cid;
@@ -12,9 +12,11 @@ function detailController($scope, $routeParams, contactService, modalService, al
     }
 
     $scope.loadContact= loadContact.bind(this, $routeParams.cid);
+
     $scope.showCreateGroupModal= showCreateGroupModal;
-    $scope.showCreateNoteModal= showCreateNoteModal;
     $scope.showEditGroupModal= showEditGroupModal;
+
+    $scope.showCreateNoteModal= showCreateNoteModal;
     $scope.showEditNoteModal= showEditNoteModal;
 
     function loadContact(cid) {
@@ -74,29 +76,51 @@ function detailController($scope, $routeParams, contactService, modalService, al
     }
 
     function createGroup(group) {
-        contactService.createGroup(group)
+        groupService.createGroup(group)
             .then(
                 function(response) {
                     loadContact($routeParams.cid);
                     // TODO: use information from the response instead
                     alertService.addAlert(alertService.TYPE.SUCCESS, 'Created group', 3000);
                 },
-                function(err) {
-                    alertService.addAlert(alertService.TYPE.WARNING, err, 3000);
-                });
+                warnError);
+    }
+
+    function updateGroup(group) {
+        groupService.updateGroup(group)
+            .then(
+                function(response) {
+                    loadContact($routeParams.cid);
+                    // TODO: use information from the response instead
+                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Updated group', 3000);
+                },
+                warnError);
     }
 
     function createNote(note) {
-        contactService.createNote(note)
+        noteService.createNote(note)
             .then(
                 function(response) {
                     loadContact($routeParams.cid);
                     // TODO: use information from the response instead
                     alertService.addAlert(alertService.TYPE.SUCCESS, 'Created note', 3000);
                 },
-                function(err) {
-                    alertService.addAlert(alertService.TYPE.WARNING, err, 3000);
-                });
+                warnError);
+    }
+
+    function updateNote(note) {
+        noteService.updateNote(note)
+            .then(
+                function(response) {
+                    loadContact($routeParams.cid);
+                    // TODO: use information from the response instead
+                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Updated note', 3000);
+                },
+                warnError);
+    }
+
+    function warnError(err) {
+        alertService.addAlert(alertService.TYPE.WARNING, err, 3000);
     }
 
     init();
