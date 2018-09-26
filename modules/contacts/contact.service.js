@@ -42,12 +42,23 @@ function contactService($http, $location, toggleService) {
         }).then(processSuccess, processError);
     };
 
-    this.createPeople= function(contact) {
+    this.createPeople = function(contact) {
         return $http({
             method : 'POST',
             url : toggleService.getAPI(),
             data: {
                 op:	'createPeople',
+                contact: contact
+            }
+        }).then(processSuccess, processError);
+    };
+
+    this.updatePeople = function(contact) {
+        return $http({
+            method : 'POST',
+            url : toggleService.getAPI(),
+            data: {
+                op:	'updatePeople',
                 contact: contact
             }
         }).then(processSuccess, processError);
