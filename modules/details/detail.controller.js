@@ -24,8 +24,8 @@ function detailController($scope, $routeParams, contactService, groupService, no
         return contactService.getContactById(cid)
             .then(
                 populateView,
-                function(response) {
-                    alertService.addAlert(alertService.TYPE.DANGER, 'Could not load contact', 5000);
+                function(error) {
+                    alertService.addAlert(alertService.TYPE.DANGER, error, 5000);
                 });
     }
 
@@ -87,58 +87,43 @@ function detailController($scope, $routeParams, contactService, groupService, no
     }
 
     function updateContact(contact) {
-        contactService.updateContact(contact)
+        contactService.updatePeople(contact)
             .then(
-                function(response) {
-                    loadContact($routeParams.cid);
-                    // TODO: use information from the response instead
-                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Updated contact', 3000);
-                },
+                refreshAndToastSuccess,
                 warnError);
     }
 
     function createGroup(group) {
         groupService.createGroup(group, $routeParams.cid)
             .then(
-                function(response) {
-                    loadContact($routeParams.cid);
-                    // TODO: use information from the response instead
-                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Created group', 3000);
-                },
+                refreshAndToastSuccess,
                 warnError);
     }
 
     function updateGroup(group) {
         groupService.updateGroup(group)
             .then(
-                function(response) {
-                    loadContact($routeParams.cid);
-                    // TODO: use information from the response instead
-                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Updated group', 3000);
-                },
+                refreshAndToastSuccess,
                 warnError);
     }
 
     function createNote(note) {
         noteService.createNote(note, $routeParams.cid)
             .then(
-                function(response) {
-                    loadContact($routeParams.cid);
-                    // TODO: use information from the response instead
-                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Created note', 3000);
-                },
+                refreshAndToastSuccess,
                 warnError);
     }
 
     function updateNote(note) {
         noteService.updateNote(note)
             .then(
-                function(response) {
-                    loadContact($routeParams.cid);
-                    // TODO: use information from the response instead
-                    alertService.addAlert(alertService.TYPE.SUCCESS, 'Updated note', 3000);
-                },
+                refreshAndToastSuccess,
                 warnError);
+    }
+
+    function refreshAndToastSuccess(response) {
+        loadContact($routeParams.cid);
+        alertService.addAlert(alertService.TYPE.SUCCESS, response.msg, 3000);
     }
 
     function warnError(err) {
