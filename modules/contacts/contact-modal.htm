@@ -27,7 +27,7 @@
 		</div>
 		<div style='width:30%; display: inline-block'>
 			<label for='InBorn'>Born</label>
-			<input type='date' ng-model='modalOptions.contact.born' id='InBorn' placeholder='mm-dd-yyyy'/>
+			<input type='text' ng-model='modalOptions.contact.born' id='InBorn' placeholder='mm-dd-yyyy'/>
 		</div>
 	</div>
 
@@ -38,8 +38,9 @@
 	
 	<div class='form-check form-check-inline'>
 		<label for='InSex'>Gender</label>
-		<input type='radio' id='InSex' class='validate' ng-model='modalOptions.contact.sex' value='Male'/> Male
-		<input type='radio' id='InSex' class='validate' ng-model='modalOptions.contact.sex' value='Female'/> Female
+		<input type='radio' id='InSex' class='validate' ng-model='modalOptions.contact.sex' value='M'/> Male
+		<input type='radio' id='InSex' class='validate' ng-model='modalOptions.contact.sex' value='F'/> Female
+		<input type='radio' id='InSex' class='validate' ng-model='modalOptions.contact.sex' value=''/> Unknown
 	</div>
 	<div class='form-group'>
 		<label for='InTags'>Tags</label>
